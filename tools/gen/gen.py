@@ -241,6 +241,42 @@ def gen_data():
 
     for key, (fr, en) in STAT_LABELS.items():
         lang('tnstat.trounoir.' + key, fr, en)
+    attr_names = {'hp': ('PV max', 'max HP'), 'armor': ('armure', 'armor'), 'atk': ('dégâts de mêlée', 'melee damage'),
+                  'spd': ('vitesse de déplacement', 'movement speed'), 'aspd': ("vitesse d'attaque", 'attack speed'),
+                  'kb': ('résistance au recul', 'knockback resistance'), 'break': ('vitesse de minage', 'mining speed'),
+                  'jump': ('force de saut', 'jump strength'), 'fall': ('blocs de chute sans dégâts', 'blocks of safe fall'),
+                  'step': ("hauteur d'enjambée", 'step height'), 'luck': ('chance', 'luck'), 'oxy': ('souffle sous l\'eau', 'underwater breath'),
+                  'swim': ('aisance dans l\'eau', 'water movement'), 'sneak': ('vitesse accroupi', 'sneaking speed'),
+                  'burn': ('durée de brûlure', 'burning time'), 'reach': ("allonge d'attaque (blocs)", 'attack reach (blocks)'),
+                  'breach': ('portée sur les blocs', 'block reach'), 'sweep': ('dégâts de balayage', 'sweeping damage')}
+    for k, (fr, en) in attr_names.items():
+        lang('tnstat.' + A.ATTR[k][0].split(':')[1], fr, en)
+    stat_names = {'melee_damage_pct': ('dégâts de mêlée', 'melee damage'), 'ranged_damage_pct': ('dégâts à distance', 'ranged damage'),
+                  'all_damage_pct': ('tous les dégâts', 'all damage'), 'backstab_pct': ('dégâts dans le dos', 'backstab damage'),
+                  'magic_power': ('puissance des techniques', 'technique power'), 'cooldown_reduction_pct': ('recharge plus rapide', 'faster cooldowns'),
+                  'damage_reduction_pct': ('dégâts subis en moins', 'less damage taken'), 'explosion_reduction_pct': ('dégâts d\'explosion en moins', 'less explosion damage'),
+                  'fall_reduction_pct': ('dégâts de chute en moins', 'less fall damage'), 'lifesteal_pct': ('des dégâts rendus en vie', 'of damage healed back'),
+                  'thorns': ('dégâts renvoyés à qui vous frappe', 'damage returned to attackers'), 'regen': ('PV rendus toutes les 5 s', 'HP restored every 5 s'),
+                  'stealth': ('discrétion (on vous repère de moins loin)', 'stealth (spotted from closer)'),
+                  'perception_range': ('blocs de perception (les créatures luisent)', 'blocks of perception (creatures glow)'),
+                  'fire_immunity': ('Immunité au feu', 'Fire immunity'), 'fire_touch': ('Vos coups enflamment', 'Your blows ignite'),
+                  'frost_touch': ('Vos coups ralentissent', 'Your blows slow'), 'poison_touch': ('Vos coups empoisonnent', 'Your blows poison'),
+                  'wither_touch': ('Vos coups flétrissent', 'Your blows wither'), 'sniper': ('Flèches bien plus rapides', 'Much faster arrows')}
+    for k, (fr, en) in stat_names.items():
+        lang('tnstat.' + k, fr, en)
+    for k, (fr, en) in {'damage': ('Dégâts : %s', 'Damage: %s'), 'radius': ('Rayon : %s blocs', 'Radius: %s blocks'),
+                        'range': ('Portée : %s blocs', 'Range: %s blocks'), 'heal': ('Soin : %s PV', 'Heal: %s HP'),
+                        'count': ('Projectiles : %s', 'Projectiles: %s'), 'cone_angle': ('Cône : %s°', 'Cone: %s°')}.items():
+        lang('tnparam.' + k, fr, en)
+    lang('trounoir.tip.level', 'Niveau %s / %s', 'Level %s / %s')
+    lang('trounoir.tip.echo', 'Écho : effets à demi-force', 'Echo: effects at half strength')
+    lang('trounoir.tip.next', 'Niveau suivant : encore %s absorption(s)', 'Next level: %s more absorption(s)')
+    lang('trounoir.tip.max', 'Niveau maximal atteint', 'Maximum level reached')
+    lang('trounoir.tip.later', '%s — au niveau %s', '%s — at level %s')
+    lang('trounoir.tip.relief', 'Atténue : %s', 'Eases: %s')
+    lang('trounoir.tip.active', 'actif', 'active')
+    lang('trounoir.tip.hover', 'Survolez une ligne pour voir exactement ce qu\'elle vous apporte.', 'Hover a line to see exactly what it gives you.')
+
     for key, (fr, en) in X.UI.items():
         lang(key, fr, en)
 
