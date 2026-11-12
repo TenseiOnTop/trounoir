@@ -54,6 +54,20 @@ public final class ClientState {
     public static final List<String> KNOWLEDGE = new ArrayList<>();
     public static final List<String> WEAKNESSES = new ArrayList<>();
     public static final List<PlaceInfo> PLACES = new ArrayList<>();
+    /** Route choisie (identifiant de lieu), ou nul. */
+    public static String road;
+
+    public static PlaceInfo roadPlace() {
+        if (road == null || net.minecraft.client.Minecraft.getInstance().level == null) return null;
+        String dim = net.minecraft.client.Minecraft.getInstance().level.dimension().location().toString();
+        for (PlaceInfo p : PLACES) if (p.id().equals(road) && p.dimension().equals(dim)) return p;
+        return null;
+    }
+
+    public static String siteName(String id) {
+        net.minecraft.resources.ResourceLocation rl = net.minecraft.resources.ResourceLocation.tryParse(id);
+        return rl == null ? id : "site." + rl.getNamespace() + "." + rl.getPath();
+    }
     public static final Map<String, String> RELICS = new LinkedHashMap<>();
     private static final Map<String, ResourceLocation> VARIANT_TEXTURES = new java.util.HashMap<>();
 
@@ -64,6 +78,7 @@ public final class ClientState {
     public static long clientTick;
 
     public static void reset() {
+        road = null;
         XP.clear();
         COOLDOWN_END.clear();
         COOLDOWN_TOTAL.clear();

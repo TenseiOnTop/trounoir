@@ -36,6 +36,12 @@ UI = {
     'key.trounoir.technique_3': ('Technique 3', 'Technique 3'),
     'key.trounoir.technique_4': ('Technique 4', 'Technique 4'),
     'key.trounoir.absorption': ('Absorption', 'Absorption'),
+    'key.trounoir.road': ('Choisir une route', 'Choose a road'),
+    'trounoir.road.title': ('Route vers…', 'Road to…'),
+    'trounoir.road.none': ('Aucun lieu découvert ici.', 'No place discovered here.'),
+    'trounoir.road.hint': ('Clique sur un lieu pour le marquer sur la boussole.', 'Click a place to mark it on the compass.'),
+    'trounoir.road.hint_clear': ('Clique ici pour effacer la route.', 'Click here to clear the road.'),
+    'trounoir.loot.caught': ('« Au voleur ! »', '"Thief!"'),
     'key.trounoir.chronicle': ('Chronique des Vies', 'Chronicle of Lives'),
 
     # Absorption et techniques

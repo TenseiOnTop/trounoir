@@ -124,6 +124,7 @@ public final class SiteManager {
         if (state.builtSites.add(id)) {
             built = StructureBuilders.build(level, def, center);
             RelicManager.placeChest(level, def, built.chest());
+            VillageLoot.place(level, def, built);
             TrouNoir.LOGGER.info("[Trou-Noir] Lieu bâti : {} en {}", id, center.toShortString());
         } else {
             built = StructureBuilders.layout(level, def, center);

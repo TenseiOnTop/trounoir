@@ -50,6 +50,8 @@ public final class WorldState {
     /** relique -> position de son coffre, et lieu qui l'abrite. */
     public Map<String, int[]> relicChests = new HashMap<>();
     public Map<String, String> relicSites = new HashMap<>();
+    /** Coffres gardés des villages : "x,y,z" -> lieu. */
+    public Map<String, String> guardedChests = new HashMap<>();
     /** Époque : augmente à chaque renaissance douce, pour écarter les personnages de la vie précédente. */
     public int epoch;
 
@@ -93,6 +95,7 @@ public final class WorldState {
         if (state == null) state = new WorldState();
         if (state.relicChests == null) state.relicChests = new HashMap<>();
         if (state.relicSites == null) state.relicSites = new HashMap<>();
+        if (state.guardedChests == null) state.guardedChests = new HashMap<>();
         state.file = file;
         return state;
     }

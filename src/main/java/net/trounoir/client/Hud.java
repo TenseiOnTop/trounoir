@@ -23,6 +23,8 @@ public final class Hud {
         int width = mc.getWindow().getGuiScaledWidth();
         int height = mc.getWindow().getGuiScaledHeight();
 
+        Compass.render(g, mc, font, width);
+
         if (ClientState.revealed) {
             g.drawString(font, I18n.get("trounoir.hud.rank", Text.roman(ClientState.rank), (int) Math.round(ClientState.power)), 6, 6, 0xC9B8FF);
             if (!ClientState.lifeName.isEmpty()) g.drawString(font, ClientState.lifeName, 6, 17, 0x8F86A8);

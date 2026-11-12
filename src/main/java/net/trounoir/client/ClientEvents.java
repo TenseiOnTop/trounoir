@@ -32,6 +32,7 @@ public final class ClientEvents {
     };
     public static final KeyMapping OPEN_ABSORPTION = new KeyMapping("key.trounoir.absorption", GLFW.GLFW_KEY_K, CATEGORY);
     public static final KeyMapping OPEN_CHRONICLE = new KeyMapping("key.trounoir.chronicle", GLFW.GLFW_KEY_J, CATEGORY);
+    public static final KeyMapping OPEN_ROAD = new KeyMapping("key.trounoir.road", GLFW.GLFW_KEY_N, CATEGORY);
 
     @Mod.EventBusSubscriber(modid = TrouNoir.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static final class ModBus {
@@ -42,6 +43,7 @@ public final class ClientEvents {
             for (KeyMapping key : TECHNIQUE_KEYS) event.register(key);
             event.register(OPEN_ABSORPTION);
             event.register(OPEN_CHRONICLE);
+            event.register(OPEN_ROAD);
         }
 
         /** Le HUD du mod est une couche de l'interface, dessinée après celles de Minecraft. */
@@ -83,12 +85,19 @@ public final class ClientEvents {
                     mc.setScreen(new AbsorptionScreen());
                 }
             }
+            while (OPEN_ROAD.consumeClick()) mc.setScreen(new RoadScreen());
             while (OPEN_CHRONICLE.consumeClick()) {
                 if (ClientState.deaths > 0) {
                     Net.toServer("chronicle", new JsonObject());
                     mc.setScreen(new ChronicleScreen());
                 }
             }
+        }
+
+        /** Repère le bas des barres de boss pour y glisser la boussole. */
+        @SubscribeEvent
+        public static void onBossBar(net.minecraftforge.client.event.CustomizeGuiOverlayEvent.BossEventProgress event) {
+            Compass.bossBottom = Math.max(Compass.bossBottom, event.getY() + event.getIncrement() - 12);
         }
 
         /** La mort n'offre pas de bouton « Réapparaître » : elle ouvre la Renaissance. */

@@ -20,7 +20,7 @@ public final class StructureBuilders {
     private StructureBuilders() {}
 
     /** Résultat d'un plan : point focal (trône, autel…), emplacements d'habitants, point d'arrivée. */
-    public record Built(BlockPos focus, List<BlockPos> spots, BlockPos arrival, BlockPos chest) {}
+    public record Built(BlockPos focus, List<BlockPos> spots, BlockPos arrival, BlockPos chest, List<BlockPos> lootChests, List<BlockPos> barrels) {}
 
     private static BlockState b(String vanillaId) {
         return Lookup.block(ResourceLocation.withDefaultNamespace(vanillaId));
@@ -60,6 +60,9 @@ public final class StructureBuilders {
         /** Hasard propre au lieu : le même à chaque construction, différent d'un lieu à l'autre. */
         final java.util.Random rng;
         final List<BlockPos> shaped = new ArrayList<>();
+        /** Coffres des maisons (gardés) et barils (libres) : leur butin est tiré à l'ouverture. */
+        final List<BlockPos> lootChests = new ArrayList<>();
+        final List<BlockPos> barrels = new ArrayList<>();
         final String wood;
         final BlockState primary;
         final BlockState secondary;
@@ -164,7 +167,7 @@ public final class StructureBuilders {
                     level.setBlock(pos, net.minecraft.world.level.block.Block.updateFromNeighbourShapes(now, level, pos), 2);
                 }
             }
-            return new Built(focus, List.copyOf(spots), arrival, chest);
+            return new Built(focus, List.copyOf(spots), arrival, chest, List.copyOf(lootChests), List.copyOf(barrels));
         }
     }
 
@@ -261,6 +264,17 @@ public final class StructureBuilders {
         String[] props = {"barrel", "hay_block", "composter", "cauldron", "crafting_table"};
         c.set(cx + dx + ox - (oz != 0 ? 1 : 0), 0, cz + dz + oz - (ox != 0 ? 1 : 0), b(props[c.rng.nextInt(props.length)]));
         c.set(cx - hx + 1, 0, cz - hz + 1, b("lantern"));
+        // Une maison sur trois cache un coffre (les gardes veillent) ; les autres, souvent un baril.
+        int roll = c.rng.nextInt(6);
+        int ix = cx + hx - 1;
+        int iz = cz + hz - 1;
+        if (roll < 2) {
+            c.set(ix, 0, iz, b("chest"));
+            if (!c.dry) c.lootChests.add(c.center.offset(ix, 0, iz));
+        } else if (roll < 5) {
+            c.set(ix, 0, iz, b("barrel", "facing=up"));
+            if (!c.dry) c.barrels.add(c.center.offset(ix, 0, iz));
+        }
         c.spot(cx + dx + ox * 2, 0, cz + dz + oz * 2);
     }
 
