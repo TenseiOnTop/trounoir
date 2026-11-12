@@ -1,0 +1,20 @@
+{
+  "type": "buff",
+  "cooldown": 60,
+  "params": {
+    "heal": 20,
+    "self_effects": [
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 200,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:soul_fire_flame",
+    "sound": "minecraft:item.totem.use"
+  },
+  "on_hit": {
+    "heal": 1,
+    "particle": "minecraft:soul_fire_flame"
+  }
+}

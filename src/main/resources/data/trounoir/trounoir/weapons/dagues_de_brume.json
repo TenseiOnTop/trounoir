@@ -1,0 +1,10 @@
+{
+  "type": "blink",
+  "cooldown": 8,
+  "params": {
+    "range": 12
+  },
+  "on_hit": {
+    "particle": "minecraft:smoke"
+  }
+}

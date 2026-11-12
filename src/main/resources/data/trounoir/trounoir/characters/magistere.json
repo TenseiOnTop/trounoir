@@ -6,6 +6,7 @@
   "behavior": "guard",
   "health": 64,
   "damage": 13,
+  "variants": 6,
   "armor": 6,
   "speed": 0.27,
   "held_item": "minecraft:end_rod",

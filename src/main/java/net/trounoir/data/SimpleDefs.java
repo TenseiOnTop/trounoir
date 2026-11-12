@@ -80,7 +80,7 @@ public final class SimpleDefs {
     /** Lieu construit par le mod : position (distance et angle depuis l'origine du continent), plan, habitants. */
     public record SiteDef(ResourceLocation id, ResourceLocation dimension, String blueprint, double distance, double angle,
                           boolean crossing, List<SquadEntry> residents, ResourceLocation primary, ResourceLocation secondary,
-                          ResourceLocation accent, String faction) {
+                          ResourceLocation accent, String faction, boolean relicSpot) {
         public static SiteDef parse(ResourceLocation id, JsonObject json) {
             JsonObject palette = JsonUtil.obj(json, "palette");
             return new SiteDef(id, JsonUtil.id(JsonUtil.str(json, "dimension", "minecraft:overworld")),
@@ -89,7 +89,7 @@ public final class SimpleDefs {
                     JsonUtil.id(JsonUtil.str(palette, "primary", "minecraft:stone_bricks")),
                     JsonUtil.id(JsonUtil.str(palette, "secondary", "minecraft:oak_planks")),
                     JsonUtil.id(JsonUtil.str(palette, "accent", "minecraft:lantern")),
-                    JsonUtil.str(json, "faction", ""));
+                    JsonUtil.str(json, "faction", ""), JsonUtil.bool(json, "relic_spot", false));
         }
 
         public String nameKey() {

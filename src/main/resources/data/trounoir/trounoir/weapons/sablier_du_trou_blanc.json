@@ -1,0 +1,9 @@
+{
+  "type": "time_stop",
+  "cooldown": 120,
+  "params": {
+    "radius": 16,
+    "duration": 80,
+    "resist_rank": 7
+  }
+}

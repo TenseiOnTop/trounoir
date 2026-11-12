@@ -1,0 +1,10 @@
+{
+  "type": "dash",
+  "cooldown": 10,
+  "params": {
+    "strength": 3.0,
+    "damage": 6,
+    "ticks": 12,
+    "sound": "minecraft:item.trident.riptide_3"
+  }
+}

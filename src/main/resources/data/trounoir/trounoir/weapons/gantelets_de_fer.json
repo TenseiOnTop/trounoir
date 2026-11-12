@@ -1,0 +1,18 @@
+{
+  "type": "buff",
+  "cooldown": 30,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 120,
+        "amplifier": 2
+      }
+    ],
+    "sound": "minecraft:block.anvil.land",
+    "particle": "minecraft:crit"
+  },
+  "on_hit": {
+    "particle": "minecraft:crit"
+  }
+}

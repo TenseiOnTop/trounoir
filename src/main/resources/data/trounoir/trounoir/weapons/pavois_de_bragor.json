@@ -1,0 +1,22 @@
+{
+  "type": "aoe",
+  "cooldown": 20,
+  "params": {
+    "radius": 5,
+    "damage": 8,
+    "damage_type": "physical",
+    "knockback": 2.0,
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 100,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:poof",
+    "sound": "minecraft:item.shield.block"
+  },
+  "on_hit": {
+    "particle": "minecraft:crit"
+  }
+}

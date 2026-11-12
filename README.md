@@ -105,3 +105,7 @@ les mondes **créés avec le mod**. Sur un monde plus ancien, le mod passe en «
 - `docs/AJOUTS_AU_CANON.md` — tout ce qui a été inventé pour compléter l'univers.
 - `docs/EQUILIBRAGE.md` — formules, réglages, tables de valeurs.
 - `docs/CHOIX_TECHNIQUES.md` — décisions techniques, écarts de design et limites connues.
+
+## Armes et reliques
+
+Le pouvoir du clic droit de chaque arme et relique se règle dans `data/trounoir/trounoir/weapons/<nom>.json` (mêmes types que les techniques). Les dégâts du clic gauche sont dans `ModRegistry.ARTIFACTS`. Tous les objets du mod sont dans l'onglet créatif « Trou-Noir ».

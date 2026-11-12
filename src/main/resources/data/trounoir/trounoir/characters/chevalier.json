@@ -6,6 +6,7 @@
   "behavior": "guard",
   "health": 44,
   "damage": 8,
+  "variants": 6,
   "armor": 12,
   "speed": 0.27,
   "held_item": "minecraft:iron_sword",

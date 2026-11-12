@@ -1,0 +1,14 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "ruin",
+  "distance": 1900,
+  "angle": 30,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:polished_blackstone_bricks",
+    "secondary": "minecraft:blackstone",
+    "accent": "minecraft:gilded_blackstone"
+  },
+  "residents": [],
+  "relic_spot": true
+}

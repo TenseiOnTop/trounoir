@@ -69,6 +69,7 @@ public final class Net {
             entry.addProperty("texture", def.texture.toString());
             entry.addProperty("rank", def.rank);
             entry.addProperty("category", def.category);
+            entry.addProperty("variants", def.variants);
             entry.addProperty("weakness", def.weakness);
             characters.add(def.id.toString(), entry);
         }
@@ -136,6 +137,9 @@ public final class Net {
         JsonArray weaknesses = new JsonArray();
         memory.weaknesses.forEach(weaknesses::add);
         root.add("weaknesses", weaknesses);
+        JsonObject relics = new JsonObject();
+        memory.relics.forEach(relics::addProperty);
+        root.add("relics", relics);
 
         JsonObject places = new JsonObject();
         for (String place : memory.places) {

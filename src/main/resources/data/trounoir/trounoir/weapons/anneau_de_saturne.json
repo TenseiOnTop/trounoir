@@ -1,0 +1,14 @@
+{
+  "type": "buff",
+  "cooldown": 60,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 200,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:enchant"
+  }
+}

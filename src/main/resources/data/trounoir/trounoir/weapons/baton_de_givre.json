@@ -1,0 +1,27 @@
+{
+  "type": "aoe",
+  "cooldown": 15,
+  "params": {
+    "radius": 6,
+    "damage": 6,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 100,
+        "amplifier": 4
+      }
+    ],
+    "particle": "minecraft:snowflake",
+    "sound": "minecraft:block.glass.break"
+  },
+  "on_hit": {
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 60,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:snowflake"
+  }
+}

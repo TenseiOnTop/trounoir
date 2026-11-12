@@ -70,6 +70,8 @@ public final class ReactionEngine {
         WorldState state = WorldState.get(server);
         String id = def.id.toString();
         if (def.unique) state.deadUniques.add(id);
+        // L'arme signature tombe avec son porteur.
+        for (ResourceLocation drop : def.drops) victim.spawnAtLocation(net.trounoir.util.Lookup.stack(drop));
 
         if (killer != null) {
             def.killReputation.forEach((faction, delta) -> Reputation.add(server, faction, (int) Math.round(delta)));

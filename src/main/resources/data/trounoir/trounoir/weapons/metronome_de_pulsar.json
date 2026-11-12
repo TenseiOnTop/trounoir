@@ -1,0 +1,20 @@
+{
+  "type": "buff",
+  "cooldown": 60,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:haste",
+        "duration": 400,
+        "amplifier": 1
+      },
+      {
+        "effect": "minecraft:speed",
+        "duration": 400,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:note",
+    "sound": "minecraft:block.note_block.bell"
+  }
+}

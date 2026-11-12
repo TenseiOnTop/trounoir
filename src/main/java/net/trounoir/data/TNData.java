@@ -37,6 +37,8 @@ public final class TNData {
     public static volatile Map<String, SimpleDefs.FactionDef> FACTIONS = Map.of();
     public static volatile Map<ResourceLocation, SimpleDefs.SiteDef> SITES = Map.of();
     public static volatile Map<String, EpitaphDef> EPITAPHS = Map.of();
+    /** Pouvoirs des armes signatures et des reliques (même forme qu'une technique). */
+    public static volatile Map<ResourceLocation, AbsorbableDef> WEAPONS = Map.of();
 
     // Les trois sortes d'absorbables partagent un même espace d'identifiants.
     private static final Map<AbsorbableDef.Kind, Map<ResourceLocation, AbsorbableDef>> BY_KIND = new HashMap<>();
@@ -46,6 +48,11 @@ public final class TNData {
         event.addListener(absorbableLoader("trounoir/traits", AbsorbableDef.Kind.TRAIT));
         event.addListener(absorbableLoader("trounoir/techniques", AbsorbableDef.Kind.TECHNIQUE));
         event.addListener(absorbableLoader("trounoir/knowledge", AbsorbableDef.Kind.KNOWLEDGE));
+        event.addListener(new Loader("trounoir/weapons", (files) -> {
+            Map<ResourceLocation, AbsorbableDef> out = new LinkedHashMap<>();
+            files.forEach((id, json) -> out.put(id, new AbsorbableDef(id, AbsorbableDef.Kind.TECHNIQUE, json)));
+            WEAPONS = java.util.Collections.unmodifiableMap(out);
+        }));
         event.addListener(new Loader("trounoir/tags", (files) -> {
             Map<String, SimpleDefs.TagDef> out = new LinkedHashMap<>();
             files.forEach((id, json) -> out.put(id.getPath(), SimpleDefs.TagDef.parse(id, json)));

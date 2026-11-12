@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 180,
   "damage": 12,
+  "drops": [
+    "trounoir:gantelets_de_fer"
+  ],
   "armor": 18,
   "speed": 0.26,
   "knockback_resistance": 0.6,

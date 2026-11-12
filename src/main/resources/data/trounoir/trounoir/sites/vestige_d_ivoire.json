@@ -1,0 +1,14 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "ruin",
+  "distance": 450,
+  "angle": 300,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:quartz_bricks",
+    "secondary": "minecraft:calcite",
+    "accent": "minecraft:chiseled_quartz_block"
+  },
+  "residents": [],
+  "relic_spot": true
+}

@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 110,
   "damage": 12,
+  "drops": [
+    "trounoir:baton_de_givre"
+  ],
   "armor": 6,
   "speed": 0.27,
   "held_item": "minecraft:amethyst_shard",

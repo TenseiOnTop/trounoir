@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "trounoir:item/epee_de_cledith"
+  }
+}

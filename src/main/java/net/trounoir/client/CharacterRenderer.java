@@ -15,6 +15,6 @@ public class CharacterRenderer extends HumanoidMobRenderer<CharacterEntity, Play
 
     @Override
     public ResourceLocation getTextureLocation(CharacterEntity entity) {
-        return ClientState.textureOf(entity.defId());
+        return ClientState.textureOf(entity.defId(), entity.getUUID());
     }
 }

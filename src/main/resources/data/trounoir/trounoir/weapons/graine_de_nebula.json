@@ -1,0 +1,19 @@
+{
+  "type": "buff",
+  "cooldown": 90,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:absorption",
+        "duration": 600,
+        "amplifier": 2
+      },
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 200,
+        "amplifier": 0
+      }
+    ],
+    "particle": "minecraft:heart"
+  }
+}

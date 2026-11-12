@@ -1,0 +1,22 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "village",
+  "distance": 380,
+  "angle": 300,
+  "faction": "nebulosia",
+  "palette": {
+    "primary": "minecraft:oak_planks",
+    "secondary": "minecraft:spruce_planks",
+    "accent": "minecraft:lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:paysan",
+      "count": 7
+    },
+    {
+      "character": "trounoir:soldat",
+      "count": 1
+    }
+  ]
+}

@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 320,
   "damage": 20,
+  "drops": [
+    "trounoir:hache_de_valdrek"
+  ],
   "armor": 20,
   "speed": 0.28,
   "knockback_resistance": 0.5,

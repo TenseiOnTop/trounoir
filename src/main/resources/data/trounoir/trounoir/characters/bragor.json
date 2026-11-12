@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 420,
   "damage": 20,
+  "drops": [
+    "trounoir:pavois_de_bragor"
+  ],
   "armor": 26,
   "speed": 0.25,
   "scale": 1.25,

@@ -1,0 +1,18 @@
+{
+  "type": "aoe",
+  "cooldown": 60,
+  "params": {
+    "radius": 10,
+    "damage": 12,
+    "pull": 2.5,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 80,
+        "amplifier": 3
+      }
+    ],
+    "particle": "minecraft:reverse_portal",
+    "sound": "minecraft:entity.wither.break_block"
+  }
+}

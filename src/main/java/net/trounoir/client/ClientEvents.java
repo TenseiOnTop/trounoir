@@ -99,6 +99,15 @@ public final class ClientEvents {
             }
         }
 
+        /** Fusil de Suke : s'accroupir en le tenant fait une visée à la lunette. */
+        @SubscribeEvent
+        public static void onFov(net.minecraftforge.client.event.ComputeFovModifierEvent event) {
+            if (event.getPlayer().isShiftKeyDown() && event.getPlayer().getMainHandItem().getItem() instanceof net.trounoir.item.ArtifactItem artifact
+                    && artifact.spec.zoom()) {
+                event.setNewFovModifier(event.getNewFovModifier() * 0.15F);
+            }
+        }
+
         @SubscribeEvent
         public static void onLogout(ClientPlayerNetworkEvent.LoggingOut event) {
             ClientState.reset();

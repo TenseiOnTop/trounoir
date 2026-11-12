@@ -1,0 +1,13 @@
+{
+  "type": "projectile",
+  "cooldown": 5,
+  "params": {
+    "projectile": "large_fireball",
+    "power": 2,
+    "speed": 1.4
+  },
+  "on_hit": {
+    "ignite": 4,
+    "particle": "minecraft:flame"
+  }
+}

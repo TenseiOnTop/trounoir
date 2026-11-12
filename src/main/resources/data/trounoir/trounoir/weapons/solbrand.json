@@ -1,0 +1,17 @@
+{
+  "type": "aoe",
+  "cooldown": 12,
+  "params": {
+    "radius": 5,
+    "cone_angle": 120,
+    "damage": 10,
+    "damage_type": "physical",
+    "ignite": 5,
+    "particle": "minecraft:flame",
+    "sound": "minecraft:item.firecharge.use"
+  },
+  "on_hit": {
+    "ignite": 3,
+    "particle": "minecraft:flame"
+  }
+}

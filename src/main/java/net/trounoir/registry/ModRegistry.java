@@ -10,7 +10,11 @@ import net.trounoir.data.AbsorbableDef;
 import net.trounoir.data.TNData;
 import net.trounoir.item.CharacterEggItem;
 import net.trounoir.item.EssenceItem;
+import net.trounoir.item.ArtifactItem;
 import java.util.Collection;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Locale;
 import java.util.function.Supplier;
 import net.minecraft.world.entity.MobCategory;
@@ -54,6 +58,37 @@ public final class ModRegistry {
     public static final RegistryObject<Item> CHARACTER_EGG = ITEMS.register("character_egg", () -> new CharacterEggItem(new Item.Properties()));
     public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", () -> new EssenceItem(new Item.Properties()));
 
+    /** Armes signatures (lâchées par leur porteur) et reliques des Dieux (cachées dans des coffres). Dégâts, cadence. */
+    public static final List<ArtifactItem.Spec> ARTIFACTS = List.of(
+            new ArtifactItem.Spec("solbrand", 8, 1.6, false, false),
+            new ArtifactItem.Spec("baton_de_givre", 4, 1.6, false, false),
+            new ArtifactItem.Spec("dagues_de_brume", 6, 2.6, false, false),
+            new ArtifactItem.Spec("gantelets_de_fer", 9, 1.2, false, false),
+            new ArtifactItem.Spec("epee_de_cledith", 13, 1.8, false, false),
+            new ArtifactItem.Spec("fusil_de_suke", 3, 1.6, false, true),
+            new ArtifactItem.Spec("sceptre_d_ignarelle", 5, 1.6, false, false),
+            new ArtifactItem.Spec("lame_de_noctalys", 11, 2.0, false, false),
+            new ArtifactItem.Spec("pavois_de_bragor", 10, 1.0, false, false),
+            new ArtifactItem.Spec("trident_de_zephyrine", 10, 2.2, false, false),
+            new ArtifactItem.Spec("compas_d_oriel", 4, 1.6, false, false),
+            new ArtifactItem.Spec("hache_de_valdrek", 14, 0.9, false, false),
+            new ArtifactItem.Spec("lame_millenaire", 15, 1.6, false, false),
+            new ArtifactItem.Spec("noyau_de_masse", 0, 0, true, false),
+            new ArtifactItem.Spec("anneau_de_saturne", 0, 0, true, false),
+            new ArtifactItem.Spec("graal_de_rouille", 0, 0, true, false),
+            new ArtifactItem.Spec("sablier_du_trou_blanc", 0, 0, true, false),
+            new ArtifactItem.Spec("eclat_de_sol", 0, 0, true, false),
+            new ArtifactItem.Spec("larme_de_selene", 0, 0, true, false),
+            new ArtifactItem.Spec("metronome_de_pulsar", 0, 0, true, false),
+            new ArtifactItem.Spec("fragment_de_comete", 0, 0, true, false),
+            new ArtifactItem.Spec("graine_de_nebula", 0, 0, true, false),
+            new ArtifactItem.Spec("oeil_de_quasar", 0, 0, true, false));
+    public static final Map<String, RegistryObject<Item>> ARTIFACT_ITEMS = new LinkedHashMap<>();
+
+    static {
+        for (ArtifactItem.Spec spec : ARTIFACTS) ARTIFACT_ITEMS.put(spec.id(), ITEMS.register(spec.id(), () -> new ArtifactItem(spec)));
+    }
+
     /** Identifiants connus du côté courant (remplacés côté client par ceux reçus du serveur). */
     public static Supplier<Collection<ResourceLocation>> characterIds = () -> TNData.CHARACTERS.keySet();
     public static Supplier<Collection<AbsorbableDef>> absorbables = () -> TNData.ABSORBABLES.values();
@@ -65,6 +100,7 @@ public final class ModRegistry {
             .icon(() -> new ItemStack(HELM_ITEM.get()))
             .displayItems((parameters, output) -> {
                 output.accept(HELM_ITEM.get());
+                for (RegistryObject<Item> artifact : ARTIFACT_ITEMS.values()) output.accept(artifact.get());
                 for (ResourceLocation id : characterIds.get()) output.accept(CharacterEggItem.of(id));
                 for (AbsorbableDef def : absorbables.get()) {
                     output.accept(EssenceItem.of(def.id, def.kind.name().toLowerCase(Locale.ROOT)));

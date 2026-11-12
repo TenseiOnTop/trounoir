@@ -1,0 +1,11 @@
+{
+  "type": "beam",
+  "cooldown": 4,
+  "params": {
+    "range": 200,
+    "damage": 30,
+    "width": 0.4,
+    "particle": "minecraft:end_rod",
+    "sound": "minecraft:entity.firework_rocket.blast"
+  }
+}

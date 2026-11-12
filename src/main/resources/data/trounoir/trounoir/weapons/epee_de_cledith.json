@@ -1,0 +1,14 @@
+{
+  "type": "aoe",
+  "cooldown": 25,
+  "params": {
+    "radius": 6,
+    "damage": 20,
+    "damage_type": "physical",
+    "knockback": 0.6,
+    "particle": "minecraft:sweep_attack"
+  },
+  "on_hit": {
+    "particle": "minecraft:sweep_attack"
+  }
+}

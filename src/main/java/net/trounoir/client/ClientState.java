@@ -18,7 +18,7 @@ import java.util.Map;
 public final class ClientState {
     private ClientState() {}
 
-    public record CharacterInfo(ResourceLocation texture, int rank, String category, String weakness) {}
+    public record CharacterInfo(ResourceLocation texture, int rank, String category, String weakness, int variants) {}
 
     public record EchoInfo(String id, int level) {}
 
@@ -54,6 +54,8 @@ public final class ClientState {
     public static final List<String> KNOWLEDGE = new ArrayList<>();
     public static final List<String> WEAKNESSES = new ArrayList<>();
     public static final List<PlaceInfo> PLACES = new ArrayList<>();
+    public static final Map<String, String> RELICS = new LinkedHashMap<>();
+    private static final Map<String, ResourceLocation> VARIANT_TEXTURES = new java.util.HashMap<>();
 
     // --- Mort et Chronique ---
     public static JsonObject death;
@@ -116,7 +118,7 @@ public final class ClientState {
         for (Map.Entry<String, JsonElement> e : JsonUtil.obj(json, "characters").entrySet()) {
             JsonObject c = e.getValue().getAsJsonObject();
             CHARACTERS.put(e.getKey(), new CharacterInfo(JsonUtil.id(JsonUtil.str(c, "texture", DEFAULT_TEXTURE.toString())),
-                    JsonUtil.integer(c, "rank", 1), JsonUtil.str(c, "category", ""), JsonUtil.str(c, "weakness", "")));
+                    JsonUtil.integer(c, "rank", 1), JsonUtil.str(c, "category", ""), JsonUtil.str(c, "weakness", ""), JsonUtil.integer(c, "variants", 1)));
         }
     }
 
@@ -157,6 +159,8 @@ public final class ClientState {
         KNOWLEDGE.addAll(JsonUtil.strings(json, "knowledge"));
         WEAKNESSES.clear();
         WEAKNESSES.addAll(JsonUtil.strings(json, "weaknesses"));
+        RELICS.clear();
+        for (Map.Entry<String, JsonElement> e : JsonUtil.obj(json, "relics").entrySet()) RELICS.put(e.getKey(), e.getValue().getAsString());
         PLACES.clear();
         for (Map.Entry<String, JsonElement> e : JsonUtil.obj(json, "places").entrySet()) {
             JsonObject place = e.getValue().getAsJsonObject();
@@ -190,9 +194,15 @@ public final class ClientState {
         return Math.min(1F, (end - clientTick) / (float) total);
     }
 
-    public static ResourceLocation textureOf(String characterId) {
+    /** Texture d'un individu : les PNJ ordinaires ont plusieurs apparences, choisies d'après leur identifiant unique. */
+    public static ResourceLocation textureOf(String characterId, java.util.UUID uuid) {
         CharacterInfo info = CHARACTERS.get(characterId);
-        return info == null ? DEFAULT_TEXTURE : info.texture();
+        if (info == null) return DEFAULT_TEXTURE;
+        int variant = info.variants() <= 1 ? 0 : Math.floorMod(uuid.hashCode(), info.variants());
+        if (variant == 0) return info.texture();
+        String key = characterId + "#" + variant;
+        return VARIANT_TEXTURES.computeIfAbsent(key, k -> ResourceLocation.fromNamespaceAndPath(info.texture().getNamespace(),
+                info.texture().getPath().replace(".png", "_" + variant + ".png")));
     }
 
     public static int tagColor(String tag) {
@@ -205,7 +215,7 @@ public final class ClientState {
             AbsorbableDef def = ABSORBABLES.get(id);
             if (def != null && def.kind == kind && level(id) > 0) return true;
         }
-        if (kind == AbsorbableDef.Kind.KNOWLEDGE) return !KNOWLEDGE.isEmpty() || !PLACES.isEmpty() || !WEAKNESSES.isEmpty();
+        if (kind == AbsorbableDef.Kind.KNOWLEDGE) return !KNOWLEDGE.isEmpty() || !PLACES.isEmpty() || !WEAKNESSES.isEmpty() || !RELICS.isEmpty();
         for (EchoInfo echo : ECHOES) {
             AbsorbableDef def = ABSORBABLES.get(echo.id());
             if (def != null && def.kind == kind) return true;

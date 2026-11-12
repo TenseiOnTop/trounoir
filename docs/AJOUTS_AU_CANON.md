@@ -95,3 +95,13 @@ Autres inventions sur les Dieux :
 Tous les dialogues (2 à 4 répliques par personnage), les annonces du monde (« Un astre s'éteint. »), les noms et descriptions
 de traits, techniques, savoirs et synergies, ainsi que les modèles d'épitaphes, sont inventés. Ils se trouvent dans
 `tools/gen/content_text.py` et `content_absorbables.py`, et dans les fichiers générés (`lang/*.json`, `epitaphs/*.json`).
+
+## Armes signatures, reliques, vestiges (ajout du 12 novembre)
+
+Rien de ce qui suit n'est dans le canon ; tout est inventé pour le jeu.
+
+- **Armes signatures** (lâchées à la mort de leur porteur, sans synergie) : Solbrand (Aldric), Bâton de givre (Lysmène), Dagues de brume (Corvin), Gantelets de fer (Hestia), Épée de Cledith, Fusil de Suke, Sceptre d'Ignarelle, Lame de Noctalys, Pavois de Bragor, Trident de Zéphyrine, Compas d'Oriel, Hache de Valdrek, Lame millénaire (Segaroth). Clic gauche : un coup. Clic droit : un spécial à long temps de recharge.
+- **Reliques des Dieux** (une par lieu au plus, jamais en double, dans un coffre) : Noyau de masse, Anneau de Saturne, Graal de rouille, Sablier du Trou-Blanc, Éclat de Sol, Larme de Séléné, Métronome de Pulsar, Fragment de Comète, Graine de Nébula, Œil de Quasar. L'endroit où une relique a été trouvée reste en mémoire après la mort (touche K, onglet Savoirs).
+- **Vestiges** (ruines créées pour abriter des reliques) : Vestige du Guet et Cercle des Anciens en Nébulosia ; Vestige d'Ivoire, Vestige des Marches, Cloître englouti, Autel brisé en Diviniarth.
+- **Village** : Pont-aux-Saules, troisième village de Nébulosia.
+- **Apparences** : les personnages sans nom (paysans, soldats, citoyens…) ont six apparences, hommes et femmes.

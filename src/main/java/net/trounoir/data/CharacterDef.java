@@ -49,6 +49,10 @@ public final class CharacterDef {
     public final int dialogueLines;
     public final boolean bossBar;
     public final boolean hasTitle;
+    /** Objets lâchés à la mort (armes signatures). */
+    public final List<ResourceLocation> drops;
+    /** Nombre d'apparences (skins) parmi lesquelles chaque individu choisit. */
+    public final int variants;
     public final JsonObject raw;
 
     public CharacterDef(ResourceLocation id, JsonObject json) {
@@ -86,6 +90,8 @@ public final class CharacterDef {
         this.dialogueLines = JsonUtil.integer(json, "dialogue_lines", 0);
         this.bossBar = JsonUtil.bool(json, "boss_bar", unique);
         this.hasTitle = JsonUtil.bool(json, "title", false);
+        this.drops = List.copyOf(JsonUtil.ids(json, "drops"));
+        this.variants = Math.max(1, JsonUtil.integer(json, "variants", 1));
     }
 
     /** Nom affiché au-dessus de la tête et sur la barre de vie : « Nom — Titre » si le personnage a un titre. */

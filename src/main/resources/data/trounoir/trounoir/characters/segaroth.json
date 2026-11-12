@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 520,
   "damage": 28,
+  "drops": [
+    "trounoir:lame_millenaire"
+  ],
   "armor": 22,
   "speed": 0.31,
   "scale": 1.15,

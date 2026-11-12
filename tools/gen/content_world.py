@@ -499,6 +499,13 @@ CHARACTERS += [
         scale=2.8, phases=(0.75, 0.5, 0.25), lines=4),
 ]
 
+DROPS = {'aldric': 'solbrand', 'lysmene': 'baton_de_givre', 'corvin': 'dagues_de_brume', 'hestia': 'gantelets_de_fer', 'cledith': 'epee_de_cledith', 'suke': 'fusil_de_suke', 'ignarelle': 'sceptre_d_ignarelle', 'noctalys': 'lame_de_noctalys', 'bragor': 'pavois_de_bragor', 'zephyrine': 'trident_de_zephyrine', 'oriel': 'compas_d_oriel', 'valdrek': 'hache_de_valdrek', 'segaroth': 'lame_millenaire'}
+for _c in CHARACTERS:
+    if _c['id'] in DROPS:
+        _c['drops'] = ['trounoir:' + DROPS[_c['id']]]
+    if not _c.get('unique') and 'skin' in _c:
+        _c['variants'] = 6      # apparences : 3 hommes, 3 femmes
+
 FACTIONS = {
     'nebulosia': ('Royaume de Nébulosia', 'Kingdom of Nebulosia', '#3f5f8a', [('soldat', 3), ('chevalier', 1)]),
     'azalee': ("Empire d'Azalée", 'Empire of Azalea', '#a03a6a', [('legionnaire', 3), ('tirailleur', 1), ('pretorien', 1)]),
@@ -524,6 +531,12 @@ SITES = [
     S('chateau_d_astrelune', "Château d'Astrelune", 'Astrelune Castle', OW, 'castle', 850, 120, 'nebulosia',
       ('minecraft:stone_bricks', 'minecraft:polished_andesite', 'minecraft:lantern'),
       [('roi_aurele', 1), ('aldric', 1), ('lysmene', 1), ('hestia', 1), ('chevalier', 6), ('mage_royal', 3), ('soldat', 6)]),
+    S('pont_aux_saules', 'Pont-aux-Saules', 'Willowbridge', OW, 'village', 380, 300, 'nebulosia',
+      ('minecraft:oak_planks', 'minecraft:spruce_planks', 'minecraft:lantern'), [('paysan', 7), ('soldat', 1)]),
+    S('vestige_du_guet', 'Vestige du Guet', 'Ruined Watch', OW, 'ruin', 650, 80, 'sauvage',
+      ('minecraft:stone_bricks', 'minecraft:mossy_cobblestone', 'minecraft:chiseled_stone_bricks'), []),
+    S('cercle_des_anciens', 'Cercle des Anciens', "Elders' Circle", OW, 'ruin', 1250, 210, 'sauvage',
+      ('minecraft:mossy_stone_bricks', 'minecraft:stone', 'minecraft:chiseled_stone_bricks'), []),
     S('havre_gris', 'Havre-Gris', 'Greyhaven', OW, 'harbor', 1300, 300, 'nebulosia',
       ('minecraft:cobblestone', 'minecraft:spruce_planks', 'minecraft:lantern'), [('soldat', 2), ('paysan', 4)], crossing=True),
     S('lande_de_gorgath', 'Lande de Gorgath', "Gorgath's Moor", OW, 'lair', 1100, 350, 'sauvage',
@@ -568,6 +581,15 @@ SITES = [
       ('minecraft:blackstone', 'minecraft:smooth_basalt', 'minecraft:magma_block'), [('sombrefer', 1)]),
     S('trone_de_cendres', 'Trône de cendres', 'Throne of Ashes', DV, 'lair', 1600, 85, 'sauvage',
       ('minecraft:soul_soil', 'minecraft:soul_sand', 'minecraft:bone_block'), [('roi_fletri', 1)]),
+    # Vestiges
+    S('vestige_d_ivoire', "Vestige d'Ivoire", 'Ivory Ruin', DV, 'ruin', 450, 300, 'sauvage',
+      ('minecraft:quartz_bricks', 'minecraft:calcite', 'minecraft:chiseled_quartz_block'), []),
+    S('vestige_des_marches', 'Vestige des Marches', 'Ruin of the Marches', DV, 'ruin', 1400, 150, 'sauvage',
+      ('minecraft:deepslate_bricks', 'minecraft:cobbled_deepslate', 'minecraft:chiseled_deepslate'), []),
+    S('cloitre_englouti', 'Cloître englouti', 'Sunken Cloister', DV, 'ruin', 1000, 200, 'sauvage',
+      ('minecraft:prismarine_bricks', 'minecraft:prismarine', 'minecraft:sea_lantern'), []),
+    S('autel_brise', 'Autel brisé', 'Broken Altar', DV, 'ruin', 1900, 30, 'sauvage',
+      ('minecraft:polished_blackstone_bricks', 'minecraft:blackstone', 'minecraft:gilded_blackstone'), []),
     # Lieux des Dieux
     S('champ_de_rouille', 'Champ de Rouille', 'Field of Rust', DV, 'sanctuary', 1700, 105, 'pantheon',
       ('minecraft:red_sandstone', 'minecraft:exposed_copper', 'minecraft:oxidized_copper'), [('mars', 1)]),

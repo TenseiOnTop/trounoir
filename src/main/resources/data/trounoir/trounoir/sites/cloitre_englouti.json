@@ -1,0 +1,14 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "ruin",
+  "distance": 1000,
+  "angle": 200,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:prismarine_bricks",
+    "secondary": "minecraft:prismarine",
+    "accent": "minecraft:sea_lantern"
+  },
+  "residents": [],
+  "relic_spot": true
+}

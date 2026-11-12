@@ -20,10 +20,31 @@ public final class StructureBuilders {
     private StructureBuilders() {}
 
     /** Résultat d'un plan : point focal (trône, autel…), emplacements d'habitants, point d'arrivée. */
-    public record Built(BlockPos focus, List<BlockPos> spots, BlockPos arrival) {}
+    public record Built(BlockPos focus, List<BlockPos> spots, BlockPos arrival, BlockPos chest) {}
 
     private static BlockState b(String vanillaId) {
         return Lookup.block(ResourceLocation.withDefaultNamespace(vanillaId));
+    }
+
+    /** Bloc avec propriétés, ex. b("oak_stairs", "facing=south"). Une propriété inconnue est ignorée. */
+    private static BlockState b(String vanillaId, String... properties) {
+        BlockState state = b(vanillaId);
+        for (String property : properties) {
+            int eq = property.indexOf('=');
+            if (eq > 0) state = with(state, property.substring(0, eq), property.substring(eq + 1));
+        }
+        return state;
+    }
+
+    private static BlockState with(BlockState state, String name, String value) {
+        for (net.minecraft.world.level.block.state.properties.Property<?> property : state.getProperties()) {
+            if (property.getName().equals(name)) return apply(state, property, value);
+        }
+        return state;
+    }
+
+    private static <T extends Comparable<T>> BlockState apply(BlockState state, net.minecraft.world.level.block.state.properties.Property<T> property, String value) {
+        return property.getValue(value).map(v -> state.setValue(property, v)).orElse(state);
     }
 
     /** Surface de travail relative au centre du lieu (y = 0 : niveau du sol). */
@@ -34,6 +55,12 @@ public final class StructureBuilders {
         final List<BlockPos> spots = new ArrayList<>();
         BlockPos focus;
         BlockPos arrival;
+        /** Emplacement du coffre de relique, si le plan en prévoit un. */
+        BlockPos chest;
+        /** Hasard propre au lieu : le même à chaque construction, différent d'un lieu à l'autre. */
+        final java.util.Random rng;
+        final List<BlockPos> shaped = new ArrayList<>();
+        final String wood;
         final BlockState primary;
         final BlockState secondary;
         final BlockState accent;
@@ -45,12 +72,21 @@ public final class StructureBuilders {
             this.primary = Lookup.block(site.primary());
             this.secondary = Lookup.block(site.secondary());
             this.accent = Lookup.block(site.accent());
+            this.rng = new java.util.Random(site.id().toString().hashCode() * 31L + 7);
+            String primaryPath = site.primary().getPath();
+            this.wood = primaryPath.endsWith("_planks") ? primaryPath.substring(0, primaryPath.length() - 7) : "oak";
             this.focus = center;
             this.arrival = center;
         }
 
         void set(int x, int y, int z, BlockState state) {
             if (!dry) level.setBlock(center.offset(x, y, z), state, 2);
+        }
+
+        /** Bloc dont la forme dépend des voisins (clôture, vitre) : raccordé à la fin. */
+        void setShaped(int x, int y, int z, BlockState state) {
+            set(x, y, z, state);
+            if (!dry) shaped.add(center.offset(x, y, z));
         }
 
         void fill(int x1, int y1, int z1, int x2, int y2, int z2, BlockState state) {
@@ -121,7 +157,14 @@ public final class StructureBuilders {
         }
 
         Built done() {
-            return new Built(focus, List.copyOf(spots), arrival);
+            if (!dry) {
+                // Clôtures et vitres se raccordent à leurs voisins une fois tout posé.
+                for (BlockPos pos : shaped) {
+                    BlockState now = level.getBlockState(pos);
+                    level.setBlock(pos, net.minecraft.world.level.block.Block.updateFromNeighbourShapes(now, level, pos), 2);
+                }
+            }
+            return new Built(focus, List.copyOf(spots), arrival, chest);
         }
     }
 
@@ -144,6 +187,7 @@ public final class StructureBuilders {
             case "palace" -> palace(c);
             case "lair" -> lair(c);
             case "sanctuary" -> sanctuary(c);
+            case "ruin" -> ruin(c);
             default -> village(c);
         }
         return c.done();
@@ -161,31 +205,212 @@ public final class StructureBuilders {
         c.set(cx - half + 1, 0, cz - half + 1, c.accent);
     }
 
-    private static void village(Canvas c) {
-        c.prepare(22, 22, 9, b("grass_block"));
-        c.fill(-20, -1, -1, 20, -1, 1, b("dirt_path"));
-        c.fill(-1, -1, -20, 1, -1, 20, b("dirt_path"));
-        // Puits central.
-        c.walls(-1, -1, 1, 1, 0, 0, b("cobblestone"));
-        c.set(0, -1, 0, b("water"));
-        c.set(0, 0, 0, b("air"));
-        for (int[] p : new int[][]{{-1, -1}, {1, -1}, {-1, 1}, {1, 1}}) c.fill(p[0], 1, p[1], p[0], 2, p[1], b("oak_fence"));
-        c.fill(-1, 3, -1, 1, 3, 1, c.primary);
-        c.set(3, 0, 3, b("bell"));
-        // Chaumières.
-        int[][] huts = {{-12, -12}, {12, -12}, {-12, 10}, {12, 10}, {0, -15}};
-        for (int[] h : huts) hut(c, h[0], h[1], 2, 3, c.secondary, c.primary);
-        // Champs.
-        for (int side = -1; side <= 1; side += 2) {
-            int x0 = side * 9 - 3;
-            c.fill(x0, -1, 14, x0 + 6, -1, 19, b("farmland"));
-            c.fill(x0 + 3, -1, 14, x0 + 3, -1, 19, b("water"));
-            c.fill(x0, 0, 14, x0 + 2, 0, 19, b("wheat"));
-            c.fill(x0 + 4, 0, 14, x0 + 6, 0, 19, b("wheat"));
+    private static final String[] FLOWERS = {"poppy", "dandelion", "cornflower", "oxeye_daisy", "azure_bluet", "allium"};
+    private static final String[] CROPS = {"wheat", "carrots", "potatoes", "beetroots"};
+    private static final String[] STALL_WOOL = {"red_wool", "yellow_wool", "blue_wool", "green_wool", "orange_wool", "white_wool"};
+
+    /** Maison à toit en pente : soubassement de pierre, poteaux en rondins, vitres, porte, lanterne. */
+    private static void house(Canvas c, int cx, int cz, int hx, int hz, int doorSide, BlockState roofBlock, String roofStairs) {
+        String wood = c.wood;
+        int h = 3;
+        c.fill(cx - hx, -1, cz - hz, cx + hx, -1, cz + hz, c.secondary);
+        c.walls(cx - hx, cz - hz, cx + hx, cz + hz, 0, 0, b("cobblestone"));
+        c.walls(cx - hx, cz - hz, cx + hx, cz + hz, 1, h - 1, c.primary);
+        for (int sx = -1; sx <= 1; sx += 2)
+            for (int sz = -1; sz <= 1; sz += 2) c.fill(cx + sx * hx, 0, cz + sz * hz, cx + sx * hx, h - 1, cz + sz * hz, b(wood + "_log"));
+        // Toit à deux pans, avec débord ; les pignons sont fermés.
+        for (int i = 0; ; i++) {
+            int z1 = cz - hz - 1 + i;
+            int z2 = cz + hz + 1 - i;
+            int y = h - 1 + i;
+            if (z1 > z2) break;
+            for (int x = cx - hx - 1; x <= cx + hx + 1; x++) {
+                if (z1 == z2) {
+                    c.set(x, y, z1, roofBlock);
+                } else {
+                    c.set(x, y, z1, b(roofStairs, "facing=south"));
+                    c.set(x, y, z2, b(roofStairs, "facing=north"));
+                }
+            }
+            for (int z = z1 + 1; z <= z2 - 1; z++) {
+                c.set(cx - hx, y, z, c.primary);
+                c.set(cx + hx, y, z, c.primary);
+            }
         }
-        c.spotRing(6, 8, 0);
-        c.spotRing(13, 6, 0);
-        c.focus = c.center.offset(0, 0, 4);
+        // Porte (côté tourné vers la place) et fenêtres.
+        int dx = doorSide == 2 ? -hx : doorSide == 3 ? hx : 0;
+        int dz = doorSide == 0 ? -hz : doorSide == 1 ? hz : 0;
+        String facing = new String[]{"south", "north", "east", "west"}[doorSide];
+        c.set(cx + dx, 0, cz + dz, b(wood + "_door", "facing=" + facing, "half=lower"));
+        c.set(cx + dx, 1, cz + dz, b(wood + "_door", "facing=" + facing, "half=upper"));
+        if (doorSide < 2) {
+            c.setShaped(cx - hx, 1, cz, b("glass_pane"));
+            c.setShaped(cx + hx, 1, cz, b("glass_pane"));
+        } else {
+            c.setShaped(cx, 1, cz - hz, b("glass_pane"));
+            c.setShaped(cx, 1, cz + hz, b("glass_pane"));
+        }
+        // Dehors : un pas de porte, une lanterne sur son poteau, un objet du quotidien.
+        int ox = Integer.signum(dx);
+        int oz = Integer.signum(dz);
+        c.set(cx + dx + ox, -1, cz + dz + oz, b("gravel"));
+        int lx = cx + dx + ox + (oz != 0 ? 1 : 0);
+        int lz = cz + dz + oz + (ox != 0 ? 1 : 0);
+        c.setShaped(lx, 0, lz, b(wood + "_fence"));
+        c.set(lx, 1, lz, b("lantern"));
+        String[] props = {"barrel", "hay_block", "composter", "cauldron", "crafting_table"};
+        c.set(cx + dx + ox - (oz != 0 ? 1 : 0), 0, cz + dz + oz - (ox != 0 ? 1 : 0), b(props[c.rng.nextInt(props.length)]));
+        c.set(cx - hx + 1, 0, cz - hz + 1, b("lantern"));
+        c.spot(cx + dx + ox * 2, 0, cz + dz + oz * 2);
+    }
+
+    /**
+     * Village : aucun n'est pareil. Le nombre et la taille des maisons, le cœur de la place, les cultures,
+     * les toits et les décorations sont tirés d'un hasard propre au lieu.
+     */
+    private static void village(Canvas c) {
+        java.util.Random r = c.rng;
+        String wood = c.wood;
+        c.prepare(27, 27, 12, b("grass_block"));
+
+        // Chemins irréguliers : terre battue et gravier.
+        for (int i = -24; i <= 24; i++) {
+            int wobble = (int) Math.round(Math.sin(i * 0.35) * 1.2);
+            for (int w = -1; w <= 1; w++) {
+                c.set(i, -1, wobble + w, b(r.nextInt(5) == 0 ? "gravel" : "dirt_path"));
+                c.set(wobble + w, -1, i, b(r.nextInt(5) == 0 ? "gravel" : "dirt_path"));
+            }
+        }
+
+        // Le cœur de la place change d'un village à l'autre.
+        int heart = r.nextInt(4);
+        if (heart == 0) {                                   // puits couvert
+            c.walls(-1, -1, 1, 1, 0, 0, b("mossy_cobblestone"));
+            c.set(0, -1, 0, b("water"));
+            for (int[] p : new int[][]{{-1, -1}, {1, -1}, {-1, 1}, {1, 1}}) {
+                c.setShaped(p[0], 1, p[1], b(wood + "_fence"));
+                c.setShaped(p[0], 2, p[1], b(wood + "_fence"));
+            }
+            c.fill(-1, 3, -1, 1, 3, 1, b(wood + "_slab"));
+        } else if (heart == 1) {                            // marché : étals aux toiles de couleur
+            for (int k = 0; k < 3; k++) {
+                int sx = -5 + k * 5;
+                String wool = STALL_WOOL[r.nextInt(STALL_WOOL.length)];
+                for (int[] p : new int[][]{{sx - 1, -1}, {sx + 1, -1}, {sx - 1, 1}, {sx + 1, 1}}) {
+                    c.setShaped(p[0], 0, p[1], b(wood + "_fence"));
+                    c.setShaped(p[0], 1, p[1], b(wood + "_fence"));
+                }
+                c.fill(sx - 1, 2, -1, sx + 1, 2, 1, b(wool));
+                c.set(sx, 0, 0, b(r.nextBoolean() ? "barrel" : "hay_block"));
+            }
+        } else if (heart == 2) {                            // grand arbre et bancs
+            c.fill(0, 0, 0, 0, 5, 0, b("oak_log"));
+            for (int x = -3; x <= 3; x++)
+                for (int z = -3; z <= 3; z++)
+                    for (int y = 4; y <= 7; y++) {
+                        int d = x * x + z * z + (y - 5) * (y - 5) * 2;
+                        if (d <= 11 && !(x == 0 && z == 0 && y <= 5)) c.set(x, y, z, b("oak_leaves", "persistent=true"));
+                    }
+            c.set(-2, 0, 0, b(wood + "_stairs", "facing=east"));
+            c.set(2, 0, 0, b(wood + "_stairs", "facing=west"));
+            c.set(0, 0, 2, b(wood + "_stairs", "facing=north"));
+        } else {                                            // fontaine
+            c.fill(-2, -1, -2, 2, -1, 2, b("stone_bricks"));
+            c.walls(-2, -2, 2, 2, 0, 0, b("stone_brick_slab"));
+            c.fill(-1, 0, -1, 1, 0, 1, b("water"));
+            c.fill(0, 0, 0, 0, 2, 0, b("mossy_stone_bricks"));
+            c.set(0, 3, 0, b("lantern"));
+        }
+        c.set(4, 0, 4, b("bell"));
+
+        // Maisons en couronne, tournées vers la place.
+        String[] roofs = {wood, "spruce", "dark_oak", "brick", "cobblestone"};
+        String roof = roofs[r.nextInt(roofs.length)];
+        boolean stone = roof.equals("brick") || roof.equals("cobblestone");
+        BlockState roofBlock = b(stone ? (roof.equals("brick") ? "bricks" : "cobblestone") : roof + "_planks");
+        int houses = 5 + r.nextInt(3);
+        double start = r.nextDouble() * Math.PI * 2;
+        for (int i = 0; i < houses; i++) {
+            double a = start + Math.PI * 2 * i / houses + (r.nextDouble() - 0.5) * 0.25;
+            int radius = 14 + r.nextInt(5);
+            int cx = (int) Math.round(Math.cos(a) * radius);
+            int cz = (int) Math.round(Math.sin(a) * radius);
+            int doorSide = Math.abs(cz) >= Math.abs(cx) ? (cz > 0 ? 0 : 1) : (cx > 0 ? 2 : 3);
+            house(c, cx, cz, 2 + r.nextInt(2), 2 + r.nextInt(2), doorSide, roofBlock, roof + "_stairs");
+        }
+
+        // Champs clos, aux cultures variées, et un enclos à foin.
+        for (int k = 0; k < 2; k++) {
+            double a = start + Math.PI / houses + Math.PI * k + 0.4;
+            int fx = (int) Math.round(Math.cos(a) * 21);
+            int fz = (int) Math.round(Math.sin(a) * 21);
+            String crop = CROPS[r.nextInt(CROPS.length)];
+            String age = crop.equals("beetroots") ? "age=3" : "age=" + (4 + r.nextInt(4));
+            for (int x = -3; x <= 3; x++)
+                for (int z = -3; z <= 3; z++) {
+                    boolean edge = Math.abs(x) == 3 || Math.abs(z) == 3;
+                    if (edge) {
+                        if (!(x == 0 && z == 3)) c.setShaped(fx + x, 0, fz + z, b(wood + "_fence"));
+                    } else if (x == 0) {
+                        c.set(fx + x, -1, fz + z, b("water"));
+                    } else {
+                        c.set(fx + x, -1, fz + z, b("farmland", "moisture=7"));
+                        c.set(fx + x, 0, fz + z, b(crop, age));
+                    }
+                }
+        }
+
+        // Petites choses qui font un lieu habité : lampadaires, fleurs, buissons, feu de camp.
+        for (int k = 0; k < 4; k++) {
+            int lx = (k % 2 == 0 ? 1 : -1) * (8 + r.nextInt(3));
+            int lz = (k < 2 ? 1 : -1) * 3;
+            c.setShaped(lx, 0, lz, b(wood + "_fence"));
+            c.setShaped(lx, 1, lz, b(wood + "_fence"));
+            c.set(lx, 2, lz, b("lantern"));
+        }
+        for (int k = 0; k < 26; k++) {
+            int x = r.nextInt(49) - 24;
+            int z = r.nextInt(49) - 24;
+            if (Math.abs(x) < 4 || Math.abs(z) < 4) continue;
+            if (!c.dry && !c.level.getBlockState(c.center.offset(x, 0, z)).isAir()) continue;
+            if (!c.dry && c.level.getBlockState(c.center.offset(x, -1, z)).getBlock() != net.minecraft.world.level.block.Blocks.GRASS_BLOCK) continue;
+            c.set(x, 0, z, k % 5 == 0 ? b("oak_leaves", "persistent=true") : b(FLOWERS[r.nextInt(FLOWERS.length)]));
+        }
+        if (r.nextBoolean()) {
+            c.set(-6, 0, 6, b("campfire"));
+            c.set(-8, 0, 6, b(wood + "_log", "axis=z"));
+            c.set(-6, 0, 8, b(wood + "_log", "axis=x"));
+        }
+        c.spotRing(6, 6, 0);
+        c.focus = c.center.offset(0, 0, 5);
+    }
+
+    /** Vestiges : un cercle de murs effondrés autour d'un coffre oublié. */
+    private static void ruin(Canvas c) {
+        java.util.Random r = c.rng;
+        c.prepare(9, 9, 8, b("grass_block"));
+        c.disc(-1, 7, c.secondary);
+        String[] stones = {"mossy_stone_bricks", "cracked_stone_bricks", "stone_bricks", "mossy_cobblestone"};
+        for (int x = -7; x <= 7; x++)
+            for (int z = -7; z <= 7; z++) {
+                int d = x * x + z * z;
+                if (d <= 49 && d > 36) {
+                    int height = r.nextInt(5);
+                    for (int y = 0; y < height; y++) c.set(x, y, z, r.nextInt(3) == 0 ? c.primary : b(stones[r.nextInt(stones.length)]));
+                } else if (d <= 36 && r.nextInt(9) == 0) {
+                    c.set(x, -1, z, b("coarse_dirt"));
+                }
+            }
+        for (int i = 0; i < 4; i++) {
+            double a = Math.PI / 4 + Math.PI / 2 * i;
+            int x = (int) Math.round(Math.cos(a) * 4);
+            int z = (int) Math.round(Math.sin(a) * 4);
+            c.fill(x, 0, z, x, 1 + r.nextInt(3), z, c.accent);
+        }
+        c.fill(-1, -1, -1, 1, -1, 1, c.accent);
+        c.chest = c.center;
+        c.focus = c.center.offset(0, 0, 3);
+        c.arrival = c.center.offset(0, 0, 9);
     }
 
     private static void castle(Canvas c) {
@@ -224,6 +449,7 @@ public final class StructureBuilders {
             c.set(x, 3, k, b("glass"));
         }
         c.focus = c.center.offset(0, 1, -k + 3);
+        c.chest = c.center.offset(5, 0, -6);
         c.spot(-3, 0, -3);
         c.spot(3, 0, -3);
         c.spot(-3, 0, 2);
@@ -304,6 +530,7 @@ public final class StructureBuilders {
         c.fill(0, -1, 0, 0, 6, 0, c.accent);
         c.set(0, 7, 0, b("sea_lantern"));
         for (int[] p : new int[][]{{-8, -8}, {8, -8}, {-8, 8}, {8, 8}}) c.fill(p[0], 0, p[1], p[0], 3, p[1], c.accent);
+        c.chest = c.center.offset(-24, 0, -26);
         c.focus = c.center.offset(0, 0, 6);
         c.spotRing(7, 8, 0);
         c.spotRing(12, 8, 0);
@@ -342,6 +569,7 @@ public final class StructureBuilders {
             c.fill(p[0], 0, p[1], p[0], 4, p[1], c.primary);
             c.set(p[0], 5, p[1], c.accent);
         }
+        c.chest = c.center.offset(-13, 0, -13);
         c.focus = c.center.offset(0, 0, -2);
         c.spot(3, 0, -2);
         c.spot(-3, 0, -2);
@@ -382,6 +610,7 @@ public final class StructureBuilders {
             c.set(-4, y, 0, b("glass"));
             c.set(4, y, 0, b("glass"));
         }
+        c.chest = c.center.offset(-2, 0, -2);
         c.focus = c.center.offset(0, h + 2, 0);
         c.spotRing(8, 6, 0);
         c.arrival = c.center.offset(0, 0, 8);
@@ -408,6 +637,7 @@ public final class StructureBuilders {
             c.fill(sx * 6, 1, -w + 6, sx * 6, 6, -w + 6, c.accent);
             c.set(sx * 6, 7, -w + 6, b("sea_lantern"));
         }
+        c.chest = c.center.offset(2, 3, -w + 6);
         c.focus = c.center.offset(0, 2, -w + 10);
         c.spot(-5, 1, -w + 14);
         c.spot(5, 1, -w + 14);
@@ -430,6 +660,7 @@ public final class StructureBuilders {
             c.fill(x, 0, z, x, 2 + (i % 3), z, c.accent);
         }
         c.disc(-1, 3, c.accent);
+        c.chest = c.center.offset(0, 0, -11);
         c.focus = c.center;
         c.arrival = c.center.offset(0, 0, 18);
     }

@@ -6,6 +6,7 @@
   "behavior": "civilian",
   "health": 20,
   "damage": 2,
+  "variants": 6,
   "speed": 0.25,
   "kill_reputation": {
     "azalee": -8

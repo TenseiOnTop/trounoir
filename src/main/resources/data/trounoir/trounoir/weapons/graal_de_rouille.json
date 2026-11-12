@@ -1,0 +1,9 @@
+{
+  "type": "buff",
+  "cooldown": 45,
+  "params": {
+    "heal": 12,
+    "particle": "minecraft:damage_indicator",
+    "sound": "minecraft:entity.generic.drink"
+  }
+}

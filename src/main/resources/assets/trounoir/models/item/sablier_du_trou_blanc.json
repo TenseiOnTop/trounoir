@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "trounoir:item/sablier_du_trou_blanc"
+  }
+}

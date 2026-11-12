@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 260,
   "damage": 20,
+  "drops": [
+    "trounoir:fusil_de_suke"
+  ],
   "armor": 10,
   "speed": 0.3,
   "follow_range": 64,

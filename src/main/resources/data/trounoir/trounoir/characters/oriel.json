@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 250,
   "damage": 20,
+  "drops": [
+    "trounoir:compas_d_oriel"
+  ],
   "armor": 8,
   "speed": 0.28,
   "follow_range": 40,

@@ -1,0 +1,20 @@
+{
+  "type": "buff",
+  "cooldown": 90,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:invisibility",
+        "duration": 600,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:night_vision",
+        "duration": 600,
+        "amplifier": 0
+      }
+    ],
+    "particle": "minecraft:end_rod",
+    "sound": "minecraft:block.amethyst_block.chime"
+  }
+}

@@ -400,6 +400,9 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Bourg-Levant | Nébulosia | village | 180 | 40° | paysan × 6, soldat × 1 |
 | Clairmoulin | Nébulosia | village | 520 | 200° | paysan × 8, soldat × 2, chevalier × 1, corvin × 1 |
 | Château d'Astrelune | Nébulosia | castle | 850 | 120° | roi_aurele × 1, aldric × 1, lysmene × 1, hestia × 1, chevalier × 6, mage_royal × 3, soldat × 6 |
+| Pont-aux-Saules | Nébulosia | village | 380 | 300° | paysan × 7, soldat × 1 |
+| Vestige du Guet | Nébulosia | ruin | 650 | 80° |  |
+| Cercle des Anciens | Nébulosia | ruin | 1250 | 210° |  |
 | Havre-Gris | Nébulosia | harbor | 1300 | 300° | soldat × 2, paysan × 4 |
 | Lande de Gorgath | Nébulosia | lair | 1100 | 350° | gorgath × 1 |
 | Combe de la Veuve | Nébulosia | lair | 800 | 250° | veuve_bleme × 1 |
@@ -416,6 +419,10 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Tombeau d'Andromède | Diviniarth | lair | 1500 | 180° | geolier × 1 |
 | Forge de Sombrefer | Diviniarth | lair | 1300 | 330° | sombrefer × 1 |
 | Trône de cendres | Diviniarth | lair | 1600 | 85° | roi_fletri × 1 |
+| Vestige d'Ivoire | Diviniarth | ruin | 450 | 300° |  |
+| Vestige des Marches | Diviniarth | ruin | 1400 | 150° |  |
+| Cloître englouti | Diviniarth | ruin | 1000 | 200° |  |
+| Autel brisé | Diviniarth | ruin | 1900 | 30° |  |
 | Champ de Rouille | Diviniarth | sanctuary | 1700 | 105° | mars × 1 |
 | Tribunal des Anneaux | Diviniarth | sanctuary | 1800 | 205° | saturne × 1 |
 | Le Phare | Diviniarth | sanctuary | 1500 | 30° | pulsar × 1 |

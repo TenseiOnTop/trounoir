@@ -1,0 +1,11 @@
+{
+  "type": "aoe",
+  "cooldown": 45,
+  "params": {
+    "radius": 8,
+    "damage": 10,
+    "ignite": 6,
+    "particle": "minecraft:flame",
+    "sound": "minecraft:entity.blaze.shoot"
+  }
+}

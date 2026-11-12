@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 280,
   "damage": 22,
+  "drops": [
+    "trounoir:sceptre_d_ignarelle"
+  ],
   "armor": 10,
   "speed": 0.29,
   "follow_range": 40,

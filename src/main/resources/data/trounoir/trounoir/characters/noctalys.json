@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 250,
   "damage": 24,
+  "drops": [
+    "trounoir:lame_de_noctalys"
+  ],
   "armor": 8,
   "speed": 0.38,
   "follow_range": 40,

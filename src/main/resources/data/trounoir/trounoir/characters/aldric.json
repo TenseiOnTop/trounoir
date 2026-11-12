@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 140,
   "damage": 11,
+  "drops": [
+    "trounoir:solbrand"
+  ],
   "armor": 14,
   "speed": 0.29,
   "knockback_resistance": 0.3,

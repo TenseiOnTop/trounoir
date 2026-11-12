@@ -1,0 +1,14 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "ruin",
+  "distance": 650,
+  "angle": 80,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:stone_bricks",
+    "secondary": "minecraft:mossy_cobblestone",
+    "accent": "minecraft:chiseled_stone_bricks"
+  },
+  "residents": [],
+  "relic_spot": true
+}

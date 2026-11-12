@@ -47,6 +47,9 @@ public final class WorldState {
     public Map<String, String> homeDimensions = new HashMap<>();
     /** Génération de chaque unique : une copie d'une génération passée est retirée du monde. */
     public Map<String, Integer> generations = new HashMap<>();
+    /** relique -> position de son coffre, et lieu qui l'abrite. */
+    public Map<String, int[]> relicChests = new HashMap<>();
+    public Map<String, String> relicSites = new HashMap<>();
     /** Époque : augmente à chaque renaissance douce, pour écarter les personnages de la vie précédente. */
     public int epoch;
 
@@ -88,6 +91,8 @@ public final class WorldState {
             }
         }
         if (state == null) state = new WorldState();
+        if (state.relicChests == null) state.relicChests = new HashMap<>();
+        if (state.relicSites == null) state.relicSites = new HashMap<>();
         state.file = file;
         return state;
     }

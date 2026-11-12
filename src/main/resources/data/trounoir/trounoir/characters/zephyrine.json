@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 260,
   "damage": 21,
+  "drops": [
+    "trounoir:trident_de_zephyrine"
+  ],
   "armor": 10,
   "speed": 0.42,
   "follow_range": 40,

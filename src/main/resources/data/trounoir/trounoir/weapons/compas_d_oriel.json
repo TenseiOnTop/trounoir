@@ -1,0 +1,10 @@
+{
+  "type": "blink",
+  "cooldown": 5,
+  "params": {
+    "range": 24
+  },
+  "on_hit": {
+    "particle": "minecraft:portal"
+  }
+}

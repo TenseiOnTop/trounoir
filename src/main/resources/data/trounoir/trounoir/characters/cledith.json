@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 340,
   "damage": 22,
+  "drops": [
+    "trounoir:epee_de_cledith"
+  ],
   "armor": 20,
   "speed": 0.33,
   "knockback_resistance": 0.5,

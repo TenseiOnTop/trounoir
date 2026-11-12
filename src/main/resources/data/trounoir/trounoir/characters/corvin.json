@@ -6,6 +6,9 @@
   "behavior": "guard",
   "health": 100,
   "damage": 12,
+  "drops": [
+    "trounoir:dagues_de_brume"
+  ],
   "armor": 6,
   "speed": 0.34,
   "held_item": "minecraft:iron_sword",

@@ -1,0 +1,23 @@
+{
+  "type": "buff",
+  "cooldown": 30,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:invisibility",
+        "duration": 160,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:speed",
+        "duration": 160,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:smoke",
+    "sound": "minecraft:entity.illusioner.mirror_move"
+  },
+  "on_hit": {
+    "particle": "minecraft:smoke"
+  }
+}

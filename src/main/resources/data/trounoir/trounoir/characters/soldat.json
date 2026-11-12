@@ -6,6 +6,7 @@
   "behavior": "guard",
   "health": 28,
   "damage": 5,
+  "variants": 6,
   "armor": 6,
   "held_item": "minecraft:iron_sword",
   "kill_reputation": {

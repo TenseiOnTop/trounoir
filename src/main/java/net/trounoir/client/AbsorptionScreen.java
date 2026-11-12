@@ -80,6 +80,11 @@ public class AbsorptionScreen extends Screen {
                 String where = place.x() + ", " + place.z() + "  (" + I18n.get(place.dimension().endsWith("diviniarth") ? "trounoir.place.diviniarth" : "trounoir.place.nebulosia") + ")";
                 rows.add(new Row(place.id(), I18n.get(key), where, 0xE6D08A, ItemStack.EMPTY, List.of()));
             }
+            for (Map.Entry<String, String> relic : ClientState.RELICS.entrySet()) {
+                rows.add(new Row(relic.getKey(), I18n.get("item.trounoir." + relic.getKey()),
+                        I18n.get("trounoir.relic.where", I18n.get("site." + relic.getValue().replace(':', '.'))), 0xFFB3E6,
+                        Lookup.stack(net.trounoir.util.JsonUtil.id(relic.getKey())), List.of()));
+            }
             for (String id : ClientState.WEAKNESSES) {
                 ClientState.CharacterInfo info = ClientState.CHARACTERS.get(id);
                 if (info == null || info.weakness().isEmpty()) continue;
@@ -113,6 +118,12 @@ public class AbsorptionScreen extends Screen {
     private static String num(double v) {
         double r = Math.round(v * 10) / 10.0;
         return r == Math.rint(r) ? Long.toString((long) r) : Double.toString(r);
+    }
+
+    /** Coupe un texte trop long pour sa place, avec des points de suspension. */
+    private String fit(String text, int width) {
+        if (this.font.width(text) <= width) return text;
+        return this.font.plainSubstrByWidth(text, Math.max(8, width - this.font.width("…"))) + "…";
     }
 
     private static String label(String key) {
@@ -252,8 +263,8 @@ public class AbsorptionScreen extends Screen {
                 }
             }
             if (!row.icon().isEmpty()) g.renderItem(row.icon(), left + 11, y + 2);
-            g.drawString(this.font, row.title(), left + 30, y + 2, row.color());
-            g.drawString(this.font, row.detail(), left + 30, y + 12, 0x8F86A8);
+            g.drawString(this.font, fit(row.title(), 150), left + 30, y + 2, row.color());
+            g.drawString(this.font, fit(row.detail(), 204), left + 30, y + 12, 0x8F86A8);
             if (hovered && !row.tooltip().isEmpty()) tooltip = row.tooltip();
         }
         if (rows.size() > VISIBLE) {
@@ -263,7 +274,7 @@ public class AbsorptionScreen extends Screen {
         // Emplacements de techniques.
         if (tab == Tab.TECHNIQUES) {
             int sy = top + H - 30;
-            g.drawString(this.font, I18n.get(selected == null ? "trounoir.slots.hint_select" : "trounoir.slots.hint_assign"), left + 8, sy - 11, 0x7F769A);
+            g.drawString(this.font, fit(I18n.get(selected == null ? "trounoir.slots.hint_select" : "trounoir.slots.hint_assign"), 232), left + 8, sy - 11, 0x7F769A);
             for (int i = 0; i < ClientState.SLOTS.length; i++) {
                 int sx = left + 8 + i * 58;
                 g.fill(sx, sy, sx + 54, sy + 22, 0x70201838);
@@ -292,7 +303,7 @@ public class AbsorptionScreen extends Screen {
         y += 11;
         if (ClientState.nextRank > 0) {
             double prev = 0;
-            g.drawString(this.font, label("next_rank").formatted(num(ClientState.nextRank)), x, y, 0x7F769A);
+            g.drawString(this.font, fit(label("next_rank").formatted(num(ClientState.nextRank)), 140), x, y, 0x7F769A);
             y += 10;
             int bar = (int) Math.round(138 * Math.max(prev, Math.min(1.0, ClientState.power / ClientState.nextRank)));
             g.fill(x, y, x + 138, y + 3, 0x60000000);
@@ -300,7 +311,7 @@ public class AbsorptionScreen extends Screen {
             y += 7;
         }
         String name = ClientState.lifeName.isEmpty() ? I18n.get("trounoir.nameless") : ClientState.lifeName;
-        g.drawString(this.font, I18n.get("trounoir.life.line", ClientState.lifeNumber, name), x, y, 0x8F86A8);
+        g.drawString(this.font, fit(I18n.get("trounoir.life.line", ClientState.lifeNumber, name), 140), x, y, 0x8F86A8);
         y += 16;
 
         // Fragilité : ce qu'il reste de la misère du départ.
@@ -311,7 +322,7 @@ public class AbsorptionScreen extends Screen {
             y += 11;
             for (Map.Entry<String, Double> e : ClientState.HANDICAPS.entrySet()) {
                 if (e.getValue() <= 0.01) continue;
-                g.drawString(this.font, I18n.get("handicap.trounoir." + e.getKey()), x, y, 0xB08A8A);
+                g.drawString(this.font, fit(I18n.get("handicap.trounoir." + e.getKey()), 80), x, y, 0xB08A8A);
                 g.fill(x + 84, y + 2, x + 138, y + 6, 0x60000000);
                 g.fill(x + 84, y + 2, x + 84 + (int) Math.round(54 * e.getValue()), y + 6, 0xFFB04A4A);
                 y += 10;
@@ -326,7 +337,7 @@ public class AbsorptionScreen extends Screen {
             for (String id : ClientState.ACTIVE_SYNERGIES) {
                 SynergyDef def = ClientState.SYNERGIES.get(id);
                 if (def == null || y > top + H - 40) continue;
-                g.drawString(this.font, "✦ " + I18n.get(def.nameKey()), x, y, 0xE6D08A);
+                g.drawString(this.font, fit("✦ " + I18n.get(def.nameKey()), 140), x, y, 0xE6D08A);
                 if (mouseX >= x && mouseX < left + W - 4 && mouseY >= y - 1 && mouseY < y + 9) {
                     sideTooltip = List.of(Component.translatable(def.nameKey()).withStyle(ChatFormatting.GOLD),
                             Component.translatable(def.nameKey() + ".desc").withStyle(ChatFormatting.WHITE),
@@ -344,7 +355,7 @@ public class AbsorptionScreen extends Screen {
             for (ClientState.EchoInfo echo : ClientState.ECHOES) {
                 AbsorbableDef def = ClientState.ABSORBABLES.get(echo.id());
                 if (def == null || y > top + H - 12) continue;
-                g.drawString(this.font, "◌ " + I18n.get(def.nameKey()), x, y, 0x9A90C0);
+                g.drawString(this.font, fit("◌ " + I18n.get(def.nameKey()), 140), x, y, 0x9A90C0);
                 y += 10;
             }
         }

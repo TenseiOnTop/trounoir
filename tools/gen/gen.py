@@ -16,6 +16,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content_absorbables as A  # noqa: E402
+import content_items as IT  # noqa: E402
 import content_text as X  # noqa: E402
 import content_world as W  # noqa: E402
 
@@ -194,7 +195,7 @@ def gen_data():
     for c in W.CHARACTERS:
         obj = {'unique': c.get('unique', False), 'category': c['category'], 'faction': c['faction'], 'rank': c['rank'],
                'behavior': c.get('behavior', 'civilian'), 'health': c['health'], 'damage': c['damage']}
-        for key in ('base_entity', 'armor', 'speed', 'scale', 'knockback_resistance', 'follow_range', 'held_item', 'phases',
+        for key in ('drops', 'variants', 'base_entity', 'armor', 'speed', 'scale', 'knockback_resistance', 'follow_range', 'held_item', 'phases',
                     'weakness', 'kill_reputation', 'notoriety', 'language', 'dialogue_lines', 'boss_bar'):
             if key in c:
                 obj[key] = c[key]
@@ -227,10 +228,25 @@ def gen_data():
                'faction': s['faction'],
                'palette': {'primary': s['palette'][0], 'secondary': s['palette'][1], 'accent': s['palette'][2]},
                'residents': [{'character': 'trounoir:' + ch, 'count': n} for ch, n in s['residents']]}
+        if s['blueprint'] in ('castle', 'city', 'fortress', 'palace', 'tower', 'lair', 'ruin'):
+            obj['relic_spot'] = True
         if s['crossing']:
             obj['crossing'] = True
         write_json(os.path.join(DATA, 'sites', s['id'] + '.json'), obj)
         lang('site.trounoir.' + s['id'], s['fr'], s['en'])
+
+    for it in IT.WEAPONS + IT.RELICS:
+        obj = {'type': it['type'], 'cooldown': it['cooldown'], 'params': it['params']}
+        if it['on_hit']:
+            obj['on_hit'] = it['on_hit']
+        write_json(os.path.join(DATA, 'weapons', it['id'] + '.json'), obj)
+        lang('item.trounoir.' + it['id'], it['fr'], it['en'])
+        if it['left_fr']:
+            lang('item.trounoir.' + it['id'] + '.left', 'Clic gauche — ' + it['left_fr'], 'Left click — ' + it['left_en'])
+        lang('item.trounoir.' + it['id'] + '.right', 'Clic droit — ' + it['right_fr'], 'Right click — ' + it['right_en'])
+        write_json(os.path.join(ASSETS, 'models', 'item', it['id'] + '.json'),
+                   {'parent': 'minecraft:item/handheld' if it['left_fr'] else 'minecraft:item/generated',
+                    'textures': {'layer0': 'trounoir:item/' + it['id']}})
 
     for code, table in (('fr_fr', X.EPITAPHS_FR), ('en_us', X.EPITAPHS_EN)):
         write_json(os.path.join(DATA, 'epitaphs', code + '.json'), dict(language=code, **table))
@@ -300,7 +316,7 @@ def gen_textures():
     clean(out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
-    def paint(kind, primary, secondary, accent, seed):
+    def paint(kind, primary, secondary, accent, seed, female=False):
         rng = random.Random(seed)
         img = Image.new('RGBA', (64, 64), (0, 0, 0, 0))
         px = img.load()
@@ -363,6 +379,15 @@ def gen_textures():
                 px[x, 9] = a + (255,)
                 if x % 2 == 0:
                     px[x, 8] = a + (255,)
+        if female:
+            # Cheveux longs : ils couvrent les côtés et l'arrière de la tête, et tombent sur le haut du dos.
+            rect(0, 8, 8, 16, hair)
+            rect(16, 8, 24, 16, hair)
+            rect(24, 8, 32, 16, hair)
+            rect(8, 8, 16, 10, hair)
+            px[8, 10] = px[8, 11] = px[15, 10] = px[15, 11] = hair + (255,)
+            rect(32, 20, 40, 25, hair)
+            px[11, 14] = px[12, 14] = (190, 90, 90, 255)
         if kind == 'god':
             # Poussière d'étoiles sur tout le corps.
             for _ in range(70):
@@ -384,6 +409,11 @@ def gen_textures():
         if 'skin' in c:
             kind, p, s, a = c['skin']
             paint(kind, p, s, a, c['id']).save(os.path.join(out_dir, c['id'] + '.png'))
+            for v in range(1, c.get('variants', 1)):
+                # Chaque variante décale un peu les couleurs du vêtement ; une sur deux est une femme.
+                rv = random.Random(c['id'] + str(v))
+                tint = lambda h: '#%02x%02x%02x' % shade(hex_rgb(h), 0.8 + rv.random() * 0.45)
+                paint(kind, tint(p), tint(s), a, c['id'] + str(v), female=(v % 2 == 1)).save(os.path.join(out_dir, '%s_%d.png' % (c['id'], v)))
 
     # Gouvernail : une roue de bois sombre à huit rayons.
     block_dir = os.path.join(ASSETS, 'textures', 'block')
@@ -403,6 +433,101 @@ def gen_textures():
             elif d < 5.2 and (abs(x - 7.5) < 0.8 or abs(y - 7.5) < 0.8 or abs(abs(x - 7.5) - abs(y - 7.5)) < 0.8):
                 px[x, y] = (170, 132, 78, 255)
     img.save(os.path.join(block_dir, 'helm.png'))
+
+
+def gen_item_textures():
+    """Icônes 16x16 des armes et reliques : une silhouette par famille, trois couleurs par objet."""
+    from PIL import Image
+    out_dir = os.path.join(ASSETS, 'textures', 'item')
+    clean(out_dir)
+    os.makedirs(out_dir, exist_ok=True)
+    SHAPES = {
+        # '1' couleur claire, '2' couleur moyenne, '3' couleur d'accent, '.' vide. Orientation : poignée en bas à gauche.
+        'sword': ["..............11", ".............121", "............121.", "...........121..", "..........121...", ".........121....",
+                  "........121.....", ".......121......", "..3...121.......", "..33.121........", "...3321.........", "...333..........",
+                  "..23.33.........", ".22...3.........", "22..............", "2..............."],
+        'dagger': ["................", "................", "................", "...........11...", "..........121...", ".........121....",
+                   "........121.....", ".......121......", "....3.121.......", "....3321........", ".....33.........", "....2333........",
+                   "...22...........", "..22............", "................", "................"],
+        'staff': ["............333.", "...........31113", "...........31113", "...........3113.", "..........2333..", ".........22.....",
+                  "........22......", ".......22.......", "......22........", ".....22.........", "....22..........", "...22...........",
+                  "..22............", ".22.............", "22..............", "................"],
+        'rifle': ["................", "..............11", ".............12.", "............12..", "...........12...", "......33..12....",
+                  ".....3..312.....", "........12......", ".......122......", "......1222......", ".....22.2.......", "....222.........",
+                  "...2222.........", "..222...........", ".22.............", "................"],
+        'trident': ["..........1.1.1.", "..........1.1.1.", "..........1.111.", "..........1111..", "...........12...", "..........12....",
+                    ".........12.....", "........12......", ".......12.......", "......32........", ".....33.........", "....22..........",
+                    "...22...........", "..22............", ".22.............", "................"],
+        'axe': ["................", ".........1111...", "........111111..", ".......11112211.", ".......1112.221.", "........12..21..",
+                ".......32....1..", "......32........", ".....32.........", "....32..........", "...32...........", "..32............",
+                ".32.............", "32..............", "................", "................"],
+        'gauntlet': ["................", "....11.11.11....", "....12.12.12.1..", "....12.12.12.12.", "....1222222212..", "....12222222....",
+                     "....12222222....", ".....2222222....", ".....3333333....", ".....2222222....", ".....2222222....", "......22222.....",
+                     "......33333.....", "......22222.....", "................", "................"],
+        'shield': ["................", "..111111111111..", "..122222222221..", "..122233322221..", "..122233322221..", "..123333333321..",
+                   "..123333333321..", "..122233322221..", "..122233322221..", "...1222332221...", "...1222222221...", "....12222221....",
+                   ".....122221.....", "......1221......", ".......11.......", "................"],
+        'orb': ["................", ".....222222.....", "...2211111122...", "..221111111122..", "..211133331112..", ".21113333331112.",
+                ".21133311333112.", ".21133133133112.", ".21133133133112.", ".21133311333112.", ".21113333331112.", "..211133331112..",
+                "..221111111122..", "...2211111122...", ".....222222.....", "................"],
+        'ring': ["................", "................", ".....333333.....", "...3311111133...", "..331......133..", "..31........13..",
+                 ".31..........13.", ".31..........13.", ".31..........13.", ".31..........13.", "..31........13..", "..331......133..",
+                 "...3311111133...", ".....333333.....", "................", "................"],
+        'cup': ["................", "..222222222222..", "..211111111112..", "..213333333312..", "..213333333312..", "...2111111112...",
+                "....21111112....", ".....222222.....", ".......22.......", ".......22.......", ".......22.......", "......2222......",
+                "....22222222....", "....23333332....", "................", "................"],
+        'hourglass': ["................", "...3333333333...", "...2111111112...", "....21111112....", "....21111112....", ".....211112.....",
+                      "......2112......", ".......22.......", ".......22.......", "......2..2......", ".....2.11.2.....", "....2..11..2....",
+                      "....2.1111.2....", "...2111111112...", "...3333333333...", "................"],
+        'shard': ["................", ".........1......", "........111.....", "........1121....", ".......11122....", ".......11122....",
+                  "......1112223...", "......1112223...", ".....11122223...", ".....1112223....", "......112223....", "......12223.....",
+                  ".......2223.....", ".......223......", "........3.......", "................"],
+        'drop': ["................", ".......11.......", ".......11.......", "......1111......", "......1121......", ".....111221.....",
+                 ".....111222.....", "....11112222....", "....11122223....", "....11122223....", "....11222233....", "....12222233....",
+                 ".....222233.....", "......2333......", "................", "................"],
+    }
+    for it in IT.WEAPONS + IT.RELICS:
+        img = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+        px = img.load()
+        cols = [hex_rgb(c) for c in it['colors']]
+        rows = SHAPES[it['shape']]
+        for y, row in enumerate(rows):
+            for x, ch in enumerate(row.ljust(16, '.')[:16]):
+                if ch != '.':
+                    px[x, y] = cols[int(ch) - 1] + (255,)
+        # Contour sombre : l'icône reste lisible sur n'importe quel fond.
+        outline = Image.new('RGBA', (16, 16), (0, 0, 0, 0))
+        po = outline.load()
+        for y in range(16):
+            for x in range(16):
+                if px[x, y][3] == 0 and any(0 <= x + dx < 16 and 0 <= y + dy < 16 and px[x + dx, y + dy][3] for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))):
+                    po[x, y] = (24, 18, 36, 255)
+        outline.alpha_composite(img)
+        outline.save(os.path.join(out_dir, it['id'] + '.png'))
+
+
+def check_book():
+    """Vérifie que chaque page du carnet tient dans un livre (14 lignes de 114 pixels), largeurs de la police vanilla."""
+    narrow = {'i': 2, 'l': 3, 't': 4, 'I': 4, 'f': 5, 'k': 5, '.': 2, ',': 2, ':': 2, ';': 2, '!': 2, "'": 2, ' ': 4, '’': 3}
+    def width(word):
+        return sum(narrow.get(ch, 6) for ch in word)
+    for lang_name, table in (('fr', LANG_FR), ('en', LANG_EN)):
+        for key, text in table.items():
+            if not key.startswith('trounoir.book.page'):
+                continue
+            lines = 0
+            for para in text.split('\n'):
+                lines += 1
+                x = 0
+                for word in para.split(' '):
+                    w = width(word)
+                    if x and x + 4 + w > 114:
+                        lines += 1
+                        x = w
+                    else:
+                        x += (4 if x else 0) + w
+            if lines > 14:
+                raise SystemExit('%s (%s) : %d lignes, la page déborde' % (key, lang_name, lines))
 
 
 def gen_block_assets():
@@ -545,6 +670,8 @@ def main():
     gen_data()
     gen_textures()
     gen_block_assets()
+    gen_item_textures()
+    check_book()
     gen_lang()
     # docs/EQUILIBRAGE.md : le texte au-dessus du marqueur est écrit à la main, les tableaux en dessous sont régénérés.
     marker = '<!-- TABLES -->'

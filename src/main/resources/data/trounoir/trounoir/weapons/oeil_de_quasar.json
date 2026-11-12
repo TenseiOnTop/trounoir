@@ -1,0 +1,12 @@
+{
+  "type": "beam",
+  "cooldown": 30,
+  "params": {
+    "range": 64,
+    "damage": 20,
+    "pierce": true,
+    "width": 1.2,
+    "particle": "minecraft:end_rod",
+    "sound": "minecraft:entity.warden.sonic_boom"
+  }
+}

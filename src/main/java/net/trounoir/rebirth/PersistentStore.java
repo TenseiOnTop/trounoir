@@ -45,6 +45,8 @@ public final class PersistentStore {
         public Set<String> knowledge = new LinkedHashSet<>();
         public Set<String> places = new LinkedHashSet<>();
         public Set<String> weaknesses = new LinkedHashSet<>();
+        /** relique -> lieu où son coffre a été trouvé. */
+        public Map<String, String> relics = new HashMap<>();
         /** Nom choisi pour la prochaine vie (vide pour la toute première). */
         public String nextName = "";
         /** Vrai entre la mort et le choix de l'Écho/du nom. */
@@ -149,6 +151,7 @@ public final class PersistentStore {
         if (memory.knowledge == null) memory.knowledge = new LinkedHashSet<>();
         if (memory.places == null) memory.places = new LinkedHashSet<>();
         if (memory.weaknesses == null) memory.weaknesses = new LinkedHashSet<>();
+        if (memory.relics == null) memory.relics = new HashMap<>();
         if (memory.nextName == null) memory.nextName = "";
         return memory;
     }
