@@ -1,0 +1,26 @@
+{
+  "unique": false,
+  "category": "peasant",
+  "faction": "nebulosia",
+  "rank": 1,
+  "behavior": "civilian",
+  "health": 20,
+  "damage": 2,
+  "speed": 0.25,
+  "kill_reputation": {
+    "nebulosia": -10
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 4,
+  "texture": "trounoir:textures/entity/character/paysan.png",
+  "moves": [],
+  "grants": [
+    "trounoir:labeur_humain",
+    "trounoir:langue_commune",
+    {
+      "id": "trounoir:chemin_de_clairmoulin",
+      "chance": 0.5
+    }
+  ],
+  "on_death": []
+}

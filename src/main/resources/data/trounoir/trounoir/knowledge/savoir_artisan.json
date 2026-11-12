@@ -1,0 +1,11 @@
+{
+  "icon": "minecraft:crafting_table",
+  "knowledge_type": "recipe",
+  "recipes": [
+    "minecraft:iron_pickaxe",
+    "minecraft:iron_sword",
+    "minecraft:shield",
+    "minecraft:bread",
+    "minecraft:furnace"
+  ]
+}

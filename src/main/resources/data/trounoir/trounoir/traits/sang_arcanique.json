@@ -1,0 +1,14 @@
+{
+  "tags": [
+    "arcane"
+  ],
+  "max_level": 5,
+  "power": 2,
+  "icon": "minecraft:glowstone_dust",
+  "bonus": {
+    "stats": {
+      "magic_power": 8,
+      "cooldown_reduction_pct": 3
+    }
+  }
+}

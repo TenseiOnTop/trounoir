@@ -1,0 +1,30 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "city",
+  "distance": 700,
+  "angle": 0,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:polished_deepslate",
+    "secondary": "minecraft:pink_terracotta",
+    "accent": "minecraft:gold_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:citoyen",
+      "count": 10
+    },
+    {
+      "character": "trounoir:legionnaire",
+      "count": 6
+    },
+    {
+      "character": "trounoir:magistere",
+      "count": 2
+    },
+    {
+      "character": "trounoir:pretorien",
+      "count": 2
+    }
+  ]
+}

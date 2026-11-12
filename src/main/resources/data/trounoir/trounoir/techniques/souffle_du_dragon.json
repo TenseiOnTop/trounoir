@@ -1,0 +1,27 @@
+{
+  "tags": [
+    "feu",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:dragon_breath",
+  "type": "aoe",
+  "cooldown": 18,
+  "hunger_cost": 3,
+  "params": {
+    "radius": 9,
+    "cone_angle": 50,
+    "damage": 14,
+    "effects": [
+      {
+        "effect": "minecraft:wither",
+        "duration": 100,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:dragon_breath",
+    "sound": "minecraft:entity.ender_dragon.growl"
+  },
+  "signature": true
+}

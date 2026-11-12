@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:ender_dragon",
+  "rank": 6,
+  "grants": [
+    "trounoir:sang_de_dragon",
+    "trounoir:souffle_du_dragon"
+  ]
+}

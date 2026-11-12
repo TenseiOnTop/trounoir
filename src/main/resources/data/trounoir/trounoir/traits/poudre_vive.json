@@ -1,0 +1,13 @@
+{
+  "tags": [
+    "feu"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:gunpowder",
+  "bonus": {
+    "stats": {
+      "explosion_reduction_pct": 20
+    }
+  }
+}

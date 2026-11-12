@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "vitesse"
+  ],
+  "max_level": 3,
+  "power": 2,
+  "icon": "minecraft:breeze_rod",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.03,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.jump_strength",
+        "amount": 0.04,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 20
+    },
+    "relief": {
+      "lenteur": 1
+    }
+  }
+}

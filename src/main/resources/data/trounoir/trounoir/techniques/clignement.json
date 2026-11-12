@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "ombre",
+    "arcane"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:ender_pearl",
+  "type": "blink",
+  "cooldown": 12,
+  "hunger_cost": 1,
+  "params": {
+    "range": 12
+  }
+}

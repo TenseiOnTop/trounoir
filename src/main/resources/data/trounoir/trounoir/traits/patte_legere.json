@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "vitesse",
+    "bete"
+  ],
+  "max_level": 5,
+  "power": 1,
+  "icon": "minecraft:rabbit_foot",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.04,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "relief": {
+      "lenteur": 1
+    }
+  }
+}

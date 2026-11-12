@@ -1,0 +1,32 @@
+{
+  "tags": [
+    "divin",
+    "vitesse",
+    "givre"
+  ],
+  "max_level": 1,
+  "power": 40,
+  "icon": "minecraft:packed_ice",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.35,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.jump_strength",
+        "amount": 0.2,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 100,
+      "frost_touch": 1
+    },
+    "relief": {
+      "lenteur": 6
+    }
+  },
+  "signature": true
+}

@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "divin",
+    "distance"
+  ],
+  "max_level": 1,
+  "power": 48,
+  "icon": "minecraft:end_crystal",
+  "bonus": {
+    "stats": {
+      "ranged_damage_pct": 80,
+      "lifesteal_pct": 10,
+      "all_damage_pct": 20,
+      "perception_range": 48
+    }
+  },
+  "signature": true
+}

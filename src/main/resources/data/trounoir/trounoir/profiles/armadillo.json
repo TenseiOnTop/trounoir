@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:armadillo",
+  "rank": 0,
+  "grants": [
+    "trounoir:carapace"
+  ]
+}

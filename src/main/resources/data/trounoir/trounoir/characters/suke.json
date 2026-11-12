@@ -1,0 +1,129 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 260,
+  "damage": 20,
+  "armor": 10,
+  "speed": 0.3,
+  "follow_range": 64,
+  "held_item": "minecraft:spyglass",
+  "phases": [
+    0.5
+  ],
+  "weakness": "melee",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/suke.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "rifle",
+      "shape": "line",
+      "size": 40,
+      "width": 1.4,
+      "damage": 24,
+      "telegraph": 22,
+      "cooldown": 50,
+      "min_range": 3,
+      "max_range": 40,
+      "weight": 4,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.firework_rocket.blast"
+    },
+    {
+      "id": "scatter",
+      "shape": "line",
+      "size": 30,
+      "width": 4.0,
+      "damage": 18,
+      "telegraph": 30,
+      "cooldown": 130,
+      "min_range": 3,
+      "max_range": 30,
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "retreat",
+      "shape": "circle",
+      "size": 1.5,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 10,
+      "cooldown": 120,
+      "min_range": 0,
+      "max_range": 7,
+      "pre": "retreat",
+      "spread": 14,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "mortar",
+      "shape": "circle",
+      "size": 2.5,
+      "anchor": "target",
+      "count": 5,
+      "spread": 9,
+      "damage": 20,
+      "telegraph": 26,
+      "cooldown": 150,
+      "min_range": 3,
+      "max_range": 40,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.firework_rocket.blast",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:oeil_de_suke",
+    "trounoir:tir_hypernova",
+    "trounoir:tir_tendu"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:noctalys",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.suke_fallen",
+      "only_if_player": false
+    }
+  ]
+}

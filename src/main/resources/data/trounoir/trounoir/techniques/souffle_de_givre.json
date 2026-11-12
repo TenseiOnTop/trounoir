@@ -1,0 +1,25 @@
+{
+  "tags": [
+    "givre"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:snowball",
+  "type": "aoe",
+  "cooldown": 12,
+  "hunger_cost": 1,
+  "params": {
+    "radius": 7,
+    "cone_angle": 60,
+    "damage": 5,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 100,
+        "amplifier": 2
+      }
+    ],
+    "particle": "minecraft:snowflake",
+    "sound": "minecraft:entity.player.hurt_freeze"
+  }
+}

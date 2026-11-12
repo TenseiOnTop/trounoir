@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:donkey",
+  "rank": 1,
+  "grants": [
+    "trounoir:cuir_epais",
+    {
+      "id": "trounoir:galop",
+      "chance": 0.5
+    }
+  ]
+}

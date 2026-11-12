@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:zombie_villager",
+  "rank": 1,
+  "grants": [
+    "trounoir:vigueur_morte",
+    {
+      "id": "trounoir:labeur_humain",
+      "chance": 0.3
+    }
+  ]
+}

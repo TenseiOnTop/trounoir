@@ -1,0 +1,34 @@
+{
+  "unique": true,
+  "category": "demigod",
+  "faction": "sauvage",
+  "rank": 5,
+  "behavior": "hostile",
+  "health": 200,
+  "damage": 14,
+  "base_entity": "minecraft:spider",
+  "armor": 8,
+  "speed": 0.36,
+  "scale": 2.4,
+  "knockback_resistance": 0.5,
+  "follow_range": 32,
+  "weakness": "fire",
+  "weakness_multiplier": 1.5,
+  "moves": [],
+  "grants": [
+    "trounoir:toile_de_la_veuve",
+    "trounoir:bond",
+    "trounoir:venin"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": 25
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.widow_dead"
+    }
+  ]
+}

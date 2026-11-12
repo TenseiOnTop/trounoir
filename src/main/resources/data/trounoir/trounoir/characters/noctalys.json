@@ -1,0 +1,128 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 250,
+  "damage": 24,
+  "armor": 8,
+  "speed": 0.38,
+  "follow_range": 40,
+  "held_item": "minecraft:netherite_sword",
+  "phases": [
+    0.5
+  ],
+  "weakness": "explosion",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/noctalys.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 2.8,
+      "angle": 90,
+      "damage": 22,
+      "telegraph": 9,
+      "cooldown": 18,
+      "max_range": 2.8,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "ambush",
+      "shape": "circle",
+      "size": 2.5,
+      "anchor": "target",
+      "damage": 28,
+      "telegraph": 14,
+      "cooldown": 60,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 4,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "knives",
+      "shape": "line",
+      "size": 20,
+      "width": 1.0,
+      "damage": 16,
+      "telegraph": 12,
+      "cooldown": 90,
+      "min_range": 5,
+      "max_range": 20,
+      "projectile": "arrow",
+      "projectile_count": 3,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.arrow.shoot"
+    },
+    {
+      "id": "eclipse",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "damage": 32,
+      "telegraph": 12,
+      "cooldown": 45,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 4,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:linceul_de_noctalys",
+    "trounoir:eclipse",
+    "trounoir:pas_feutre"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:suke",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

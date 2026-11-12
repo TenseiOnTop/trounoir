@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:llama",
+  "rank": 1,
+  "grants": [
+    "trounoir:cuir_epais"
+  ]
+}

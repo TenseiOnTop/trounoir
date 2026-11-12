@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:cow",
+  "rank": 1,
+  "grants": [
+    "trounoir:chair_rustique"
+  ]
+}

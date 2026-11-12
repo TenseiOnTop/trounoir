@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "lame",
+    "feu"
+  ],
+  "max_level": 1,
+  "power": 4,
+  "icon": "minecraft:blaze_rod",
+  "type": "aoe",
+  "cooldown": 10,
+  "hunger_cost": 1,
+  "params": {
+    "radius": 5,
+    "cone_angle": 120,
+    "damage": 12,
+    "damage_type": "physical",
+    "ignite": 5,
+    "particle": "minecraft:flame"
+  },
+  "signature": true
+}

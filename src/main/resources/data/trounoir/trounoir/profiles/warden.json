@@ -1,0 +1,9 @@
+{
+  "entity": "minecraft:warden",
+  "rank": 6,
+  "grants": [
+    "trounoir:ossature_abyssale",
+    "trounoir:onde_sonique",
+    "trounoir:echolocation"
+  ]
+}

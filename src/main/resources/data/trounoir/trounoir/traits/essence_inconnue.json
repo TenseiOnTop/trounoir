@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "bete"
+  ],
+  "max_level": 3,
+  "power": 0.5,
+  "icon": "minecraft:ghast_tear",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ]
+  }
+}

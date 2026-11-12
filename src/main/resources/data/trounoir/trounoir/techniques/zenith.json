@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "divin",
+    "feu"
+  ],
+  "max_level": 1,
+  "power": 17,
+  "icon": "minecraft:sunflower",
+  "type": "aoe",
+  "cooldown": 22,
+  "hunger_cost": 3,
+  "params": {
+    "radius": 14,
+    "damage": 38,
+    "ignite": 10,
+    "particle": "minecraft:flame",
+    "sound": "minecraft:entity.blaze.shoot"
+  },
+  "signature": true
+}

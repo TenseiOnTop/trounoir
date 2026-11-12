@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:cave_spider",
+  "rank": 1,
+  "grants": [
+    "trounoir:venin",
+    "trounoir:yeux_de_nuit"
+  ]
+}

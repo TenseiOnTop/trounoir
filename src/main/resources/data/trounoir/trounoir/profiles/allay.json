@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:allay",
+  "rank": 0,
+  "grants": [
+    "trounoir:esprit_malin"
+  ]
+}

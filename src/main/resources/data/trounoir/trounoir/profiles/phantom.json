@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:phantom",
+  "rank": 1,
+  "grants": [
+    "trounoir:plane",
+    "trounoir:oeil_d_aigle"
+  ]
+}

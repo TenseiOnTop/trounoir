@@ -1,0 +1,24 @@
+{
+  "tags": [
+    "givre",
+    "arcane",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:blue_ice",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "magic_power": 20,
+      "frost_touch": 1
+    }
+  },
+  "signature": true
+}

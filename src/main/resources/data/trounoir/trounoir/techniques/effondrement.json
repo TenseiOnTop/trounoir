@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "divin"
+  ],
+  "max_level": 1,
+  "power": 20,
+  "icon": "minecraft:crying_obsidian",
+  "type": "aoe",
+  "cooldown": 25,
+  "hunger_cost": 3,
+  "params": {
+    "radius": 16,
+    "damage": 50,
+    "pull": 2.5,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 100,
+        "amplifier": 4
+      }
+    ],
+    "particle": "minecraft:reverse_portal",
+    "sound": "minecraft:entity.wither.break_block"
+  },
+  "signature": true
+}

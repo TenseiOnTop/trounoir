@@ -1,0 +1,108 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 9,
+  "behavior": "boss",
+  "health": 900,
+  "damage": 34,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 2.0,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "melee",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/nebula.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "stellar_nursery",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "target",
+      "count": 7,
+      "spread": 12,
+      "damage": 34,
+      "telegraph": 30,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:witch",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "veil",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "target",
+      "damage": 36,
+      "telegraph": 18,
+      "cooldown": 110,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "cradle",
+      "shape": "circle",
+      "size": 12,
+      "anchor": "self",
+      "damage": 40,
+      "telegraph": 32,
+      "cooldown": 170,
+      "max_range": 12,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:witch",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "pull": 2.0
+    },
+    {
+      "id": "rebirth",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 40,
+      "cooldown": 700,
+      "max_range": 3,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:heart",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "heal": 180
+    }
+  ],
+  "grants": [
+    "trounoir:berceau_de_nebula",
+    "trounoir:genese"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:sol",
+      "delay": 6000
+    }
+  ]
+}

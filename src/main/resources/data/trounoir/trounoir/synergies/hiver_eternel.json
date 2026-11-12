@@ -1,0 +1,18 @@
+{
+  "power": 4,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "frost_touch": 1
+    }
+  },
+  "requires_tags": {
+    "givre": 2
+  }
+}

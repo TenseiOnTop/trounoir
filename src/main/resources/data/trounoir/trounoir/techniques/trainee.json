@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "divin",
+    "vitesse"
+  ],
+  "max_level": 1,
+  "power": 15,
+  "icon": "minecraft:packed_ice",
+  "type": "dash",
+  "cooldown": 4,
+  "hunger_cost": 0,
+  "params": {
+    "strength": 3.2,
+    "damage": 20,
+    "ticks": 12
+  },
+  "signature": true
+}

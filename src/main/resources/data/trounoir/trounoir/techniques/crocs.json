@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "arcane"
+  ],
+  "max_level": 3,
+  "power": 3.5,
+  "icon": "minecraft:iron_nugget",
+  "type": "beam",
+  "cooldown": 10,
+  "hunger_cost": 1,
+  "params": {
+    "range": 10,
+    "damage": 7,
+    "pierce": true,
+    "width": 0.8,
+    "particle": "minecraft:crit",
+    "sound": "minecraft:entity.evoker_fangs.attack"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "tags": [
+    "distance"
+  ],
+  "max_level": 5,
+  "power": 3,
+  "icon": "minecraft:crossbow",
+  "bonus": {
+    "stats": {
+      "ranged_damage_pct": 8
+    }
+  }
+}

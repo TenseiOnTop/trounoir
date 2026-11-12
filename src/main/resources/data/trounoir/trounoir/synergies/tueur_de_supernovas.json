@@ -1,0 +1,21 @@
+{
+  "power": 10,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 8,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "all_damage_pct": 10
+    }
+  },
+  "requires_all": [
+    "trounoir:flamme_d_aldric",
+    "trounoir:givre_de_lysmene",
+    "trounoir:ombre_de_corvin",
+    "trounoir:corps_de_hestia"
+  ]
+}

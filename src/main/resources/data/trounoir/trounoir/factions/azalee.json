@@ -1,0 +1,17 @@
+{
+  "color": "#a03a6a",
+  "hunt_squad": [
+    {
+      "character": "trounoir:legionnaire",
+      "count": 3
+    },
+    {
+      "character": "trounoir:tirailleur",
+      "count": 1
+    },
+    {
+      "character": "trounoir:pretorien",
+      "count": 1
+    }
+  ]
+}

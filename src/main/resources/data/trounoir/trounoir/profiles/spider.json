@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:spider",
+  "rank": 1,
+  "grants": [
+    "trounoir:yeux_de_nuit",
+    {
+      "id": "trounoir:bond",
+      "chance": 0.6
+    }
+  ]
+}

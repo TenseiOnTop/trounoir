@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "ombre",
+    "arcane"
+  ],
+  "max_level": 3,
+  "power": 2.5,
+  "icon": "minecraft:ender_pearl",
+  "bonus": {
+    "stats": {
+      "stealth": 8,
+      "magic_power": 4
+    }
+  }
+}

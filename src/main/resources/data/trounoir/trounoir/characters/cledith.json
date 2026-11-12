@@ -1,0 +1,141 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 340,
+  "damage": 22,
+  "armor": 20,
+  "speed": 0.33,
+  "knockback_resistance": 0.5,
+  "follow_range": 40,
+  "held_item": "minecraft:netherite_sword",
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "projectile",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/cledith.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.6,
+      "angle": 120,
+      "damage": 22,
+      "telegraph": 12,
+      "cooldown": 20,
+      "max_range": 3.6,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "crescent",
+      "shape": "cone",
+      "size": 5,
+      "angle": 200,
+      "damage": 26,
+      "telegraph": 18,
+      "cooldown": 70,
+      "max_range": 5,
+      "weight": 2,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 12,
+      "width": 2.0,
+      "damage": 26,
+      "telegraph": 16,
+      "cooldown": 70,
+      "min_range": 3,
+      "max_range": 12,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "flash_step",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "damage": 24,
+      "telegraph": 14,
+      "cooldown": 100,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.enderman.teleport",
+      "min_phase": 1
+    },
+    {
+      "id": "thousand_blades",
+      "shape": "circle",
+      "size": 7,
+      "anchor": "self",
+      "damage": 30,
+      "telegraph": 24,
+      "cooldown": 160,
+      "max_range": 7,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:maitrise_de_cledith",
+    "trounoir:mille_lames",
+    "trounoir:art_de_l_epee"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:zephyrine",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

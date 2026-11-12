@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "perception"
+  ],
+  "max_level": 3,
+  "power": 0.5,
+  "icon": "minecraft:emerald",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.luck",
+        "amount": 0.5,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faim": 0.5
+    }
+  }
+}

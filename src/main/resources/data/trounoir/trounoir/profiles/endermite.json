@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:endermite",
+  "rank": 0,
+  "grants": [
+    "trounoir:fouisseur",
+    {
+      "id": "trounoir:voile_d_ender",
+      "chance": 0.3
+    }
+  ]
+}

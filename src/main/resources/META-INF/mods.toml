@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[52,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="trounoir"
+version="1.0.0"
+displayName="Trou-Noir"
+authors="brisuree"
+description='''Vous êtes le Dieu Trou-Noir, le plus faible des Dieux.
+Absorbez ce que vous tuez. Mourez. Renaissez. Souvenez-vous. Tuez Higgs.'''
+
+[[dependencies.trounoir]]
+    modId="forge"
+    mandatory=true
+    versionRange="[52.1.20,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.trounoir]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="BOTH"

@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:squid",
+  "rank": 0,
+  "grants": [
+    "trounoir:nage"
+  ]
+}

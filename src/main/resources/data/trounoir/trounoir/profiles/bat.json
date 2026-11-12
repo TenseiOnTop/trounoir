@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:bat",
+  "rank": 0,
+  "grants": [
+    "trounoir:echolocation"
+  ]
+}

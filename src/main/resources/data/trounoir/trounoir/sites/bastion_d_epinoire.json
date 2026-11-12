@@ -1,0 +1,30 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "fortress",
+  "distance": 1100,
+  "angle": 120,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:deepslate_tiles",
+    "secondary": "minecraft:polished_deepslate",
+    "accent": "minecraft:iron_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:cledith",
+      "count": 1
+    },
+    {
+      "character": "trounoir:bragor",
+      "count": 1
+    },
+    {
+      "character": "trounoir:legionnaire",
+      "count": 8
+    },
+    {
+      "character": "trounoir:pretorien",
+      "count": 4
+    }
+  ]
+}

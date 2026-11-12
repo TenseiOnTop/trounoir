@@ -1,0 +1,13 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "stealth": 20,
+      "backstab_pct": 30
+    }
+  },
+  "requires_tags": {
+    "ombre": 2,
+    "perception": 2
+  }
+}

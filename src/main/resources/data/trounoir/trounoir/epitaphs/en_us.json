@@ -1,0 +1,302 @@
+{
+  "language": "en_us",
+  "openings": [
+    "Here lies {name}.",
+    "{name}: {duration} of stolen light.",
+    "Life {number}. {name}.",
+    "They called this one {name}.",
+    "{name} burned for {duration}.",
+    {
+      "text": "This one had no name.",
+      "when": {
+        "nameless": true
+      }
+    },
+    {
+      "text": "Nameless, weightless, unwitnessed.",
+      "when": {
+        "nameless": true
+      }
+    },
+    {
+      "text": "There was no one yet to ask his name.",
+      "when": {
+        "nameless": true,
+        "max_life": 1
+      }
+    },
+    {
+      "text": "{name} had no time to become someone.",
+      "when": {
+        "max_minutes": 5
+      }
+    },
+    {
+      "text": "{name}. Barely a breath.",
+      "when": {
+        "max_minutes": 3
+      }
+    },
+    {
+      "text": "{name}, who lasted {duration} and filled them all.",
+      "when": {
+        "min_minutes": 120
+      }
+    },
+    {
+      "text": "{name}, star number {number}.",
+      "when": {
+        "min_life": 5
+      }
+    },
+    {
+      "text": "Another one. {name}.",
+      "when": {
+        "min_life": 10
+      }
+    },
+    {
+      "text": "{name}, who walked among the Gods.",
+      "when": {
+        "min_rank": 8
+      }
+    },
+    {
+      "text": "Here ends {name}, and with him the Father.",
+      "when": {
+        "victory": true
+      }
+    }
+  ],
+  "bodies": [
+    "Rank {rank}, {kills} dead in his wake.",
+    "He followed {path} as far as it led.",
+    "He kept {absorption} inside him.",
+    "He took {kills} lives and kept none.",
+    {
+      "text": "He killed nothing and was nothing.",
+      "when": {
+        "max_kills": 0
+      }
+    },
+    {
+      "text": "He had time to learn only hunger.",
+      "when": {
+        "max_kills": 2,
+        "max_rank": 0
+      }
+    },
+    {
+      "text": "His blade spoke for him.",
+      "when": {
+        "path": "lame"
+      }
+    },
+    {
+      "text": "He made fire his only tongue.",
+      "when": {
+        "path": "feu"
+      }
+    },
+    {
+      "text": "He was almost never seen coming.",
+      "when": {
+        "path": "ombre"
+      }
+    },
+    {
+      "text": "He took what would have killed ten men.",
+      "when": {
+        "path": "endurance"
+      }
+    },
+    {
+      "text": "He saw what would kill him, from very far away.",
+      "when": {
+        "path": "perception"
+      }
+    },
+    {
+      "text": "He outran his sentence, for a while.",
+      "when": {
+        "path": "vitesse"
+      }
+    },
+    {
+      "text": "He bit, clawed, hunted: a beast among beasts.",
+      "when": {
+        "path": "bete"
+      }
+    },
+    {
+      "text": "He bent the world with other people's magic.",
+      "when": {
+        "path": "arcane"
+      }
+    },
+    {
+      "text": "He killed from afar, cleanly.",
+      "when": {
+        "path": "distance"
+      }
+    },
+    {
+      "text": "He left a winter behind him.",
+      "when": {
+        "path": "givre"
+      }
+    },
+    {
+      "text": "The dead lent him their patience.",
+      "when": {
+        "path": "mort"
+      }
+    },
+    {
+      "text": "His blood turned to poison, and he used it.",
+      "when": {
+        "path": "venin"
+      }
+    },
+    {
+      "text": "He carried the light of dead stars.",
+      "when": {
+        "path": "astral"
+      }
+    },
+    {
+      "text": "He devoured his own family.",
+      "when": {
+        "path": "divin"
+      }
+    },
+    {
+      "text": "{kills} dead: nearly a war all by himself.",
+      "when": {
+        "min_kills": 150
+      }
+    },
+    {
+      "text": "He felled names thought eternal.",
+      "when": {
+        "min_uniques": 3
+      }
+    },
+    {
+      "text": "Kingdoms will mourn him without knowing his face.",
+      "when": {
+        "min_uniques": 6
+      }
+    },
+    {
+      "text": "He reached rank {rank}: enough to be feared.",
+      "when": {
+        "min_rank": 5
+      }
+    },
+    {
+      "text": "He killed Higgs. There is nothing to add.",
+      "when": {
+        "victory": true
+      }
+    }
+  ],
+  "closings": [
+    "Killed by {killer}, at {place}.",
+    "{killer} ended it, at {place}.",
+    "He went out at {place}. He will light again.",
+    "Death kept only the body.",
+    "He will remember.",
+    {
+      "text": "The world itself saw to it, at {place}.",
+      "when": {
+        "killer_category": "world"
+      }
+    },
+    {
+      "text": "A fall, a flame, a trifle: the world sufficed.",
+      "when": {
+        "killer_category": "world"
+      }
+    },
+    {
+      "text": "A mere beast, {killer}, was enough.",
+      "when": {
+        "killer_category": "beast"
+      }
+    },
+    {
+      "text": "{killer} was only a beast. He will remember.",
+      "when": {
+        "killer_category": "beast",
+        "max_rank": 1
+      }
+    },
+    {
+      "text": "A peasant. A mere peasant.",
+      "when": {
+        "killer_category": "peasant"
+      }
+    },
+    {
+      "text": "A nameless soldier did what no God had deigned to do.",
+      "when": {
+        "killer_category": "soldier"
+      }
+    },
+    {
+      "text": "A knight sent him back where he came from.",
+      "when": {
+        "killer_category": "knight"
+      }
+    },
+    {
+      "text": "A spell undid him, cast by {killer}.",
+      "when": {
+        "killer_category": "mage"
+      }
+    },
+    {
+      "text": "{killer}, Supernova, showed him what a perfected mortal is.",
+      "when": {
+        "killer_category": "supernova"
+      }
+    },
+    {
+      "text": "{killer}, Hypernova: he was not yet on that scale.",
+      "when": {
+        "killer_category": "hypernova"
+      }
+    },
+    {
+      "text": "Segaroth had a thousand years' head start.",
+      "when": {
+        "killer_category": "emperor"
+      }
+    },
+    {
+      "text": "{killer}, demigod, crushed him at {place}.",
+      "when": {
+        "killer_category": "demigod"
+      }
+    },
+    {
+      "text": "{killer}, of his own blood, sent him back into the past.",
+      "when": {
+        "killer_category": "god"
+      }
+    },
+    {
+      "text": "A God had to step in: {killer}. That alone is a confession.",
+      "when": {
+        "killer_category": "god"
+      }
+    },
+    {
+      "text": "The Father is dead. So is he, but he will return.",
+      "when": {
+        "victory": true
+      }
+    }
+  ]
+}

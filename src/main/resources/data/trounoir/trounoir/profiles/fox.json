@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:fox",
+  "rank": 1,
+  "grants": [
+    "trounoir:patte_legere",
+    "trounoir:pas_feutre"
+  ]
+}

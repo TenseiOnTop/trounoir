@@ -1,0 +1,13 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "fire_touch": 1,
+      "melee_damage_pct": 6
+    }
+  },
+  "requires_tags": {
+    "lame": 2,
+    "feu": 2
+  }
+}

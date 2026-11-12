@@ -1,0 +1,123 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 8,
+  "behavior": "boss",
+  "health": 680,
+  "damage": 32,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 1.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "backstab",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/saturne.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "sentence",
+      "shape": "line",
+      "size": 28,
+      "width": 3,
+      "damage": 34,
+      "telegraph": 26,
+      "cooldown": 80,
+      "min_range": 4,
+      "max_range": 28,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "rings",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "count": 6,
+      "spread": 10,
+      "damage": 32,
+      "telegraph": 28,
+      "cooldown": 100,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:enchant",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "gavel",
+      "shape": "circle",
+      "size": 8,
+      "anchor": "self",
+      "damage": 36,
+      "telegraph": 24,
+      "cooldown": 120,
+      "max_range": 8,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:enchant",
+      "sound": "minecraft:entity.generic.explode",
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 80,
+          "amplifier": 3
+        }
+      ]
+    },
+    {
+      "id": "verdict",
+      "shape": "circle",
+      "size": 13,
+      "anchor": "self",
+      "damage": 44,
+      "telegraph": 34,
+      "cooldown": 240,
+      "max_range": 13,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:enchant",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "effects": [
+        {
+          "effect": "minecraft:weakness",
+          "duration": 160,
+          "amplifier": 2
+        },
+        {
+          "effect": "minecraft:slowness",
+          "duration": 100,
+          "amplifier": 3
+        }
+      ]
+    }
+  ],
+  "grants": [
+    "trounoir:balance_de_saturne",
+    "trounoir:verdict"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:higgs",
+      "delay": 6000
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:prismarine_shard",
+  "bonus": {
+    "stats": {
+      "thorns": 1
+    }
+  }
+}

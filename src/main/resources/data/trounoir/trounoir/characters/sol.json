@@ -1,0 +1,121 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 9,
+  "behavior": "boss",
+  "health": 820,
+  "damage": 38,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 2.2,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "magic",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/sol.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 32,
+      "width": 1.0,
+      "damage": 0,
+      "telegraph": 18,
+      "cooldown": 60,
+      "min_range": 5,
+      "max_range": 32,
+      "projectile": "large_fireball",
+      "projectile_count": 2,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "flares",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "target",
+      "count": 6,
+      "spread": 11,
+      "damage": 38,
+      "telegraph": 28,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "corona",
+      "shape": "cone",
+      "size": 9,
+      "angle": 90,
+      "damage": 40,
+      "telegraph": 20,
+      "cooldown": 70,
+      "max_range": 9,
+      "weight": 3,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "noon",
+      "shape": "circle",
+      "size": 12,
+      "anchor": "self",
+      "damage": 46,
+      "telegraph": 30,
+      "cooldown": 150,
+      "max_range": 12,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1
+    },
+    {
+      "id": "zenith",
+      "shape": "circle",
+      "size": 18,
+      "anchor": "self",
+      "damage": 60,
+      "telegraph": 44,
+      "cooldown": 320,
+      "max_range": 18,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:couronne_de_sol",
+    "trounoir:zenith"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:higgs",
+      "delay": 6000
+    }
+  ]
+}

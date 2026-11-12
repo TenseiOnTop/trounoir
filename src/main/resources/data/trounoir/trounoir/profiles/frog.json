@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:frog",
+  "rank": 0,
+  "grants": [
+    "trounoir:ressort",
+    {
+      "id": "trounoir:bond",
+      "chance": 0.4
+    }
+  ]
+}

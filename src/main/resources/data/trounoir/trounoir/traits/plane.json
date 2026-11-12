@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "vitesse",
+    "perception"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:phantom_membrane",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.safe_fall_distance",
+        "amount": 3,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 20
+    }
+  }
+}

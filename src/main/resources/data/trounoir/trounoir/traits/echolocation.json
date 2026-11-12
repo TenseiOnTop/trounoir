@@ -1,0 +1,13 @@
+{
+  "tags": [
+    "perception"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:echo_shard",
+  "bonus": {
+    "stats": {
+      "perception_range": 12
+    }
+  }
+}

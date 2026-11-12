@@ -1,0 +1,27 @@
+{
+  "tags": [
+    "lame",
+    "endurance"
+  ],
+  "max_level": 5,
+  "power": 2,
+  "icon": "minecraft:iron_chestplate",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 1,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 0.5,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faiblesse": 1,
+      "maladresse": 1
+    }
+  }
+}

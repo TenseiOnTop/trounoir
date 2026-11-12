@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:cod",
+  "rank": 0,
+  "grants": [
+    "trounoir:nage"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:axolotl",
+  "rank": 0,
+  "grants": [
+    "trounoir:regeneration_lente",
+    "trounoir:nage"
+  ]
+}

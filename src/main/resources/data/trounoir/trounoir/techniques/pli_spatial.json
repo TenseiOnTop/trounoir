@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:ender_eye",
+  "type": "blink",
+  "cooldown": 4,
+  "hunger_cost": 0,
+  "params": {
+    "range": 28
+  },
+  "signature": true
+}

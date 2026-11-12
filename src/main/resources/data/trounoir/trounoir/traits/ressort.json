@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "vitesse",
+    "bete"
+  ],
+  "max_level": 4,
+  "power": 1,
+  "icon": "minecraft:slime_ball",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.jump_strength",
+        "amount": 0.05,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.safe_fall_distance",
+        "amount": 1.5,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 10
+    },
+    "relief": {
+      "lenteur": 0.5
+    }
+  }
+}

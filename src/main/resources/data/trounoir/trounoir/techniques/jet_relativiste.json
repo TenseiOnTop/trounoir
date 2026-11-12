@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "divin",
+    "distance"
+  ],
+  "max_level": 1,
+  "power": 17,
+  "icon": "minecraft:end_crystal",
+  "type": "beam",
+  "cooldown": 12,
+  "hunger_cost": 2,
+  "params": {
+    "range": 96,
+    "damage": 45,
+    "pierce": true,
+    "width": 1.5,
+    "particle": "minecraft:end_rod",
+    "sound": "minecraft:entity.warden.sonic_boom"
+  },
+  "signature": true
+}

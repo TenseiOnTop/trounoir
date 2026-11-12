@@ -1,0 +1,31 @@
+{
+  "tags": [
+    "ombre",
+    "lame",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:black_candle",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.12,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "effects": [
+      {
+        "effect": "minecraft:night_vision",
+        "amplifier": 0,
+        "min_level": 1
+      }
+    ],
+    "stats": {
+      "stealth": 50,
+      "backstab_pct": 80
+    }
+  },
+  "signature": true
+}

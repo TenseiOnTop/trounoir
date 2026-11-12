@@ -1,0 +1,61 @@
+{
+  "unique": false,
+  "category": "soldier",
+  "faction": "azalee",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 60,
+  "damage": 11,
+  "armor": 14,
+  "speed": 0.28,
+  "held_item": "minecraft:diamond_sword",
+  "kill_reputation": {
+    "azalee": -10
+  },
+  "notoriety": 6,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/legionnaire.png",
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3,
+      "angle": 100,
+      "damage": 11,
+      "telegraph": 13,
+      "cooldown": 26,
+      "max_range": 3,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 8,
+      "width": 2.0,
+      "damage": 13,
+      "telegraph": 18,
+      "cooldown": 110,
+      "min_range": 3,
+      "max_range": 8,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    }
+  ],
+  "grants": [
+    "trounoir:discipline_imperiale",
+    {
+      "id": "trounoir:haut_azaleen",
+      "chance": 0.5
+    },
+    {
+      "id": "trounoir:cartes_imperiales",
+      "chance": 0.5
+    }
+  ],
+  "on_death": []
+}

@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "givre"
+  ],
+  "max_level": 3,
+  "power": 2,
+  "icon": "minecraft:snowball",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "frost_touch": 0.5
+    }
+  }
+}

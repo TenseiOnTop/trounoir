@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "lame"
+  ],
+  "max_level": 5,
+  "power": 3,
+  "icon": "minecraft:iron_sword",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": 0.03,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "stats": {
+      "melee_damage_pct": 6
+    },
+    "relief": {
+      "maladresse": 1
+    }
+  }
+}

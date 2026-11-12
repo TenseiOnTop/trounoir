@@ -1,0 +1,104 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 8,
+  "behavior": "boss",
+  "health": 600,
+  "damage": 30,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 1.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "projectile",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/pulsar.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "beat",
+      "shape": "circle",
+      "size": 6,
+      "anchor": "self",
+      "damage": 26,
+      "telegraph": 14,
+      "cooldown": 40,
+      "max_range": 6,
+      "knockback": 1.0,
+      "weight": 5,
+      "particle": "minecraft:sonic_boom",
+      "sound": "minecraft:block.note_block.basedrum"
+    },
+    {
+      "id": "off_beat",
+      "shape": "circle",
+      "size": 10,
+      "anchor": "self",
+      "damage": 32,
+      "telegraph": 20,
+      "cooldown": 90,
+      "max_range": 10,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:sonic_boom",
+      "sound": "minecraft:block.note_block.basedrum"
+    },
+    {
+      "id": "lighthouse",
+      "shape": "line",
+      "size": 30,
+      "width": 2.5,
+      "damage": 34,
+      "telegraph": 20,
+      "cooldown": 70,
+      "min_range": 4,
+      "max_range": 30,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "syncopation",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "count": 8,
+      "spread": 12,
+      "damage": 30,
+      "telegraph": 22,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:note",
+      "sound": "minecraft:block.note_block.bell",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:cadence_de_pulsar",
+    "trounoir:pulsation"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:quasar",
+      "delay": 6000
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "tags": [
+    "ombre",
+    "vitesse",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:black_dye",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.1,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "stats": {
+      "stealth": 25,
+      "backstab_pct": 40
+    }
+  },
+  "signature": true
+}

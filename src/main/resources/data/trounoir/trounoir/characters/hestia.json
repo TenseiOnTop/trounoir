@@ -1,0 +1,108 @@
+{
+  "unique": true,
+  "category": "supernova",
+  "faction": "nebulosia",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 180,
+  "damage": 12,
+  "armor": 18,
+  "speed": 0.26,
+  "knockback_resistance": 0.6,
+  "phases": [
+    0.4
+  ],
+  "weakness": "projectile",
+  "kill_reputation": {
+    "nebulosia": -40
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/hestia.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "hook",
+      "shape": "cone",
+      "size": 2.6,
+      "angle": 120,
+      "damage": 12,
+      "telegraph": 14,
+      "cooldown": 28,
+      "max_range": 2.6,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "slam",
+      "shape": "circle",
+      "size": 4.5,
+      "anchor": "self",
+      "damage": 15,
+      "telegraph": 22,
+      "cooldown": 110,
+      "max_range": 4.5,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:poof",
+      "sound": "minecraft:entity.generic.explode"
+    },
+    {
+      "id": "rush",
+      "shape": "line",
+      "size": 7,
+      "width": 2.0,
+      "damage": 14,
+      "telegraph": 18,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 7,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:corps_de_hestia",
+    "trounoir:peau_de_fer",
+    "trounoir:route_d_astrelune"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "nebulosia",
+      "duration": 24000
+    },
+    {
+      "type": "mourning",
+      "faction": "nebulosia",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "nebulosia",
+      "waves": 2,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:aldric",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.supernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

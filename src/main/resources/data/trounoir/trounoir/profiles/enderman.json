@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:enderman",
+  "rank": 2,
+  "grants": [
+    "trounoir:voile_d_ender",
+    {
+      "id": "trounoir:clignement",
+      "chance": 0.7
+    }
+  ]
+}

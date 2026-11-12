@@ -1,0 +1,12 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "ranged_damage_pct": 15
+    }
+  },
+  "requires_tags": {
+    "distance": 2,
+    "perception": 2
+  }
+}

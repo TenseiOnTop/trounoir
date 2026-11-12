@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "mort",
+    "distance"
+  ],
+  "max_level": 5,
+  "power": 1.5,
+  "icon": "minecraft:bone_meal",
+  "bonus": {
+    "stats": {
+      "ranged_damage_pct": 6
+    },
+    "relief": {
+      "maladresse": 0.5
+    }
+  }
+}

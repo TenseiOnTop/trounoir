@@ -1,0 +1,302 @@
+{
+  "language": "fr_fr",
+  "openings": [
+    "Ci-gît {name}.",
+    "{name} : {duration} de lumière volée.",
+    "Vie {number}. {name}.",
+    "On l'appela {name}.",
+    "{name} a brûlé {duration}.",
+    {
+      "text": "Celui-ci n'eut pas de nom.",
+      "when": {
+        "nameless": true
+      }
+    },
+    {
+      "text": "Sans nom, sans poids, sans témoin.",
+      "when": {
+        "nameless": true
+      }
+    },
+    {
+      "text": "Il n'y avait encore personne pour lui demander son nom.",
+      "when": {
+        "nameless": true,
+        "max_life": 1
+      }
+    },
+    {
+      "text": "{name} n'eut pas le temps d'être quelqu'un.",
+      "when": {
+        "max_minutes": 5
+      }
+    },
+    {
+      "text": "{name}. À peine un souffle.",
+      "when": {
+        "max_minutes": 3
+      }
+    },
+    {
+      "text": "{name}, qui dura {duration} et les remplit toutes.",
+      "when": {
+        "min_minutes": 120
+      }
+    },
+    {
+      "text": "{name}, la {number}ᵉ étoile.",
+      "when": {
+        "min_life": 5
+      }
+    },
+    {
+      "text": "Encore une. {name}.",
+      "when": {
+        "min_life": 10
+      }
+    },
+    {
+      "text": "{name}, qui marcha parmi les Dieux.",
+      "when": {
+        "min_rank": 8
+      }
+    },
+    {
+      "text": "Ici s'achève {name}, et avec lui le Père.",
+      "when": {
+        "victory": true
+      }
+    }
+  ],
+  "bodies": [
+    "Rang {rank}, {kills} morts dans son sillage.",
+    "Il suivit {path} aussi loin qu'elle menait.",
+    "Il garda en lui {absorption}.",
+    "Il prit {kills} vies et n'en garda aucune.",
+    {
+      "text": "Il ne tua rien et ne fut rien.",
+      "when": {
+        "max_kills": 0
+      }
+    },
+    {
+      "text": "Il n'eut le temps d'apprendre que la faim.",
+      "when": {
+        "max_kills": 2,
+        "max_rank": 0
+      }
+    },
+    {
+      "text": "Sa lame parla pour lui.",
+      "when": {
+        "path": "lame"
+      }
+    },
+    {
+      "text": "Il fit du feu sa seule langue.",
+      "when": {
+        "path": "feu"
+      }
+    },
+    {
+      "text": "On ne le vit presque jamais venir.",
+      "when": {
+        "path": "ombre"
+      }
+    },
+    {
+      "text": "Il encaissa ce qui aurait tué dix hommes.",
+      "when": {
+        "path": "endurance"
+      }
+    },
+    {
+      "text": "Il vit ce qui le tuerait, de très loin.",
+      "when": {
+        "path": "perception"
+      }
+    },
+    {
+      "text": "Il courut plus vite que sa condamnation, un moment.",
+      "when": {
+        "path": "vitesse"
+      }
+    },
+    {
+      "text": "Il mordit, griffa, chassa : une bête parmi les bêtes.",
+      "when": {
+        "path": "bete"
+      }
+    },
+    {
+      "text": "Il fit plier le monde par la magie des autres.",
+      "when": {
+        "path": "arcane"
+      }
+    },
+    {
+      "text": "Il tua de loin, proprement.",
+      "when": {
+        "path": "distance"
+      }
+    },
+    {
+      "text": "Il laissa derrière lui un hiver.",
+      "when": {
+        "path": "givre"
+      }
+    },
+    {
+      "text": "Les morts lui prêtèrent leur patience.",
+      "when": {
+        "path": "mort"
+      }
+    },
+    {
+      "text": "Son sang devint poison, et il s'en servit.",
+      "when": {
+        "path": "venin"
+      }
+    },
+    {
+      "text": "Il porta en lui la lumière des étoiles mortes.",
+      "when": {
+        "path": "astral"
+      }
+    },
+    {
+      "text": "Il dévora sa propre famille.",
+      "when": {
+        "path": "divin"
+      }
+    },
+    {
+      "text": "{kills} morts : presque une guerre à lui seul.",
+      "when": {
+        "min_kills": 150
+      }
+    },
+    {
+      "text": "Il fit tomber des noms que l'on croyait éternels.",
+      "when": {
+        "min_uniques": 3
+      }
+    },
+    {
+      "text": "Des royaumes porteront son deuil sans connaître son visage.",
+      "when": {
+        "min_uniques": 6
+      }
+    },
+    {
+      "text": "Il atteignit le rang {rank} : assez pour être craint.",
+      "when": {
+        "min_rank": 5
+      }
+    },
+    {
+      "text": "Il tua Higgs. Il n'y a rien à ajouter.",
+      "when": {
+        "victory": true
+      }
+    }
+  ],
+  "closings": [
+    "Tué par {killer}, à {place}.",
+    "{killer} y mit fin, à {place}.",
+    "Il s'éteignit à {place}. Il se rallumera.",
+    "La mort ne retint que son corps.",
+    "Il se souviendra.",
+    {
+      "text": "Le monde lui-même s'en chargea, à {place}.",
+      "when": {
+        "killer_category": "world"
+      }
+    },
+    {
+      "text": "Une chute, une flamme, un rien : le monde suffit.",
+      "when": {
+        "killer_category": "world"
+      }
+    },
+    {
+      "text": "Une simple bête, {killer}, suffit.",
+      "when": {
+        "killer_category": "beast"
+      }
+    },
+    {
+      "text": "{killer} n'était qu'une bête. Il s'en souviendra.",
+      "when": {
+        "killer_category": "beast",
+        "max_rank": 1
+      }
+    },
+    {
+      "text": "Un paysan. Un simple paysan.",
+      "when": {
+        "killer_category": "peasant"
+      }
+    },
+    {
+      "text": "Un soldat sans nom fit ce que nul Dieu n'avait daigné faire.",
+      "when": {
+        "killer_category": "soldier"
+      }
+    },
+    {
+      "text": "Un chevalier le renvoya d'où il venait.",
+      "when": {
+        "killer_category": "knight"
+      }
+    },
+    {
+      "text": "Un sort le défit, lancé par {killer}.",
+      "when": {
+        "killer_category": "mage"
+      }
+    },
+    {
+      "text": "{killer}, Supernova, lui montra ce qu'est un mortel perfectionné.",
+      "when": {
+        "killer_category": "supernova"
+      }
+    },
+    {
+      "text": "{killer}, Hypernova : il n'était pas encore à cette échelle.",
+      "when": {
+        "killer_category": "hypernova"
+      }
+    },
+    {
+      "text": "Segaroth avait mille ans d'avance.",
+      "when": {
+        "killer_category": "emperor"
+      }
+    },
+    {
+      "text": "{killer}, demi-dieu, le broya à {place}.",
+      "when": {
+        "killer_category": "demigod"
+      }
+    },
+    {
+      "text": "{killer}, de son propre sang, le renvoya dans le passé.",
+      "when": {
+        "killer_category": "god"
+      }
+    },
+    {
+      "text": "Un Dieu dut s'en mêler : {killer}. C'est déjà un aveu.",
+      "when": {
+        "killer_category": "god"
+      }
+    },
+    {
+      "text": "Le Père est mort. Lui aussi, mais lui reviendra.",
+      "when": {
+        "victory": true
+      }
+    }
+  ]
+}

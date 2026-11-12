@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "divin"
+  ],
+  "max_level": 1,
+  "power": 15,
+  "icon": "minecraft:note_block",
+  "type": "aoe",
+  "cooldown": 6,
+  "hunger_cost": 1,
+  "params": {
+    "radius": 8,
+    "damage": 14,
+    "knockback": 1.4,
+    "particle": "minecraft:sonic_boom",
+    "sound": "minecraft:block.note_block.basedrum"
+  },
+  "signature": true
+}

@@ -1,0 +1,30 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "city",
+  "distance": 800,
+  "angle": 140,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:deepslate_bricks",
+    "secondary": "minecraft:red_terracotta",
+    "accent": "minecraft:iron_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:citoyen",
+      "count": 8
+    },
+    {
+      "character": "trounoir:legionnaire",
+      "count": 8
+    },
+    {
+      "character": "trounoir:tirailleur",
+      "count": 3
+    },
+    {
+      "character": "trounoir:zephyrine",
+      "count": 1
+    }
+  ]
+}

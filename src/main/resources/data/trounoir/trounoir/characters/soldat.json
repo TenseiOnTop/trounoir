@@ -1,0 +1,48 @@
+{
+  "unique": false,
+  "category": "soldier",
+  "faction": "nebulosia",
+  "rank": 2,
+  "behavior": "guard",
+  "health": 28,
+  "damage": 5,
+  "armor": 6,
+  "held_item": "minecraft:iron_sword",
+  "kill_reputation": {
+    "nebulosia": -12
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/soldat.png",
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.0,
+      "angle": 100,
+      "damage": 5,
+      "telegraph": 16,
+      "cooldown": 30,
+      "max_range": 3.0,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    }
+  ],
+  "grants": [
+    "trounoir:discipline",
+    {
+      "id": "trounoir:langue_commune",
+      "chance": 0.5
+    },
+    {
+      "id": "trounoir:route_d_astrelune",
+      "chance": 0.5
+    },
+    {
+      "id": "trounoir:rumeur_de_gorgath",
+      "chance": 0.25
+    }
+  ],
+  "on_death": []
+}

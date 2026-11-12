@@ -1,0 +1,9 @@
+{
+  "entity": "minecraft:iron_golem",
+  "rank": 3,
+  "grants": [
+    "trounoir:masse_de_fer"
+  ],
+  "faction": "nebulosia",
+  "kill_reputation": -5
+}

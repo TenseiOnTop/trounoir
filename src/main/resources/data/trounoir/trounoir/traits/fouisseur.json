@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "bete"
+  ],
+  "max_level": 4,
+  "power": 1,
+  "icon": "minecraft:iron_shovel",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:player.block_break_speed",
+        "amount": 0.1,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "relief": {
+      "engourdissement": 1.5
+    }
+  }
+}

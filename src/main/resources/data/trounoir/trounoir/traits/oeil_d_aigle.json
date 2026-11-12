@@ -1,0 +1,14 @@
+{
+  "tags": [
+    "perception",
+    "distance"
+  ],
+  "max_level": 5,
+  "power": 1.5,
+  "icon": "minecraft:spyglass",
+  "bonus": {
+    "stats": {
+      "ranged_damage_pct": 6
+    }
+  }
+}

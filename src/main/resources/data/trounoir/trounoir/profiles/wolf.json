@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:wolf",
+  "rank": 1,
+  "grants": [
+    "trounoir:meute",
+    {
+      "id": "trounoir:croc_et_griffe",
+      "chance": 0.5
+    }
+  ]
+}

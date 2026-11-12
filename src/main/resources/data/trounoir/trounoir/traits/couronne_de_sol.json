@@ -1,0 +1,32 @@
+{
+  "tags": [
+    "divin",
+    "feu"
+  ],
+  "max_level": 1,
+  "power": 48,
+  "icon": "minecraft:sunflower",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 16,
+        "operation": "add_value"
+      }
+    ],
+    "effects": [
+      {
+        "effect": "minecraft:night_vision",
+        "amplifier": 0,
+        "min_level": 1
+      }
+    ],
+    "stats": {
+      "fire_immunity": 1,
+      "fire_touch": 1,
+      "magic_power": 40,
+      "all_damage_pct": 15
+    }
+  },
+  "signature": true
+}

@@ -1,0 +1,12 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "backstab_pct": 40
+    }
+  },
+  "requires_tags": {
+    "lame": 2,
+    "ombre": 2
+  }
+}

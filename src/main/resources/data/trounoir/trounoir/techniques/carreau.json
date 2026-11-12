@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "distance"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:crossbow",
+  "type": "projectile",
+  "cooldown": 5,
+  "hunger_cost": 0,
+  "params": {
+    "projectile": "arrow",
+    "damage": 6,
+    "speed": 1.6,
+    "sound": "minecraft:item.crossbow.shoot"
+  }
+}

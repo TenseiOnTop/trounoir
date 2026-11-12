@@ -1,0 +1,31 @@
+{
+  "tags": [
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:black_candle",
+  "type": "buff",
+  "cooldown": 30,
+  "hunger_cost": 1,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:invisibility",
+        "duration": 200,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:speed",
+        "duration": 200,
+        "amplifier": 2
+      },
+      {
+        "effect": "minecraft:strength",
+        "duration": 200,
+        "amplifier": 1
+      }
+    ]
+  },
+  "signature": true
+}

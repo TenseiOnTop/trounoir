@@ -1,0 +1,6 @@
+{
+  "relief_needed": 5,
+  "attribute": "minecraft:player.block_break_speed",
+  "amount": -0.5,
+  "operation": "add_multiplied_total"
+}

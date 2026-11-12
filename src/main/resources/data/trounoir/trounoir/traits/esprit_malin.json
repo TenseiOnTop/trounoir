@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "arcane",
+    "vitesse"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:amethyst_shard",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.02,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "stats": {
+      "magic_power": 4
+    }
+  }
+}

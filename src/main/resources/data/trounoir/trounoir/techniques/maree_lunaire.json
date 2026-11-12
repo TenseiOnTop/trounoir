@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "divin",
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 15,
+  "icon": "minecraft:pearlescent_froglight",
+  "type": "buff",
+  "cooldown": 50,
+  "hunger_cost": 2,
+  "params": {
+    "heal": 20,
+    "self_effects": [
+      {
+        "effect": "minecraft:invisibility",
+        "duration": 300,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 300,
+        "amplifier": 2
+      }
+    ]
+  },
+  "signature": true
+}

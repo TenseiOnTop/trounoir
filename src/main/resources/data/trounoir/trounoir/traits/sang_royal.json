@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 4,
+  "icon": "minecraft:golden_helmet",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 4,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.luck",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ]
+  },
+  "signature": true
+}

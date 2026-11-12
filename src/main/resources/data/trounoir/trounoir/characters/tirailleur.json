@@ -1,0 +1,68 @@
+{
+  "unique": false,
+  "category": "soldier",
+  "faction": "azalee",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 44,
+  "damage": 9,
+  "armor": 8,
+  "speed": 0.29,
+  "held_item": "minecraft:crossbow",
+  "kill_reputation": {
+    "azalee": -10
+  },
+  "notoriety": 6,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 2,
+  "texture": "trounoir:textures/entity/character/tirailleur.png",
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 24,
+      "width": 1.0,
+      "damage": 9,
+      "telegraph": 16,
+      "cooldown": 40,
+      "min_range": 5,
+      "max_range": 24,
+      "projectile": "arrow",
+      "projectile_count": 1,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.arrow.shoot"
+    },
+    {
+      "id": "volley",
+      "shape": "line",
+      "size": 20,
+      "width": 1.0,
+      "damage": 7,
+      "telegraph": 22,
+      "cooldown": 140,
+      "min_range": 5,
+      "max_range": 20,
+      "projectile": "arrow",
+      "projectile_count": 3,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.arrow.shoot"
+    }
+  ],
+  "grants": [
+    "trounoir:tir_tendu",
+    "trounoir:oeil_d_aigle",
+    {
+      "id": "trounoir:carreau",
+      "chance": 0.5
+    },
+    {
+      "id": "trounoir:veille_de_suke",
+      "chance": 0.4
+    }
+  ],
+  "on_death": []
+}

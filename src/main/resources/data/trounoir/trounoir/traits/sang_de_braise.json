@@ -1,0 +1,27 @@
+{
+  "tags": [
+    "feu"
+  ],
+  "max_level": 3,
+  "power": 2.5,
+  "icon": "minecraft:blaze_powder",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.burning_time",
+        "amount": -0.25,
+        "operation": "add_multiplied_total"
+      }
+    ],
+    "effects": [
+      {
+        "effect": "minecraft:fire_resistance",
+        "amplifier": 0,
+        "min_level": 3
+      }
+    ],
+    "stats": {
+      "fire_immunity": 0.46
+    }
+  }
+}

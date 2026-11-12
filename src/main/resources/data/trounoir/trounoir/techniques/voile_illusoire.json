@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "ombre",
+    "arcane"
+  ],
+  "max_level": 2,
+  "power": 3,
+  "icon": "minecraft:phantom_membrane",
+  "type": "buff",
+  "cooldown": 45,
+  "hunger_cost": 2,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:invisibility",
+        "duration": 300,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:speed",
+        "duration": 300,
+        "amplifier": 0
+      }
+    ]
+  }
+}

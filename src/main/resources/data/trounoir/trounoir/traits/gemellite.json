@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "divin",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 48,
+  "icon": "minecraft:quartz",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 20,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "cooldown_reduction_pct": 20,
+      "damage_reduction_pct": 15
+    }
+  },
+  "signature": true
+}

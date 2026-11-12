@@ -1,0 +1,14 @@
+{
+  "tags": [
+    "venin",
+    "bete"
+  ],
+  "max_level": 3,
+  "power": 2,
+  "icon": "minecraft:fermented_spider_eye",
+  "bonus": {
+    "stats": {
+      "poison_touch": 0.6
+    }
+  }
+}

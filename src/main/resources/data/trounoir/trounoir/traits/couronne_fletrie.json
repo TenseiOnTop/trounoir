@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "mort",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:nether_star",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 8,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "magic_power": 20,
+      "wither_touch": 1
+    }
+  },
+  "signature": true
+}

@@ -1,0 +1,78 @@
+{
+  "unique": true,
+  "category": "supernova",
+  "faction": "nebulosia",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 110,
+  "damage": 10,
+  "armor": 12,
+  "speed": 0.29,
+  "held_item": "minecraft:golden_sword",
+  "weakness": "backstab",
+  "kill_reputation": {
+    "nebulosia": -30
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 2,
+  "texture": "trounoir:textures/entity/character/garmond.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.2,
+      "angle": 100,
+      "damage": 10,
+      "telegraph": 14,
+      "cooldown": 28,
+      "max_range": 3.2,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 9,
+      "width": 2.0,
+      "damage": 12,
+      "telegraph": 20,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 9,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    }
+  ],
+  "grants": [
+    "trounoir:ambition_de_garmond",
+    "trounoir:art_de_l_epee"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": -15
+    },
+    {
+      "type": "alert",
+      "faction": "nebulosia",
+      "duration": 24000
+    },
+    {
+      "type": "hunt",
+      "faction": "nebulosia",
+      "waves": 1,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.supernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:strider",
+  "rank": 1,
+  "grants": [
+    "trounoir:sang_de_braise"
+  ]
+}

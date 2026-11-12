@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:wither_skeleton",
+  "rank": 3,
+  "grants": [
+    "trounoir:fletrissure",
+    {
+      "id": "trounoir:force_brute",
+      "chance": 0.5
+    }
+  ]
+}

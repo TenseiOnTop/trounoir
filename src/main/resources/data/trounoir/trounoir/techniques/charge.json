@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "bete"
+  ],
+  "max_level": 3,
+  "power": 2,
+  "icon": "minecraft:goat_horn",
+  "type": "dash",
+  "cooldown": 10,
+  "hunger_cost": 1,
+  "params": {
+    "strength": 1.5,
+    "damage": 5,
+    "ticks": 8
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "fortress",
+  "distance": 1200,
+  "angle": 262,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:polished_blackstone_bricks",
+    "secondary": "minecraft:yellow_terracotta",
+    "accent": "minecraft:gold_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:valdrek",
+      "count": 1
+    },
+    {
+      "character": "trounoir:legionnaire",
+      "count": 8
+    },
+    {
+      "character": "trounoir:tirailleur",
+      "count": 3
+    },
+    {
+      "character": "trounoir:pretorien",
+      "count": 3
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "divin"
+  ],
+  "max_level": 1,
+  "power": 40,
+  "icon": "minecraft:heavy_core",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 16,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "thorns": 6,
+      "damage_reduction_pct": 12
+    }
+  },
+  "signature": true
+}

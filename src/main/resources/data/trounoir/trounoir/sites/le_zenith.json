@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "sanctuary",
+  "distance": 2100,
+  "angle": 300,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:gold_block",
+    "secondary": "minecraft:smooth_sandstone",
+    "accent": "minecraft:glowstone"
+  },
+  "residents": [
+    {
+      "character": "trounoir:sol",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "tags": [
+    "endurance",
+    "bete"
+  ],
+  "max_level": 5,
+  "power": 1,
+  "icon": "minecraft:beef",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faim": 1
+    }
+  }
+}

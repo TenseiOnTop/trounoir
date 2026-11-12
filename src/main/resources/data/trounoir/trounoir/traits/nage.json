@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "bete"
+  ],
+  "max_level": 3,
+  "power": 0.5,
+  "icon": "minecraft:cod",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.water_movement_efficiency",
+        "amount": 0.2,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.oxygen_bonus",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ]
+  }
+}

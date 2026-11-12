@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "vitesse",
+    "bete"
+  ],
+  "max_level": 4,
+  "power": 1.5,
+  "icon": "minecraft:lead",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.05,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.step_height",
+        "amount": 0.1,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "lenteur": 1.5
+    }
+  }
+}

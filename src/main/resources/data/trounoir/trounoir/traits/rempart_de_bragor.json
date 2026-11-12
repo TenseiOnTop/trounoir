@@ -1,0 +1,33 @@
+{
+  "tags": [
+    "endurance",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:shield",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 20,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 8,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.6,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "damage_reduction_pct": 15,
+      "thorns": 3
+    }
+  },
+  "signature": true
+}

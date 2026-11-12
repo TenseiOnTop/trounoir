@@ -1,0 +1,14 @@
+{
+  "entity": "minecraft:villager",
+  "rank": 1,
+  "grants": [
+    "trounoir:labeur_humain",
+    "trounoir:sens_du_troc",
+    {
+      "id": "trounoir:savoir_artisan",
+      "chance": 0.5
+    }
+  ],
+  "faction": "nebulosia",
+  "kill_reputation": -8
+}

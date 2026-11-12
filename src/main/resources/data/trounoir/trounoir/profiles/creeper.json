@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:creeper",
+  "rank": 1,
+  "grants": [
+    "trounoir:poudre_vive",
+    {
+      "id": "trounoir:detonation",
+      "chance": 0.6
+    }
+  ]
+}

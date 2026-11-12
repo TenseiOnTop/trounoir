@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:zombified_piglin",
+  "rank": 1,
+  "grants": [
+    "trounoir:vigueur_morte",
+    {
+      "id": "trounoir:force_brute",
+      "chance": 0.5
+    }
+  ]
+}

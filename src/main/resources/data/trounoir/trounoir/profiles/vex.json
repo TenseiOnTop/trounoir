@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:vex",
+  "rank": 2,
+  "grants": [
+    "trounoir:esprit_malin"
+  ]
+}

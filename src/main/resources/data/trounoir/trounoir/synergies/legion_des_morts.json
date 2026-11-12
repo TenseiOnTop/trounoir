@@ -1,0 +1,11 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "lifesteal_pct": 5
+    }
+  },
+  "requires_tags": {
+    "mort": 3
+  }
+}

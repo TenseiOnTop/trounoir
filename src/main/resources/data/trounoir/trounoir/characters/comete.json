@@ -1,0 +1,112 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 8,
+  "behavior": "boss",
+  "health": 560,
+  "damage": 30,
+  "armor": 20,
+  "speed": 0.46,
+  "scale": 1.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "explosion",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/comete.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "streak",
+      "shape": "line",
+      "size": 20,
+      "width": 2.0,
+      "damage": 32,
+      "telegraph": 12,
+      "cooldown": 36,
+      "min_range": 3,
+      "max_range": 20,
+      "pre": "dash",
+      "weight": 5,
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 4,
+      "angle": 100,
+      "damage": 28,
+      "telegraph": 10,
+      "cooldown": 20,
+      "max_range": 4,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "ice_tail",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "count": 6,
+      "spread": 10,
+      "damage": 30,
+      "telegraph": 24,
+      "cooldown": 110,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.blaze.shoot",
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 60,
+          "amplifier": 2
+        }
+      ]
+    },
+    {
+      "id": "perihelion",
+      "shape": "line",
+      "size": 26,
+      "width": 2.0,
+      "damage": 38,
+      "telegraph": 10,
+      "cooldown": 28,
+      "min_range": 3,
+      "max_range": 26,
+      "pre": "dash",
+      "weight": 5,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.player.attack.strong",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:sillage_de_comete",
+    "trounoir:trainee"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:pulsar",
+      "delay": 6000
+    }
+  ]
+}

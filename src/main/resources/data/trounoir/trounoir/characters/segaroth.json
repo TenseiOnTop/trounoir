@@ -1,0 +1,182 @@
+{
+  "unique": true,
+  "category": "emperor",
+  "faction": "azalee",
+  "rank": 7,
+  "behavior": "guard",
+  "health": 520,
+  "damage": 28,
+  "armor": 22,
+  "speed": 0.31,
+  "scale": 1.15,
+  "knockback_resistance": 0.8,
+  "follow_range": 48,
+  "held_item": "minecraft:netherite_sword",
+  "phases": [
+    0.7,
+    0.4,
+    0.15
+  ],
+  "weakness": "backstab",
+  "kill_reputation": {
+    "azalee": -100
+  },
+  "notoriety": 50,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 4,
+  "texture": "trounoir:textures/entity/character/segaroth.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 4,
+      "angle": 130,
+      "damage": 28,
+      "telegraph": 13,
+      "cooldown": 22,
+      "max_range": 4,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 13,
+      "width": 2.0,
+      "damage": 32,
+      "telegraph": 16,
+      "cooldown": 80,
+      "min_range": 3,
+      "max_range": 13,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "meteors",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "count": 5,
+      "spread": 9,
+      "damage": 30,
+      "telegraph": 26,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:soul_fire_flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "ambush",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "damage": 34,
+      "telegraph": 14,
+      "cooldown": 90,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport",
+      "min_phase": 1
+    },
+    {
+      "id": "call",
+      "shape": "circle",
+      "size": 2.0,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 30,
+      "cooldown": 600,
+      "max_range": 30,
+      "summon": "trounoir:pretorien",
+      "summon_count": 3,
+      "weight": 1,
+      "knockback": 0,
+      "particle": "minecraft:note",
+      "sound": "minecraft:event.raid.horn",
+      "min_phase": 1
+    },
+    {
+      "id": "millennium",
+      "shape": "circle",
+      "size": 10,
+      "anchor": "self",
+      "damage": 40,
+      "telegraph": 30,
+      "cooldown": 200,
+      "max_range": 10,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:soul_fire_flame",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 2
+    },
+    {
+      "id": "undying",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 40,
+      "cooldown": 900,
+      "max_range": 3,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:totem_of_undying",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 3,
+      "heal": 150
+    }
+  ],
+  "grants": [
+    "trounoir:immortalite_de_segaroth",
+    "trounoir:mille_ans",
+    "trounoir:secret_des_dieux",
+    "trounoir:haut_azaleen"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -50
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 72000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 144000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 4,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "successor",
+      "character": "trounoir:kael",
+      "replaces": "trounoir:segaroth",
+      "delay": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.emperor_dead",
+      "only_if_player": false
+    }
+  ]
+}

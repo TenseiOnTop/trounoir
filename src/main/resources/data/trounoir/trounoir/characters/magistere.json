@@ -1,0 +1,86 @@
+{
+  "unique": false,
+  "category": "mage",
+  "faction": "azalee",
+  "rank": 5,
+  "behavior": "guard",
+  "health": 64,
+  "damage": 13,
+  "armor": 6,
+  "speed": 0.27,
+  "held_item": "minecraft:end_rod",
+  "kill_reputation": {
+    "azalee": -15
+  },
+  "notoriety": 10,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 2,
+  "texture": "trounoir:textures/entity/character/magistere.png",
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 22,
+      "width": 1.0,
+      "damage": 0,
+      "telegraph": 14,
+      "cooldown": 45,
+      "min_range": 4,
+      "max_range": 22,
+      "projectile": "small_fireball",
+      "projectile_count": 2,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.arrow.shoot"
+    },
+    {
+      "id": "meteors",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "count": 3,
+      "spread": 6,
+      "damage": 15,
+      "telegraph": 28,
+      "cooldown": 130,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "fold",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "damage": 12,
+      "telegraph": 18,
+      "cooldown": 160,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    }
+  ],
+  "grants": [
+    "trounoir:canalisation",
+    "trounoir:sang_arcanique",
+    {
+      "id": "trounoir:trait_arcanique",
+      "chance": 0.6
+    },
+    {
+      "id": "trounoir:theorie_du_tir",
+      "chance": 0.3
+    },
+    {
+      "id": "trounoir:astronomie_imperiale",
+      "chance": 0.3
+    }
+  ],
+  "on_death": []
+}

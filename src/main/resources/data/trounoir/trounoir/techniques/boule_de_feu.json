@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "feu",
+    "distance"
+  ],
+  "max_level": 3,
+  "power": 3.5,
+  "icon": "minecraft:fire_charge",
+  "type": "projectile",
+  "cooldown": 14,
+  "hunger_cost": 2,
+  "params": {
+    "projectile": "large_fireball",
+    "power": 1,
+    "speed": 1.2
+  }
+}

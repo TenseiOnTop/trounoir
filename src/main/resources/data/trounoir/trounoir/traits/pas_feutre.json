@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "ombre"
+  ],
+  "max_level": 5,
+  "power": 1.5,
+  "icon": "minecraft:feather",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:player.sneaking_speed",
+        "amount": 0.08,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "stealth": 10
+    }
+  }
+}

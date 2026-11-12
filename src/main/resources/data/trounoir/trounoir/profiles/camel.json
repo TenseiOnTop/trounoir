@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:camel",
+  "rank": 1,
+  "grants": [
+    "trounoir:galop",
+    "trounoir:cuir_epais"
+  ]
+}

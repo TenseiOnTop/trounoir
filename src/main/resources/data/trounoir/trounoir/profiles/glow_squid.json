@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:glow_squid",
+  "rank": 0,
+  "grants": [
+    "trounoir:nage",
+    {
+      "id": "trounoir:yeux_de_nuit",
+      "chance": 0.5
+    }
+  ]
+}

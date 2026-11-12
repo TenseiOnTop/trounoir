@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "arcane",
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 10,
+  "icon": "minecraft:totem_of_undying",
+  "type": "buff",
+  "cooldown": 90,
+  "hunger_cost": 3,
+  "params": {
+    "heal": 40,
+    "self_effects": [
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 300,
+        "amplifier": 3
+      },
+      {
+        "effect": "minecraft:resistance",
+        "duration": 300,
+        "amplifier": 2
+      }
+    ]
+  },
+  "signature": true
+}

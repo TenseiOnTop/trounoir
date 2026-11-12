@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "divin"
+  ],
+  "max_level": 1,
+  "power": 15,
+  "icon": "minecraft:heavy_core",
+  "type": "aoe",
+  "cooldown": 20,
+  "hunger_cost": 2,
+  "params": {
+    "radius": 10,
+    "damage": 30,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 100,
+        "amplifier": 3
+      },
+      {
+        "effect": "minecraft:weakness",
+        "duration": 100,
+        "amplifier": 2
+      }
+    ],
+    "particle": "minecraft:enchant"
+  },
+  "signature": true
+}

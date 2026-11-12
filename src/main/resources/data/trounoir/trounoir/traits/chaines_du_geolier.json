@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "ombre",
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 24,
+  "icon": "minecraft:chain",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 16,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 4,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "damage_reduction_pct": 10,
+      "perception_range": 24
+    }
+  },
+  "signature": true
+}

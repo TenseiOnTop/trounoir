@@ -1,0 +1,13 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 4,
+  "power": 2,
+  "icon": "minecraft:glistering_melon_slice",
+  "bonus": {
+    "stats": {
+      "regen": 0.5
+    }
+  }
+}

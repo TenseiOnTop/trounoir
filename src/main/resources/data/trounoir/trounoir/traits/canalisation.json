@@ -1,0 +1,14 @@
+{
+  "tags": [
+    "arcane"
+  ],
+  "max_level": 5,
+  "power": 3.5,
+  "icon": "minecraft:lapis_lazuli",
+  "bonus": {
+    "stats": {
+      "magic_power": 10,
+      "cooldown_reduction_pct": 4
+    }
+  }
+}

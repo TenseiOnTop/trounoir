@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "arcane",
+    "distance"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:amethyst_shard",
+  "type": "beam",
+  "cooldown": 6,
+  "hunger_cost": 1,
+  "params": {
+    "range": 24,
+    "damage": 7,
+    "particle": "minecraft:witch",
+    "sound": "minecraft:entity.illusioner.cast_spell"
+  }
+}

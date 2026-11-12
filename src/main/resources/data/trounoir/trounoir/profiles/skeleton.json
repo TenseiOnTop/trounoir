@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:skeleton",
+  "rank": 1,
+  "grants": [
+    "trounoir:os_secs"
+  ]
+}

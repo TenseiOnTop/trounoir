@@ -1,0 +1,12 @@
+{
+  "entity": "minecraft:stray",
+  "rank": 1,
+  "grants": [
+    "trounoir:os_secs",
+    "trounoir:givre_errant",
+    {
+      "id": "trounoir:souffle_de_givre",
+      "chance": 0.5
+    }
+  ]
+}

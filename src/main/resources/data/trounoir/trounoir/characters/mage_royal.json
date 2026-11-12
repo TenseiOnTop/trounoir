@@ -1,0 +1,67 @@
+{
+  "unique": false,
+  "category": "mage",
+  "faction": "nebulosia",
+  "rank": 3,
+  "behavior": "guard",
+  "health": 30,
+  "damage": 7,
+  "armor": 2,
+  "speed": 0.26,
+  "held_item": "minecraft:blaze_rod",
+  "kill_reputation": {
+    "nebulosia": -15
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/mage_royal.png",
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 18,
+      "width": 1.0,
+      "damage": 0,
+      "telegraph": 16,
+      "cooldown": 50,
+      "min_range": 4,
+      "max_range": 18,
+      "projectile": "small_fireball",
+      "projectile_count": 1,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.arrow.shoot"
+    },
+    {
+      "id": "slam",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "self",
+      "damage": 8,
+      "telegraph": 26,
+      "cooldown": 160,
+      "max_range": 4,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:witch",
+      "sound": "minecraft:entity.illusioner.cast_spell"
+    }
+  ],
+  "grants": [
+    "trounoir:sang_arcanique",
+    {
+      "id": "trounoir:trait_arcanique",
+      "chance": 0.6
+    },
+    {
+      "id": "trounoir:traite_des_etoiles",
+      "chance": 0.3
+    },
+    {
+      "id": "trounoir:cieux_cartographies",
+      "chance": 0.5
+    }
+  ],
+  "on_death": []
+}

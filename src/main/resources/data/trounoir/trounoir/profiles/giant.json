@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:giant",
+  "rank": 3,
+  "grants": [
+    "trounoir:colosse",
+    "trounoir:vigueur_morte"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:bee",
+  "rank": 0,
+  "grants": [
+    "trounoir:venin"
+  ]
+}

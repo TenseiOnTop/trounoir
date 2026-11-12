@@ -1,0 +1,122 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 8,
+  "behavior": "neutral_boss",
+  "health": 620,
+  "damage": 30,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 1.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "fire",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/selene.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "moonfall",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "count": 5,
+      "spread": 9,
+      "damage": 30,
+      "telegraph": 28,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:block.amethyst_block.chime"
+    },
+    {
+      "id": "new_moon",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "damage": 34,
+      "telegraph": 16,
+      "cooldown": 100,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "moonbeam",
+      "shape": "line",
+      "size": 26,
+      "width": 3,
+      "damage": 32,
+      "telegraph": 26,
+      "cooldown": 110,
+      "min_range": 4,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "high_tide",
+      "shape": "circle",
+      "size": 11,
+      "anchor": "self",
+      "damage": 40,
+      "telegraph": 32,
+      "cooldown": 220,
+      "max_range": 11,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "pull": 1.5
+    },
+    {
+      "id": "full_moon",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 40,
+      "cooldown": 900,
+      "max_range": 3,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:heart",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 2,
+      "heal": 120
+    }
+  ],
+  "grants": [
+    "trounoir:voile_de_selene",
+    "trounoir:maree_lunaire"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:sol",
+      "delay": 6000
+    }
+  ]
+}

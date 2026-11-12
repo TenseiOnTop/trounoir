@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:snow_golem",
+  "rank": 0,
+  "grants": [
+    "trounoir:givre_errant"
+  ]
+}

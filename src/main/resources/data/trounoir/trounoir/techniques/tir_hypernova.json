@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "distance"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:spyglass",
+  "type": "beam",
+  "cooldown": 15,
+  "hunger_cost": 1,
+  "params": {
+    "range": 256,
+    "damage": 40,
+    "width": 0.5,
+    "particle": "minecraft:end_rod",
+    "sound": "minecraft:entity.firework_rocket.blast"
+  },
+  "signature": true
+}

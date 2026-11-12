@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "mort"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:wither_rose",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "wither_touch": 0.6
+    }
+  }
+}

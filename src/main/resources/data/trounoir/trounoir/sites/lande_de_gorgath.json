@@ -1,0 +1,18 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "lair",
+  "distance": 1100,
+  "angle": 350,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:mossy_cobblestone",
+    "secondary": "minecraft:coarse_dirt",
+    "accent": "minecraft:bone_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:gorgath",
+      "count": 1
+    }
+  ]
+}

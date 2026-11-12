@@ -1,0 +1,15 @@
+{
+  "entity": "minecraft:rabbit",
+  "rank": 0,
+  "grants": [
+    "trounoir:patte_legere",
+    {
+      "id": "trounoir:ressort",
+      "chance": 0.5
+    },
+    {
+      "id": "trounoir:bond",
+      "chance": 0.3
+    }
+  ]
+}

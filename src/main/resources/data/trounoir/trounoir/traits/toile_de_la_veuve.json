@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "venin",
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 16,
+  "icon": "minecraft:cobweb",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 6,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.06,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "stats": {
+      "poison_touch": 1,
+      "stealth": 20
+    }
+  },
+  "signature": true
+}

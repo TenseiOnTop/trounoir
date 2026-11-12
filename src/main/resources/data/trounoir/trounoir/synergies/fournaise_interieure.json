@@ -1,0 +1,12 @@
+{
+  "power": 4,
+  "bonus": {
+    "stats": {
+      "fire_immunity": 1,
+      "fire_touch": 1
+    }
+  },
+  "requires_tags": {
+    "feu": 3
+  }
+}

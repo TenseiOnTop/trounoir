@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "mort",
+    "endurance"
+  ],
+  "max_level": 5,
+  "power": 1.5,
+  "icon": "minecraft:rotten_flesh",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faim": 1,
+      "faiblesse": 0.5
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "entity": "minecraft:polar_bear",
+  "rank": 2,
+  "grants": [
+    "trounoir:colosse",
+    "trounoir:givre_errant",
+    "trounoir:croc_et_griffe"
+  ]
+}

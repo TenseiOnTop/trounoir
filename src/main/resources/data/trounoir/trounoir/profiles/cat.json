@@ -1,0 +1,12 @@
+{
+  "entity": "minecraft:cat",
+  "rank": 1,
+  "grants": [
+    "trounoir:patte_legere",
+    "trounoir:pas_feutre",
+    {
+      "id": "trounoir:yeux_de_nuit",
+      "chance": 0.5
+    }
+  ]
+}

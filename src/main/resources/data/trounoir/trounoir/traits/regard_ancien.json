@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "perception",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:prismarine_crystals",
+  "bonus": {
+    "stats": {
+      "thorns": 2,
+      "perception_range": 16,
+      "magic_power": 8
+    }
+  }
+}

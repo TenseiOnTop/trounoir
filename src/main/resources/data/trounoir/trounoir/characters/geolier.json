@@ -1,0 +1,29 @@
+{
+  "unique": true,
+  "category": "demigod",
+  "faction": "sauvage",
+  "rank": 6,
+  "behavior": "hostile",
+  "health": 420,
+  "damage": 26,
+  "base_entity": "minecraft:warden",
+  "armor": 14,
+  "speed": 0.3,
+  "scale": 1.3,
+  "knockback_resistance": 1.0,
+  "follow_range": 32,
+  "weakness": "projectile",
+  "weakness_multiplier": 1.5,
+  "moves": [],
+  "grants": [
+    "trounoir:chaines_du_geolier",
+    "trounoir:onde_sonique",
+    "trounoir:echolocation"
+  ],
+  "on_death": [
+    {
+      "type": "message",
+      "key": "trounoir.reaction.jailer_dead"
+    }
+  ]
+}

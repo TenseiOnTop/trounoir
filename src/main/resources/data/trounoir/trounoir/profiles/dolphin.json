@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:dolphin",
+  "rank": 1,
+  "grants": [
+    "trounoir:nage",
+    "trounoir:echolocation"
+  ]
+}

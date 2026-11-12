@@ -1,0 +1,99 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 300,
+  "damage": 22,
+  "armor": 18,
+  "speed": 0.31,
+  "held_item": "minecraft:golden_sword",
+  "phases": [
+    0.5
+  ],
+  "weakness": "magic",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 2,
+  "texture": "trounoir:textures/entity/character/kael.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.6,
+      "angle": 110,
+      "damage": 22,
+      "telegraph": 13,
+      "cooldown": 24,
+      "max_range": 3.6,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 11,
+      "width": 2.0,
+      "damage": 25,
+      "telegraph": 18,
+      "cooldown": 80,
+      "min_range": 3,
+      "max_range": 11,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "call",
+      "shape": "circle",
+      "size": 2.0,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 30,
+      "cooldown": 600,
+      "max_range": 30,
+      "summon": "trounoir:pretorien",
+      "summon_count": 2,
+      "weight": 1,
+      "knockback": 0,
+      "particle": "minecraft:note",
+      "sound": "minecraft:event.raid.horn",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:audace_de_kael",
+    "trounoir:discipline_imperiale"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 24000
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 2,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.usurper_dead",
+      "only_if_player": false
+    }
+  ]
+}

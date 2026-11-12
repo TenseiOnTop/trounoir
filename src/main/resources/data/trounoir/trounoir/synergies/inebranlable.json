@@ -1,0 +1,18 @@
+{
+  "power": 5,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.2,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "damage_reduction_pct": 8
+    }
+  },
+  "requires_tags": {
+    "endurance": 4
+  }
+}

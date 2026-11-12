@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "endurance",
+    "bete"
+  ],
+  "max_level": 4,
+  "power": 3,
+  "icon": "minecraft:saddle",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 4,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faiblesse": 1
+    }
+  }
+}

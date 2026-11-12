@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "divin",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 17,
+  "icon": "minecraft:clock",
+  "type": "time_stop",
+  "cooldown": 60,
+  "hunger_cost": 3,
+  "params": {
+    "radius": 32,
+    "duration": 120,
+    "resist_rank": 9
+  },
+  "signature": true
+}

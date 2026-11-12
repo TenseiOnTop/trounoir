@@ -1,0 +1,9 @@
+{
+  "icon": "minecraft:brewing_stand",
+  "knowledge_type": "recipe",
+  "recipes": [
+    "minecraft:brewing_stand",
+    "minecraft:cauldron",
+    "minecraft:glass_bottle"
+  ]
+}

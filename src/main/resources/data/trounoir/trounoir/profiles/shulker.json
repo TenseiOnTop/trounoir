@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:shulker",
+  "rank": 2,
+  "grants": [
+    "trounoir:carapace"
+  ]
+}

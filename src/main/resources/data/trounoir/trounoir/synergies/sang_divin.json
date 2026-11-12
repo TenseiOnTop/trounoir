@@ -1,0 +1,18 @@
+{
+  "power": 6,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 4,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "regen": 1
+    }
+  },
+  "requires_tags": {
+    "divin": 1
+  }
+}

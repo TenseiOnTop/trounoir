@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "feu",
+    "distance"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:blaze_rod",
+  "type": "projectile",
+  "cooldown": 9,
+  "hunger_cost": 1,
+  "params": {
+    "projectile": "small_fireball",
+    "count": 3,
+    "spread": 5,
+    "speed": 1.6
+  }
+}

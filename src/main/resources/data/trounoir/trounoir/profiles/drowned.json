@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:drowned",
+  "rank": 1,
+  "grants": [
+    "trounoir:vigueur_morte",
+    {
+      "id": "trounoir:souffle_marin",
+      "chance": 0.5
+    }
+  ]
+}

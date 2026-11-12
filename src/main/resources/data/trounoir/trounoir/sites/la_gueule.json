@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "sanctuary",
+  "distance": 2300,
+  "angle": 240,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:end_stone",
+    "secondary": "minecraft:purpur_block",
+    "accent": "minecraft:end_rod"
+  },
+  "residents": [
+    {
+      "character": "trounoir:quasar",
+      "count": 1
+    }
+  ]
+}

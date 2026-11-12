@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:breeze",
+  "rank": 2,
+  "grants": [
+    "trounoir:souffle_vif",
+    {
+      "id": "trounoir:rafale",
+      "chance": 0.7
+    }
+  ]
+}

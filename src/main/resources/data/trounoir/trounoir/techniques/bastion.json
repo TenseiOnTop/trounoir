@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:shield",
+  "type": "buff",
+  "cooldown": 45,
+  "hunger_cost": 2,
+  "params": {
+    "heal": 10,
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 240,
+        "amplifier": 3
+      }
+    ]
+  },
+  "signature": true
+}

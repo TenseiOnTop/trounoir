@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "feu",
+    "arcane",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:fire_charge",
+  "bonus": {
+    "stats": {
+      "magic_power": 35,
+      "fire_immunity": 1,
+      "fire_touch": 1
+    }
+  },
+  "signature": true
+}

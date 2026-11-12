@@ -1,0 +1,12 @@
+{
+  "power": 3,
+  "bonus": {
+    "stats": {
+      "poison_touch": 1,
+      "regen": 0.5
+    }
+  },
+  "requires_tags": {
+    "venin": 2
+  }
+}

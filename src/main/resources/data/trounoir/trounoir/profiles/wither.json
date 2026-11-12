@@ -1,0 +1,9 @@
+{
+  "entity": "minecraft:wither",
+  "rank": 5,
+  "grants": [
+    "trounoir:couronne_fletrie",
+    "trounoir:crane_fletri",
+    "trounoir:fletrissure"
+  ]
+}

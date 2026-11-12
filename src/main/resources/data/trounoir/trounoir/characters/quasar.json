@@ -1,0 +1,106 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 9,
+  "behavior": "boss",
+  "health": 780,
+  "damage": 40,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 2.0,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "backstab",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/quasar.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "jet",
+      "shape": "line",
+      "size": 40,
+      "width": 3,
+      "damage": 42,
+      "telegraph": 24,
+      "cooldown": 60,
+      "min_range": 4,
+      "max_range": 40,
+      "weight": 4,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "wide_jet",
+      "shape": "line",
+      "size": 30,
+      "width": 7,
+      "damage": 34,
+      "telegraph": 34,
+      "cooldown": 140,
+      "min_range": 4,
+      "max_range": 30,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "accretion",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "count": 6,
+      "spread": 12,
+      "damage": 38,
+      "telegraph": 26,
+      "cooldown": 110,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "maw",
+      "shape": "circle",
+      "size": 11,
+      "anchor": "self",
+      "damage": 44,
+      "telegraph": 28,
+      "cooldown": 180,
+      "max_range": 11,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:reverse_portal",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "pull": 2.5,
+      "heal": 40
+    }
+  ],
+  "grants": [
+    "trounoir:voracite_de_quasar",
+    "trounoir:jet_relativiste"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:trou_blanc",
+      "delay": 6000
+    }
+  ]
+}

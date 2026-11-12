@@ -1,0 +1,37 @@
+{
+  "tags": [
+    "vitesse",
+    "lame",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:trident",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.2,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": 0.2,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.jump_strength",
+        "amount": 0.1,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 100,
+      "melee_damage_pct": 15
+    },
+    "relief": {
+      "lenteur": 6
+    }
+  },
+  "signature": true
+}

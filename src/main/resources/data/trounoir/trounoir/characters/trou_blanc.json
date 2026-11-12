@@ -1,0 +1,120 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 9,
+  "behavior": "boss",
+  "health": 860,
+  "damage": 38,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 1.6,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "melee",
+  "dialogue_lines": 4,
+  "texture": "trounoir:textures/entity/character/trou_blanc.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 4.5,
+      "angle": 120,
+      "damage": 36,
+      "telegraph": 13,
+      "cooldown": 22,
+      "max_range": 4.5,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "outpour",
+      "shape": "line",
+      "size": 30,
+      "width": 3,
+      "damage": 38,
+      "telegraph": 24,
+      "cooldown": 80,
+      "min_range": 4,
+      "max_range": 30,
+      "weight": 2,
+      "particle": "minecraft:white_ash",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "time_stop",
+      "shape": "circle",
+      "size": 14,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 40,
+      "cooldown": 260,
+      "max_range": 14,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:block.beacon.deactivate",
+      "time_stop": 70
+    },
+    {
+      "id": "mirror_step",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "target",
+      "damage": 42,
+      "telegraph": 12,
+      "cooldown": 70,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport",
+      "min_phase": 1
+    },
+    {
+      "id": "everything_returns",
+      "shape": "circle",
+      "size": 4,
+      "anchor": "target",
+      "count": 8,
+      "spread": 13,
+      "damage": 40,
+      "telegraph": 26,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:white_ash",
+      "sound": "minecraft:entity.blaze.shoot",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:gemellite",
+    "trounoir:arret_du_temps"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:higgs",
+      "delay": 6000
+    }
+  ]
+}

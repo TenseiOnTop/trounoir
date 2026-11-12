@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:ghast",
+  "rank": 3,
+  "grants": [
+    "trounoir:boule_de_feu",
+    "trounoir:regeneration_lente"
+  ]
+}

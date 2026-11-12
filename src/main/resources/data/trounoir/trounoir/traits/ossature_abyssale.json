@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "endurance",
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:sculk_catalyst",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 10,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 4,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.3,
+        "operation": "add_value"
+      }
+    ]
+  },
+  "signature": true
+}

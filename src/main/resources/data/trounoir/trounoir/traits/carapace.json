@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 4,
+  "power": 2,
+  "icon": "minecraft:turtle_scute",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 2,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.05,
+        "operation": "add_value"
+      }
+    ]
+  }
+}

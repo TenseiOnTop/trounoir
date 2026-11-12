@@ -1,0 +1,18 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "sanctuary",
+  "distance": 1500,
+  "angle": 20,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:packed_ice",
+    "secondary": "minecraft:blue_ice",
+    "accent": "minecraft:sea_lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:comete",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "lair",
+  "distance": 1500,
+  "angle": 180,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:sculk",
+    "secondary": "minecraft:deepslate",
+    "accent": "minecraft:chain"
+  },
+  "residents": [
+    {
+      "character": "trounoir:geolier",
+      "count": 1
+    }
+  ]
+}

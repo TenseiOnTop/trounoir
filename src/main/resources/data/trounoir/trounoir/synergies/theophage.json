@@ -1,0 +1,19 @@
+{
+  "power": 30,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 20,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "all_damage_pct": 20,
+      "cooldown_reduction_pct": 10
+    }
+  },
+  "requires_tags": {
+    "divin": 6
+  }
+}

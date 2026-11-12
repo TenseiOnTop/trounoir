@@ -1,0 +1,24 @@
+{
+  "tags": [
+    "lame",
+    "feu",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:blaze_rod",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "melee_damage_pct": 15,
+      "fire_touch": 1
+    }
+  },
+  "signature": true
+}

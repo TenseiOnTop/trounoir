@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:pillager",
+  "rank": 2,
+  "grants": [
+    "trounoir:oeil_d_aigle",
+    {
+      "id": "trounoir:tir_tendu",
+      "chance": 0.5
+    }
+  ]
+}

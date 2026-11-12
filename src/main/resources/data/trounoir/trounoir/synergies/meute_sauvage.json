@@ -1,0 +1,20 @@
+{
+  "power": 4,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 4,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.05,
+        "operation": "add_multiplied_base"
+      }
+    ]
+  },
+  "requires_tags": {
+    "bete": 4
+  }
+}

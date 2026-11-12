@@ -1,0 +1,23 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "harbor",
+  "distance": 0,
+  "angle": 0,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:deepslate_bricks",
+    "secondary": "minecraft:mangrove_planks",
+    "accent": "minecraft:soul_lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:legionnaire",
+      "count": 4
+    },
+    {
+      "character": "trounoir:citoyen",
+      "count": 4
+    }
+  ],
+  "crossing": true
+}

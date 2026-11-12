@@ -1,0 +1,13 @@
+{
+  "entity": "minecraft:wandering_trader",
+  "rank": 1,
+  "grants": [
+    "trounoir:sens_du_troc",
+    {
+      "id": "trounoir:carte_du_havre",
+      "chance": 0.6
+    }
+  ],
+  "faction": "nebulosia",
+  "kill_reputation": -4
+}

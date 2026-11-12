@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "sanctuary",
+  "distance": 1700,
+  "angle": 105,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:red_sandstone",
+    "secondary": "minecraft:exposed_copper",
+    "accent": "minecraft:oxidized_copper"
+  },
+  "residents": [
+    {
+      "character": "trounoir:mars",
+      "count": 1
+    }
+  ]
+}

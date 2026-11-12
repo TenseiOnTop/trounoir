@@ -1,0 +1,12 @@
+{
+  "entity": "minecraft:guardian",
+  "rank": 2,
+  "grants": [
+    "trounoir:epines",
+    "trounoir:souffle_marin",
+    {
+      "id": "trounoir:rayon_gardien",
+      "chance": 0.4
+    }
+  ]
+}

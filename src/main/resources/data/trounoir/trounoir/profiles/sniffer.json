@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:sniffer",
+  "rank": 1,
+  "grants": [
+    "trounoir:fouisseur",
+    "trounoir:cuir_epais"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:piglin_brute",
+  "rank": 3,
+  "grants": [
+    "trounoir:force_brute",
+    "trounoir:discipline"
+  ]
+}

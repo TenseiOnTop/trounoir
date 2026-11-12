@@ -1,0 +1,25 @@
+{
+  "tags": [
+    "bete",
+    "endurance"
+  ],
+  "max_level": 2,
+  "power": 1.5,
+  "icon": "minecraft:nautilus_shell",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "effects": [
+      {
+        "effect": "minecraft:water_breathing",
+        "amplifier": 0,
+        "min_level": 1
+      }
+    ]
+  }
+}

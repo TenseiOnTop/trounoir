@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "divin",
+    "lame"
+  ],
+  "max_level": 1,
+  "power": 15,
+  "icon": "minecraft:redstone",
+  "type": "aoe",
+  "cooldown": 14,
+  "hunger_cost": 2,
+  "params": {
+    "radius": 8,
+    "damage": 26,
+    "damage_type": "physical",
+    "heal": 10,
+    "particle": "minecraft:damage_indicator"
+  },
+  "signature": true
+}

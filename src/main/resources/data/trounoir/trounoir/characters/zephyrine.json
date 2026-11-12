@@ -1,0 +1,129 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 260,
+  "damage": 21,
+  "armor": 10,
+  "speed": 0.42,
+  "follow_range": 40,
+  "held_item": "minecraft:trident",
+  "phases": [
+    0.6,
+    0.3
+  ],
+  "weakness": "backstab",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/zephyrine.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "thrust",
+      "shape": "cone",
+      "size": 3.2,
+      "angle": 60,
+      "damage": 18,
+      "telegraph": 8,
+      "cooldown": 14,
+      "max_range": 3.2,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 14,
+      "width": 2.0,
+      "damage": 24,
+      "telegraph": 12,
+      "cooldown": 40,
+      "min_range": 3,
+      "max_range": 14,
+      "pre": "dash",
+      "weight": 4,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "white_lightning",
+      "shape": "line",
+      "size": 18,
+      "width": 2.0,
+      "damage": 28,
+      "telegraph": 10,
+      "cooldown": 30,
+      "min_range": 3,
+      "max_range": 18,
+      "pre": "dash",
+      "weight": 4,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong",
+      "min_phase": 1
+    },
+    {
+      "id": "storm",
+      "shape": "circle",
+      "size": 2.5,
+      "anchor": "target",
+      "count": 5,
+      "spread": 8,
+      "damage": 22,
+      "telegraph": 20,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:electric_spark",
+      "sound": "minecraft:entity.lightning_bolt.thunder",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:foudre_de_zephyrine",
+    "trounoir:eclair_blanc",
+    "trounoir:souffle_vif"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:cledith",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

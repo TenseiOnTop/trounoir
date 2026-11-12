@@ -1,0 +1,18 @@
+{
+  "tags": [
+    "vitesse"
+  ],
+  "max_level": 3,
+  "power": 3,
+  "icon": "minecraft:wind_charge",
+  "type": "aoe",
+  "cooldown": 10,
+  "hunger_cost": 1,
+  "params": {
+    "radius": 5,
+    "damage": 2,
+    "knockback": 2.0,
+    "particle": "minecraft:gust",
+    "sound": "minecraft:entity.breeze.wind_burst"
+  }
+}

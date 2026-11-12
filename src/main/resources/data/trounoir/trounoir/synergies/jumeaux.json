@@ -1,0 +1,11 @@
+{
+  "power": 6,
+  "bonus": {
+    "stats": {
+      "magic_power": 15
+    }
+  },
+  "requires_all": [
+    "trounoir:gemellite"
+  ]
+}

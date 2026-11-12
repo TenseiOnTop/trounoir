@@ -1,0 +1,20 @@
+{
+  "tags": [
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 8,
+  "icon": "minecraft:echo_shard",
+  "type": "beam",
+  "cooldown": 20,
+  "hunger_cost": 3,
+  "params": {
+    "range": 18,
+    "damage": 16,
+    "pierce": true,
+    "width": 1.0,
+    "particle": "minecraft:sonic_boom",
+    "sound": "minecraft:entity.warden.sonic_boom"
+  },
+  "signature": true
+}

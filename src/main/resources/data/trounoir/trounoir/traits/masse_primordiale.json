@@ -1,0 +1,37 @@
+{
+  "tags": [
+    "divin",
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 70,
+  "icon": "minecraft:crying_obsidian",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 40,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 10,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 1,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 10,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "damage_reduction_pct": 20
+    }
+  },
+  "signature": true
+}

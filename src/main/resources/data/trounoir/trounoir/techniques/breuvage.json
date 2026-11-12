@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "arcane"
+  ],
+  "max_level": 2,
+  "power": 3,
+  "icon": "minecraft:glass_bottle",
+  "type": "buff",
+  "cooldown": 40,
+  "hunger_cost": 1,
+  "params": {
+    "heal": 6,
+    "self_effects": [
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 200,
+        "amplifier": 0
+      }
+    ],
+    "sound": "minecraft:entity.witch.drink"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "unique": true,
+  "category": "demigod",
+  "faction": "sauvage",
+  "rank": 5,
+  "behavior": "hostile",
+  "health": 240,
+  "damage": 16,
+  "base_entity": "minecraft:ravager",
+  "armor": 10,
+  "speed": 0.32,
+  "scale": 1.6,
+  "knockback_resistance": 0.8,
+  "follow_range": 32,
+  "weakness": "fire",
+  "weakness_multiplier": 1.5,
+  "moves": [],
+  "grants": [
+    "trounoir:fureur_de_gorgath",
+    "trounoir:rugissement",
+    "trounoir:colosse"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": 25
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.gorgath_dead"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "castle",
+  "distance": 850,
+  "angle": 120,
+  "faction": "nebulosia",
+  "palette": {
+    "primary": "minecraft:stone_bricks",
+    "secondary": "minecraft:polished_andesite",
+    "accent": "minecraft:lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:roi_aurele",
+      "count": 1
+    },
+    {
+      "character": "trounoir:aldric",
+      "count": 1
+    },
+    {
+      "character": "trounoir:lysmene",
+      "count": 1
+    },
+    {
+      "character": "trounoir:hestia",
+      "count": 1
+    },
+    {
+      "character": "trounoir:chevalier",
+      "count": 6
+    },
+    {
+      "character": "trounoir:mage_royal",
+      "count": 3
+    },
+    {
+      "character": "trounoir:soldat",
+      "count": 6
+    }
+  ]
+}

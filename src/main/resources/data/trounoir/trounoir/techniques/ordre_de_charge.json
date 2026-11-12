@@ -1,0 +1,32 @@
+{
+  "tags": [
+    "lame",
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:white_banner",
+  "type": "buff",
+  "cooldown": 40,
+  "hunger_cost": 2,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:strength",
+        "duration": 300,
+        "amplifier": 1
+      },
+      {
+        "effect": "minecraft:speed",
+        "duration": 300,
+        "amplifier": 1
+      },
+      {
+        "effect": "minecraft:resistance",
+        "duration": 300,
+        "amplifier": 0
+      }
+    ]
+  },
+  "signature": true
+}

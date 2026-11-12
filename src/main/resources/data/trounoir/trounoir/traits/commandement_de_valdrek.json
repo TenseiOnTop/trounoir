@@ -1,0 +1,29 @@
+{
+  "tags": [
+    "endurance",
+    "lame",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:white_banner",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 10,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 3,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "all_damage_pct": 12,
+      "regen": 1
+    }
+  },
+  "signature": true
+}

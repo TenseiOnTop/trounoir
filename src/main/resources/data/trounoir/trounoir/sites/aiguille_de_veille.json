@@ -1,0 +1,22 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "tower",
+  "distance": 500,
+  "angle": 60,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:calcite",
+    "secondary": "minecraft:smooth_quartz",
+    "accent": "minecraft:sea_lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:suke",
+      "count": 1
+    },
+    {
+      "character": "trounoir:tirailleur",
+      "count": 4
+    }
+  ]
+}

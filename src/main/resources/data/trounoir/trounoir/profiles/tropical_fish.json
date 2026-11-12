@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:tropical_fish",
+  "rank": 0,
+  "grants": [
+    "trounoir:nage"
+  ]
+}

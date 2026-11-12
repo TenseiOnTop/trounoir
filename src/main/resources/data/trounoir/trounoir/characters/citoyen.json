@@ -1,0 +1,23 @@
+{
+  "unique": false,
+  "category": "peasant",
+  "faction": "azalee",
+  "rank": 1,
+  "behavior": "civilian",
+  "health": 20,
+  "damage": 2,
+  "speed": 0.25,
+  "kill_reputation": {
+    "azalee": -8
+  },
+  "notoriety": 4,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 4,
+  "texture": "trounoir:textures/entity/character/citoyen.png",
+  "moves": [],
+  "grants": [
+    "trounoir:labeur_humain",
+    "trounoir:haut_azaleen"
+  ],
+  "on_death": []
+}

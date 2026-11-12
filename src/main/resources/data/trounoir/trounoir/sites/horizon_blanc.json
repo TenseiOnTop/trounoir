@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "sanctuary",
+  "distance": 2500,
+  "angle": 60,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:white_concrete",
+    "secondary": "minecraft:quartz_block",
+    "accent": "minecraft:sea_lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:trou_blanc",
+      "count": 1
+    }
+  ]
+}

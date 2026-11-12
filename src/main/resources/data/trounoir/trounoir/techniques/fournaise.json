@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "feu"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:fire_charge",
+  "type": "aoe",
+  "cooldown": 16,
+  "hunger_cost": 2,
+  "params": {
+    "radius": 9,
+    "damage": 18,
+    "ignite": 8,
+    "particle": "minecraft:flame",
+    "sound": "minecraft:entity.blaze.shoot"
+  },
+  "signature": true
+}

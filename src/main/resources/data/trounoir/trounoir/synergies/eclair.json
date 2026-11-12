@@ -1,0 +1,20 @@
+{
+  "power": 4,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.08,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": 0.08,
+        "operation": "add_multiplied_base"
+      }
+    ]
+  },
+  "requires_tags": {
+    "vitesse": 3
+  }
+}

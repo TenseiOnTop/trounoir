@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "givre",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 4,
+  "icon": "minecraft:blue_ice",
+  "type": "aoe",
+  "cooldown": 18,
+  "hunger_cost": 2,
+  "params": {
+    "radius": 7,
+    "damage": 8,
+    "effects": [
+      {
+        "effect": "minecraft:slowness",
+        "duration": 120,
+        "amplifier": 5
+      }
+    ],
+    "particle": "minecraft:snowflake",
+    "sound": "minecraft:block.glass.break"
+  },
+  "signature": true
+}

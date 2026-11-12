@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:panda",
+  "rank": 2,
+  "grants": [
+    "trounoir:colosse"
+  ]
+}

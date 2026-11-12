@@ -1,0 +1,18 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "lair",
+  "distance": 800,
+  "angle": 250,
+  "faction": "sauvage",
+  "palette": {
+    "primary": "minecraft:cobbled_deepslate",
+    "secondary": "minecraft:podzol",
+    "accent": "minecraft:white_wool"
+  },
+  "residents": [
+    {
+      "character": "trounoir:veuve_bleme",
+      "count": 1
+    }
+  ]
+}

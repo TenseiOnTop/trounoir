@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "lame",
+    "endurance"
+  ],
+  "max_level": 5,
+  "power": 3.5,
+  "icon": "minecraft:diamond_chestplate",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 2,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "melee_damage_pct": 4
+    }
+  }
+}

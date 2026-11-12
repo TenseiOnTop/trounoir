@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:ravager",
+  "rank": 3,
+  "grants": [
+    "trounoir:colosse",
+    "trounoir:rugissement"
+  ]
+}

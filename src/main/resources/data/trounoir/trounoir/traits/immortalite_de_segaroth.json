@@ -1,0 +1,25 @@
+{
+  "tags": [
+    "endurance",
+    "arcane",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 30,
+  "icon": "minecraft:totem_of_undying",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 30,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "regen": 3,
+      "damage_reduction_pct": 12,
+      "lifesteal_pct": 6
+    }
+  },
+  "signature": true
+}

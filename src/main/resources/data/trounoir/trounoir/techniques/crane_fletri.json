@@ -1,0 +1,16 @@
+{
+  "tags": [
+    "mort",
+    "distance"
+  ],
+  "max_level": 2,
+  "power": 5,
+  "icon": "minecraft:wither_skeleton_skull",
+  "type": "projectile",
+  "cooldown": 10,
+  "hunger_cost": 2,
+  "params": {
+    "projectile": "wither_skull",
+    "speed": 1.3
+  }
+}

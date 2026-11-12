@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:chicken",
+  "rank": 0,
+  "grants": [
+    "trounoir:chair_rustique",
+    {
+      "id": "trounoir:patte_legere",
+      "chance": 0.5
+    }
+  ]
+}

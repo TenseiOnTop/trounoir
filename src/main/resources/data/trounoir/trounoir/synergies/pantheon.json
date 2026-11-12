@@ -1,0 +1,12 @@
+{
+  "power": 14,
+  "bonus": {
+    "stats": {
+      "damage_reduction_pct": 10,
+      "all_damage_pct": 10
+    }
+  },
+  "requires_tags": {
+    "divin": 3
+  }
+}

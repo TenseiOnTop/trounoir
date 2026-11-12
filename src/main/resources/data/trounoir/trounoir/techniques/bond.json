@@ -1,0 +1,17 @@
+{
+  "tags": [
+    "bete",
+    "vitesse"
+  ],
+  "max_level": 3,
+  "power": 1.5,
+  "icon": "minecraft:rabbit_foot",
+  "type": "leap",
+  "cooldown": 8,
+  "hunger_cost": 0,
+  "params": {
+    "strength": 0.9,
+    "forward": 0.9,
+    "safe_fall_seconds": 4
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "entity": "minecraft:elder_guardian",
+  "rank": 4,
+  "grants": [
+    "trounoir:regard_ancien",
+    "trounoir:rayon_gardien",
+    "trounoir:epines"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "tags": [
+    "lame",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 10,
+  "icon": "minecraft:golden_sword",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 6,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "melee_damage_pct": 12
+    }
+  },
+  "signature": true
+}

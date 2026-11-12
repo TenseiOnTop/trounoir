@@ -1,0 +1,145 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 320,
+  "damage": 20,
+  "armor": 20,
+  "speed": 0.28,
+  "knockback_resistance": 0.5,
+  "follow_range": 40,
+  "held_item": "minecraft:netherite_axe",
+  "phases": [
+    0.6,
+    0.3
+  ],
+  "weakness": "backstab",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/valdrek.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.4,
+      "angle": 110,
+      "damage": 20,
+      "telegraph": 14,
+      "cooldown": 26,
+      "max_range": 3.4,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "slam",
+      "shape": "circle",
+      "size": 5.5,
+      "anchor": "self",
+      "damage": 24,
+      "telegraph": 24,
+      "cooldown": 120,
+      "max_range": 5.5,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:poof",
+      "sound": "minecraft:entity.generic.explode"
+    },
+    {
+      "id": "call",
+      "shape": "circle",
+      "size": 2.0,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 30,
+      "cooldown": 500,
+      "max_range": 30,
+      "summon": "trounoir:legionnaire",
+      "summon_count": 3,
+      "weight": 1,
+      "knockback": 0,
+      "particle": "minecraft:note",
+      "sound": "minecraft:event.raid.horn"
+    },
+    {
+      "id": "call_guard",
+      "shape": "circle",
+      "size": 2.0,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 30,
+      "cooldown": 700,
+      "max_range": 30,
+      "summon": "trounoir:pretorien",
+      "summon_count": 2,
+      "weight": 1,
+      "knockback": 0,
+      "particle": "minecraft:note",
+      "sound": "minecraft:event.raid.horn",
+      "min_phase": 1
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 10,
+      "width": 2.0,
+      "damage": 26,
+      "telegraph": 18,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 10,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:commandement_de_valdrek",
+    "trounoir:ordre_de_charge",
+    "trounoir:discipline_imperiale"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:bragor",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

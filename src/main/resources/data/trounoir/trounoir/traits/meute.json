@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "bete",
+    "vitesse"
+  ],
+  "max_level": 5,
+  "power": 1.5,
+  "icon": "minecraft:bone",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 1,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.03,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "relief": {
+      "faiblesse": 1,
+      "lenteur": 1,
+      "maladresse": 1
+    }
+  }
+}

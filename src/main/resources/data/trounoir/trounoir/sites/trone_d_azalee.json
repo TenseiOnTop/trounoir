@@ -1,0 +1,30 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "palace",
+  "distance": 900,
+  "angle": 8,
+  "faction": "azalee",
+  "palette": {
+    "primary": "minecraft:polished_blackstone",
+    "secondary": "minecraft:magenta_terracotta",
+    "accent": "minecraft:gold_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:segaroth",
+      "count": 1
+    },
+    {
+      "character": "trounoir:noctalys",
+      "count": 1
+    },
+    {
+      "character": "trounoir:pretorien",
+      "count": 6
+    },
+    {
+      "character": "trounoir:magistere",
+      "count": 2
+    }
+  ]
+}

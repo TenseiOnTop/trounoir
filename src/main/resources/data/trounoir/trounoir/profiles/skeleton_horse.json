@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:skeleton_horse",
+  "rank": 1,
+  "grants": [
+    "trounoir:galop",
+    {
+      "id": "trounoir:os_secs",
+      "chance": 0.5
+    }
+  ]
+}

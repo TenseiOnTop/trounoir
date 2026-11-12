@@ -1,0 +1,31 @@
+{
+  "tags": [
+    "bete"
+  ],
+  "max_level": 2,
+  "power": 4,
+  "icon": "minecraft:saddle",
+  "type": "aoe",
+  "cooldown": 20,
+  "hunger_cost": 2,
+  "params": {
+    "radius": 6,
+    "damage": 4,
+    "damage_type": "physical",
+    "knockback": 1.6,
+    "effects": [
+      {
+        "effect": "minecraft:weakness",
+        "duration": 100,
+        "amplifier": 0
+      },
+      {
+        "effect": "minecraft:slowness",
+        "duration": 60,
+        "amplifier": 1
+      }
+    ],
+    "particle": "minecraft:poof",
+    "sound": "minecraft:entity.ravager.roar"
+  }
+}

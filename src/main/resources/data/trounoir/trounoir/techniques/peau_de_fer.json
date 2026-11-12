@@ -1,0 +1,26 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 4,
+  "icon": "minecraft:netherite_scrap",
+  "type": "buff",
+  "cooldown": 40,
+  "hunger_cost": 2,
+  "params": {
+    "self_effects": [
+      {
+        "effect": "minecraft:resistance",
+        "duration": 200,
+        "amplifier": 2
+      },
+      {
+        "effect": "minecraft:absorption",
+        "duration": 200,
+        "amplifier": 3
+      }
+    ]
+  },
+  "signature": true
+}

@@ -1,0 +1,153 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 10,
+  "behavior": "boss",
+  "health": 1000,
+  "damage": 50,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 2.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.75,
+    0.5,
+    0.25
+  ],
+  "weakness": "backstab",
+  "dialogue_lines": 4,
+  "texture": "trounoir:textures/entity/character/higgs.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "backhand",
+      "shape": "cone",
+      "size": 6,
+      "angle": 140,
+      "damage": 48,
+      "telegraph": 14,
+      "cooldown": 22,
+      "max_range": 6,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "weight",
+      "shape": "circle",
+      "size": 9,
+      "anchor": "self",
+      "damage": 54,
+      "telegraph": 22,
+      "cooldown": 80,
+      "max_range": 9,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:poof",
+      "sound": "minecraft:entity.generic.explode"
+    },
+    {
+      "id": "collapse",
+      "shape": "circle",
+      "size": 16,
+      "anchor": "self",
+      "damage": 40,
+      "telegraph": 34,
+      "cooldown": 200,
+      "max_range": 16,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:reverse_portal",
+      "sound": "minecraft:entity.generic.explode",
+      "pull": 3.0,
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 100,
+          "amplifier": 4
+        }
+      ]
+    },
+    {
+      "id": "mass_drop",
+      "shape": "circle",
+      "size": 4.5,
+      "anchor": "target",
+      "count": 8,
+      "spread": 14,
+      "damage": 50,
+      "telegraph": 28,
+      "cooldown": 100,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:falling_obsidian_tear",
+      "sound": "minecraft:entity.generic.explode"
+    },
+    {
+      "id": "field",
+      "shape": "line",
+      "size": 44,
+      "width": 5,
+      "damage": 56,
+      "telegraph": 30,
+      "cooldown": 110,
+      "min_range": 4,
+      "max_range": 44,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "min_phase": 1
+    },
+    {
+      "id": "inevitable",
+      "shape": "circle",
+      "size": 6,
+      "anchor": "target",
+      "damage": 60,
+      "telegraph": 18,
+      "cooldown": 90,
+      "min_range": 4,
+      "max_range": 24,
+      "pre": "teleport",
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport",
+      "min_phase": 1
+    },
+    {
+      "id": "condemnation",
+      "shape": "circle",
+      "size": 20,
+      "anchor": "self",
+      "damage": 70,
+      "telegraph": 50,
+      "cooldown": 300,
+      "max_range": 20,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:reverse_portal",
+      "sound": "minecraft:entity.wither.spawn",
+      "min_phase": 2,
+      "pull": 3.5
+    }
+  ],
+  "grants": [
+    "trounoir:masse_primordiale",
+    "trounoir:effondrement"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    }
+  ]
+}

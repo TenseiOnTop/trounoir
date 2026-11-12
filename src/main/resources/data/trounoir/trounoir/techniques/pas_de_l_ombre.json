@@ -1,0 +1,15 @@
+{
+  "tags": [
+    "ombre"
+  ],
+  "max_level": 1,
+  "power": 4,
+  "icon": "minecraft:black_dye",
+  "type": "blink",
+  "cooldown": 6,
+  "hunger_cost": 0,
+  "params": {
+    "range": 16
+  },
+  "signature": true
+}

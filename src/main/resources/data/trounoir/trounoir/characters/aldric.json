@@ -1,0 +1,116 @@
+{
+  "unique": true,
+  "category": "supernova",
+  "faction": "nebulosia",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 140,
+  "damage": 11,
+  "armor": 14,
+  "speed": 0.29,
+  "knockback_resistance": 0.3,
+  "held_item": "minecraft:golden_sword",
+  "phases": [
+    0.5
+  ],
+  "weakness": "magic",
+  "kill_reputation": {
+    "nebulosia": -40
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/aldric.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.5,
+      "angle": 110,
+      "damage": 11,
+      "telegraph": 14,
+      "cooldown": 30,
+      "max_range": 3.5,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 10,
+      "width": 2.0,
+      "damage": 13,
+      "telegraph": 20,
+      "cooldown": 90,
+      "min_range": 3,
+      "max_range": 10,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "solar_ring",
+      "shape": "circle",
+      "size": 5.5,
+      "anchor": "self",
+      "damage": 14,
+      "telegraph": 26,
+      "cooldown": 150,
+      "max_range": 5.5,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:flamme_d_aldric",
+    "trounoir:lame_solaire",
+    "trounoir:carte_du_havre"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "nebulosia",
+      "duration": 24000
+    },
+    {
+      "type": "mourning",
+      "faction": "nebulosia",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "nebulosia",
+      "waves": 2,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:hestia",
+      "delay": 2400
+    },
+    {
+      "type": "successor",
+      "character": "trounoir:garmond",
+      "replaces": "trounoir:aldric",
+      "delay": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.supernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

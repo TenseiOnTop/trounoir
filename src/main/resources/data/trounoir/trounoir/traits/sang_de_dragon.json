@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "feu",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 18,
+  "icon": "minecraft:dragon_breath",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 12,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "fall_reduction_pct": 100,
+      "damage_reduction_pct": 5
+    }
+  },
+  "signature": true
+}

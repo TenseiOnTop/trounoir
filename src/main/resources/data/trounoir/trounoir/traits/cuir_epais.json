@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "endurance",
+    "bete"
+  ],
+  "max_level": 4,
+  "power": 1.5,
+  "icon": "minecraft:leather",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 2,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.armor",
+        "amount": 1,
+        "operation": "add_value"
+      }
+    ]
+  }
+}

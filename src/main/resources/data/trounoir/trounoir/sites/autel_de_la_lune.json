@@ -1,0 +1,18 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "sanctuary",
+  "distance": 1000,
+  "angle": 165,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:quartz_block",
+    "secondary": "minecraft:smooth_quartz",
+    "accent": "minecraft:sea_lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:selene",
+      "count": 1
+    }
+  ]
+}

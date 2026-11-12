@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "arcane",
+    "astral"
+  ],
+  "max_level": 1,
+  "power": 14,
+  "icon": "minecraft:ender_eye",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:player.block_interaction_range",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "cooldown_reduction_pct": 20,
+      "magic_power": 20
+    }
+  },
+  "signature": true
+}

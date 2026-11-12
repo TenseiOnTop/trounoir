@@ -1,0 +1,129 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 280,
+  "damage": 22,
+  "armor": 10,
+  "speed": 0.29,
+  "follow_range": 40,
+  "held_item": "minecraft:blaze_rod",
+  "phases": [
+    0.6,
+    0.3
+  ],
+  "weakness": "melee",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/ignarelle.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 26,
+      "width": 1.0,
+      "damage": 0,
+      "telegraph": 14,
+      "cooldown": 40,
+      "min_range": 4,
+      "max_range": 26,
+      "projectile": "small_fireball",
+      "projectile_count": 3,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "meteors",
+      "shape": "circle",
+      "size": 3.5,
+      "anchor": "target",
+      "count": 4,
+      "spread": 8,
+      "damage": 24,
+      "telegraph": 28,
+      "cooldown": 110,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot"
+    },
+    {
+      "id": "flame_cone",
+      "shape": "cone",
+      "size": 7,
+      "angle": 70,
+      "damage": 22,
+      "telegraph": 20,
+      "cooldown": 80,
+      "max_range": 7,
+      "weight": 3,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "furnace",
+      "shape": "circle",
+      "size": 9,
+      "anchor": "self",
+      "damage": 28,
+      "telegraph": 30,
+      "cooldown": 200,
+      "max_range": 9,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 2
+    }
+  ],
+  "grants": [
+    "trounoir:brasier_d_ignarelle",
+    "trounoir:fournaise",
+    "trounoir:sang_de_braise"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:oriel",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

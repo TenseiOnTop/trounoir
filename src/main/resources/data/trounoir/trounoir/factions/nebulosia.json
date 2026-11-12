@@ -1,0 +1,13 @@
+{
+  "color": "#3f5f8a",
+  "hunt_squad": [
+    {
+      "character": "trounoir:soldat",
+      "count": 3
+    },
+    {
+      "character": "trounoir:chevalier",
+      "count": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:blaze",
+  "rank": 2,
+  "grants": [
+    "trounoir:sang_de_braise",
+    {
+      "id": "trounoir:salve_de_braise",
+      "chance": 0.7
+    }
+  ]
+}

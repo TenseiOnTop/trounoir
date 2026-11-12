@@ -1,0 +1,23 @@
+{
+  "dimension": "minecraft:overworld",
+  "blueprint": "harbor",
+  "distance": 1300,
+  "angle": 300,
+  "faction": "nebulosia",
+  "palette": {
+    "primary": "minecraft:cobblestone",
+    "secondary": "minecraft:spruce_planks",
+    "accent": "minecraft:lantern"
+  },
+  "residents": [
+    {
+      "character": "trounoir:soldat",
+      "count": 2
+    },
+    {
+      "character": "trounoir:paysan",
+      "count": 4
+    }
+  ],
+  "crossing": true
+}

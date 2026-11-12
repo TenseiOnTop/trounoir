@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:piglin",
+  "rank": 2,
+  "grants": [
+    "trounoir:sens_du_troc",
+    {
+      "id": "trounoir:force_brute",
+      "chance": 0.5
+    }
+  ]
+}

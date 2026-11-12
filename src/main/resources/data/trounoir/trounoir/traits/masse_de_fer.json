@@ -1,0 +1,30 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 2,
+  "power": 6,
+  "icon": "minecraft:iron_block",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 6,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.2,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 2,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faiblesse": 1
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "unique": true,
+  "category": "supernova",
+  "faction": "nebulosia",
+  "rank": 4,
+  "behavior": "guard",
+  "health": 110,
+  "damage": 12,
+  "armor": 6,
+  "speed": 0.27,
+  "held_item": "minecraft:amethyst_shard",
+  "phases": [
+    0.5
+  ],
+  "weakness": "fire",
+  "kill_reputation": {
+    "nebulosia": -40
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/lysmene.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "shot",
+      "shape": "line",
+      "size": 20,
+      "width": 1.0,
+      "damage": 0,
+      "telegraph": 16,
+      "cooldown": 50,
+      "min_range": 4,
+      "max_range": 20,
+      "projectile": "small_fireball",
+      "projectile_count": 2,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.arrow.shoot"
+    },
+    {
+      "id": "ice_rain",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "count": 3,
+      "spread": 6,
+      "damage": 12,
+      "telegraph": 30,
+      "cooldown": 120,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.blaze.shoot",
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 80,
+          "amplifier": 2
+        }
+      ]
+    },
+    {
+      "id": "ice_prison",
+      "shape": "circle",
+      "size": 6,
+      "anchor": "self",
+      "damage": 10,
+      "telegraph": 28,
+      "cooldown": 180,
+      "max_range": 6,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.generic.explode",
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 100,
+          "amplifier": 4
+        }
+      ],
+      "min_phase": 1
+    }
+  ],
+  "grants": [
+    "trounoir:givre_de_lysmene",
+    "trounoir:prison_de_glace",
+    "trounoir:cieux_cartographies"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "nebulosia",
+      "duration": 24000
+    },
+    {
+      "type": "mourning",
+      "faction": "nebulosia",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "nebulosia",
+      "waves": 2,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:corvin",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.supernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

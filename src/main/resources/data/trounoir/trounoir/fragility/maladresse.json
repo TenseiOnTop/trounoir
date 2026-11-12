@@ -1,0 +1,6 @@
+{
+  "relief_needed": 4,
+  "attribute": "minecraft:generic.attack_speed",
+  "amount": -0.25,
+  "operation": "add_multiplied_total"
+}

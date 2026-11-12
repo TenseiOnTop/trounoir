@@ -1,0 +1,32 @@
+{
+  "tags": [
+    "bete",
+    "endurance"
+  ],
+  "max_level": 1,
+  "power": 16,
+  "icon": "minecraft:goat_horn",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 12,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.attack_damage",
+        "amount": 3,
+        "operation": "add_value"
+      },
+      {
+        "attribute": "minecraft:generic.knockback_resistance",
+        "amount": 0.3,
+        "operation": "add_value"
+      }
+    ],
+    "relief": {
+      "faiblesse": 6
+    }
+  },
+  "signature": true
+}

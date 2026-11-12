@@ -1,0 +1,22 @@
+{
+  "tags": [
+    "endurance"
+  ],
+  "max_level": 4,
+  "power": 1,
+  "icon": "minecraft:iron_pickaxe",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:player.block_break_speed",
+        "amount": 0.15,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "relief": {
+      "engourdissement": 2,
+      "faim": 1,
+      "maladresse": 1
+    }
+  }
+}

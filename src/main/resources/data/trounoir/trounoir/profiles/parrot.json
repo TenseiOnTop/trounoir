@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:parrot",
+  "rank": 0,
+  "grants": [
+    "trounoir:oeil_d_aigle"
+  ]
+}

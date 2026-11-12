@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:hoglin",
+  "rank": 2,
+  "grants": [
+    "trounoir:colosse",
+    {
+      "id": "trounoir:charge",
+      "chance": 0.6
+    }
+  ]
+}

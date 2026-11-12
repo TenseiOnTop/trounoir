@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:illusioner",
+  "rank": 3,
+  "grants": [
+    "trounoir:sang_arcanique",
+    "trounoir:voile_illusoire"
+  ]
+}

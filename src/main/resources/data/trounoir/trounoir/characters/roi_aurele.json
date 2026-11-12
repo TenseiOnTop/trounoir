@@ -1,0 +1,68 @@
+{
+  "unique": true,
+  "category": "king",
+  "faction": "nebulosia",
+  "rank": 2,
+  "behavior": "guard",
+  "health": 40,
+  "damage": 4,
+  "armor": 8,
+  "held_item": "minecraft:golden_sword",
+  "kill_reputation": {
+    "nebulosia": -60
+  },
+  "language": "trounoir:langue_commune",
+  "dialogue_lines": 3,
+  "boss_bar": false,
+  "texture": "trounoir:textures/entity/character/roi_aurele.png",
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 3.0,
+      "angle": 100,
+      "damage": 4,
+      "telegraph": 18,
+      "cooldown": 30,
+      "max_range": 3.0,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    }
+  ],
+  "grants": [
+    "trounoir:sang_royal",
+    "trounoir:langue_commune",
+    "trounoir:secret_du_trone"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "nebulosia",
+      "amount": -40
+    },
+    {
+      "type": "alert",
+      "faction": "nebulosia",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "nebulosia",
+      "duration": 72000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "nebulosia",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.king_dead",
+      "only_if_player": false
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "entity": "minecraft:witch",
+  "rank": 2,
+  "grants": [
+    "trounoir:sang_arcanique",
+    "trounoir:regeneration_lente",
+    {
+      "id": "trounoir:breuvage",
+      "chance": 0.6
+    },
+    {
+      "id": "trounoir:alchimie",
+      "chance": 0.5
+    }
+  ]
+}

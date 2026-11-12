@@ -1,0 +1,8 @@
+{
+  "entity": "minecraft:magma_cube",
+  "rank": 2,
+  "grants": [
+    "trounoir:sang_de_braise",
+    "trounoir:ressort"
+  ]
+}

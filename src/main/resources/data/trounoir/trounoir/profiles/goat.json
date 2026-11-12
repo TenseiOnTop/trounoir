@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:goat",
+  "rank": 1,
+  "grants": [
+    "trounoir:ressort",
+    {
+      "id": "trounoir:charge",
+      "chance": 0.6
+    }
+  ]
+}

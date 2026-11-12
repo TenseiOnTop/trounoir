@@ -1,0 +1,27 @@
+{
+  "tags": [
+    "divin",
+    "vitesse"
+  ],
+  "max_level": 1,
+  "power": 40,
+  "icon": "minecraft:note_block",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.attack_speed",
+        "amount": 0.5,
+        "operation": "add_multiplied_base"
+      },
+      {
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.15,
+        "operation": "add_multiplied_base"
+      }
+    ],
+    "stats": {
+      "cooldown_reduction_pct": 25
+    }
+  },
+  "signature": true
+}

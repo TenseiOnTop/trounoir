@@ -1,0 +1,7 @@
+{
+  "entity": "minecraft:vindicator",
+  "rank": 2,
+  "grants": [
+    "trounoir:force_brute"
+  ]
+}

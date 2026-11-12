@@ -1,0 +1,23 @@
+{
+  "tags": [
+    "divin",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 48,
+  "icon": "minecraft:amethyst_cluster",
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 30,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "regen": 4,
+      "magic_power": 30
+    }
+  },
+  "signature": true
+}

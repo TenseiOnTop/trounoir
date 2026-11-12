@@ -1,0 +1,128 @@
+{
+  "unique": true,
+  "category": "god",
+  "faction": "pantheon",
+  "rank": 8,
+  "behavior": "boss",
+  "health": 700,
+  "damage": 34,
+  "armor": 20,
+  "speed": 0.31,
+  "scale": 1.8,
+  "knockback_resistance": 1.0,
+  "follow_range": 56,
+  "phases": [
+    0.66,
+    0.33
+  ],
+  "weakness": "magic",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/mars.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "slash",
+      "shape": "cone",
+      "size": 4.5,
+      "angle": 130,
+      "damage": 34,
+      "telegraph": 13,
+      "cooldown": 20,
+      "max_range": 4.5,
+      "weight": 3,
+      "particle": "minecraft:sweep_attack",
+      "sound": "minecraft:entity.player.attack.sweep"
+    },
+    {
+      "id": "slam",
+      "shape": "circle",
+      "size": 7,
+      "anchor": "self",
+      "damage": 38,
+      "telegraph": 22,
+      "cooldown": 100,
+      "max_range": 7,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:damage_indicator",
+      "sound": "minecraft:entity.generic.explode"
+    },
+    {
+      "id": "lunge",
+      "shape": "line",
+      "size": 14,
+      "width": 2.0,
+      "damage": 40,
+      "telegraph": 16,
+      "cooldown": 70,
+      "min_range": 3,
+      "max_range": 14,
+      "pre": "dash",
+      "weight": 2,
+      "particle": "minecraft:crit",
+      "sound": "minecraft:entity.player.attack.strong"
+    },
+    {
+      "id": "rust_breath",
+      "shape": "cone",
+      "size": 8,
+      "angle": 80,
+      "damage": 30,
+      "telegraph": 18,
+      "cooldown": 90,
+      "max_range": 8,
+      "weight": 3,
+      "particle": "minecraft:crimson_spore",
+      "sound": "minecraft:entity.player.attack.sweep",
+      "effects": [
+        {
+          "effect": "minecraft:wither",
+          "duration": 100,
+          "amplifier": 1
+        },
+        {
+          "effect": "minecraft:weakness",
+          "duration": 100,
+          "amplifier": 1
+        }
+      ]
+    },
+    {
+      "id": "blood_tide",
+      "shape": "circle",
+      "size": 10,
+      "anchor": "self",
+      "damage": 46,
+      "telegraph": 26,
+      "cooldown": 160,
+      "max_range": 10,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:damage_indicator",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "heal": 40
+    }
+  ],
+  "grants": [
+    "trounoir:rouille_de_mars",
+    "trounoir:maree_de_sang"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "pantheon",
+      "amount": -30
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.god_dead",
+      "only_if_player": false
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:saturne",
+      "delay": 6000
+    }
+  ]
+}

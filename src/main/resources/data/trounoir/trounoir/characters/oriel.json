@@ -1,0 +1,130 @@
+{
+  "unique": true,
+  "category": "hypernova",
+  "faction": "azalee",
+  "rank": 6,
+  "behavior": "guard",
+  "health": 250,
+  "damage": 20,
+  "armor": 8,
+  "speed": 0.28,
+  "follow_range": 40,
+  "held_item": "minecraft:end_rod",
+  "phases": [
+    0.5
+  ],
+  "weakness": "melee",
+  "kill_reputation": {
+    "azalee": -40
+  },
+  "notoriety": 30,
+  "language": "trounoir:haut_azaleen",
+  "dialogue_lines": 3,
+  "texture": "trounoir:textures/entity/character/oriel.png",
+  "weakness_multiplier": 1.5,
+  "moves": [
+    {
+      "id": "ray",
+      "shape": "line",
+      "size": 22,
+      "width": 2,
+      "damage": 20,
+      "telegraph": 22,
+      "cooldown": 60,
+      "min_range": 4,
+      "max_range": 22,
+      "weight": 2,
+      "particle": "minecraft:end_rod",
+      "sound": "minecraft:entity.warden.sonic_boom"
+    },
+    {
+      "id": "meteors",
+      "shape": "circle",
+      "size": 3,
+      "anchor": "target",
+      "count": 4,
+      "spread": 7,
+      "damage": 22,
+      "telegraph": 26,
+      "cooldown": 100,
+      "min_range": 3,
+      "max_range": 26,
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "fold_away",
+      "shape": "circle",
+      "size": 1.5,
+      "anchor": "self",
+      "damage": 0,
+      "telegraph": 10,
+      "cooldown": 80,
+      "min_range": 0,
+      "max_range": 7,
+      "pre": "retreat",
+      "spread": 12,
+      "weight": 3,
+      "knockback": 0,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.enderman.teleport"
+    },
+    {
+      "id": "lattice",
+      "shape": "circle",
+      "size": 8,
+      "anchor": "self",
+      "damage": 24,
+      "telegraph": 28,
+      "cooldown": 180,
+      "max_range": 8,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:portal",
+      "sound": "minecraft:entity.generic.explode",
+      "min_phase": 1,
+      "pull": 1.2
+    }
+  ],
+  "grants": [
+    "trounoir:geometrie_d_oriel",
+    "trounoir:pli_spatial",
+    "trounoir:canalisation"
+  ],
+  "on_death": [
+    {
+      "type": "reputation",
+      "faction": "azalee",
+      "amount": -20
+    },
+    {
+      "type": "alert",
+      "faction": "azalee",
+      "duration": 48000
+    },
+    {
+      "type": "mourning",
+      "faction": "azalee",
+      "duration": 24000,
+      "only_if_player": false
+    },
+    {
+      "type": "hunt",
+      "faction": "azalee",
+      "waves": 3,
+      "interval": 3600,
+      "delay": 1200
+    },
+    {
+      "type": "vengeance",
+      "character": "trounoir:ignarelle",
+      "delay": 2400
+    },
+    {
+      "type": "message",
+      "key": "trounoir.reaction.hypernova_fallen",
+      "only_if_player": false
+    }
+  ]
+}

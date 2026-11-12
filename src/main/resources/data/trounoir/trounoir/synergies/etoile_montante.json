@@ -1,0 +1,18 @@
+{
+  "power": 8,
+  "bonus": {
+    "attributes": [
+      {
+        "attribute": "minecraft:generic.max_health",
+        "amount": 6,
+        "operation": "add_value"
+      }
+    ],
+    "stats": {
+      "all_damage_pct": 8
+    }
+  },
+  "requires_tags": {
+    "astral": 3
+  }
+}

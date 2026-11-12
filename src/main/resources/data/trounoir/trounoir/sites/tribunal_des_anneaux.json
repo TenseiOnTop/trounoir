@@ -1,0 +1,18 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "sanctuary",
+  "distance": 1800,
+  "angle": 205,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:smooth_sandstone",
+    "secondary": "minecraft:purpur_block",
+    "accent": "minecraft:amethyst_block"
+  },
+  "residents": [
+    {
+      "character": "trounoir:saturne",
+      "count": 1
+    }
+  ]
+}

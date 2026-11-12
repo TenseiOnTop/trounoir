@@ -1,0 +1,28 @@
+{
+  "tags": [
+    "divin",
+    "arcane"
+  ],
+  "max_level": 1,
+  "power": 17,
+  "icon": "minecraft:amethyst_cluster",
+  "type": "buff",
+  "cooldown": 60,
+  "hunger_cost": 3,
+  "params": {
+    "heal": 60,
+    "self_effects": [
+      {
+        "effect": "minecraft:absorption",
+        "duration": 600,
+        "amplifier": 4
+      },
+      {
+        "effect": "minecraft:regeneration",
+        "duration": 200,
+        "amplifier": 2
+      }
+    ]
+  },
+  "signature": true
+}

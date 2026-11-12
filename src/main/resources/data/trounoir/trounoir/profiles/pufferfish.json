@@ -1,0 +1,11 @@
+{
+  "entity": "minecraft:pufferfish",
+  "rank": 0,
+  "grants": [
+    "trounoir:venin",
+    {
+      "id": "trounoir:epines",
+      "chance": 0.5
+    }
+  ]
+}

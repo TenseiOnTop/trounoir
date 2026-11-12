@@ -1,0 +1,19 @@
+{
+  "tags": [
+    "lame"
+  ],
+  "max_level": 1,
+  "power": 6,
+  "icon": "minecraft:netherite_sword",
+  "type": "aoe",
+  "cooldown": 9,
+  "hunger_cost": 1,
+  "params": {
+    "radius": 6,
+    "damage": 22,
+    "damage_type": "physical",
+    "knockback": 0.6,
+    "particle": "minecraft:sweep_attack"
+  },
+  "signature": true
+}
