@@ -182,11 +182,15 @@ public class AbsorptionScreen extends Screen {
             }
         }
 
-        renderSidePanel(g);
+        sideTooltip = null;
+        renderSidePanel(g, mouseX, mouseY);
+        if (sideTooltip != null) tooltip = sideTooltip;
         if (tooltip != null) g.renderComponentTooltip(this.font, tooltip, mouseX, mouseY);
     }
 
-    private void renderSidePanel(GuiGraphics g) {
+    private List<Component> sideTooltip;
+
+    private void renderSidePanel(GuiGraphics g, int mouseX, int mouseY) {
         int x = left + 252;
         int y = top + 8;
         g.drawString(this.font, I18n.get("trounoir.hud.rank", Text.roman(ClientState.rank), (int) Math.round(ClientState.power)), x, y, 0xC9B8FF);
@@ -219,6 +223,11 @@ public class AbsorptionScreen extends Screen {
                 SynergyDef def = ClientState.SYNERGIES.get(id);
                 if (def == null || y > top + H - 40) continue;
                 g.drawString(this.font, "✦ " + I18n.get(def.nameKey()), x, y, 0xE6D08A);
+                if (mouseX >= x && mouseX < left + W - 4 && mouseY >= y - 1 && mouseY < y + 9) {
+                    sideTooltip = List.of(Component.translatable(def.nameKey()).withStyle(ChatFormatting.GOLD),
+                            Component.translatable(def.nameKey() + ".desc").withStyle(ChatFormatting.WHITE),
+                            Component.translatable(def.nameKey() + ".need").withStyle(ChatFormatting.GRAY));
+                }
                 y += 10;
             }
             y += 6;

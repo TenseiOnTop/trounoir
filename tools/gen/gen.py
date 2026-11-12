@@ -53,6 +53,42 @@ def bonus(attrs, stats, relief, effects):
     return out
 
 
+LABELS = {
+    'hp': ('PV', 'HP', 1), 'armor': ('armure', 'armor', 1), 'atk': ('dégâts', 'damage', 1),
+    'spd': ('vitesse', 'speed', 100), 'aspd': ("vitesse d'attaque", 'attack speed', 100), 'kb': ('résistance au recul', 'knockback resistance', 100),
+    'melee_damage_pct': ('dégâts au corps-à-corps', 'melee damage', 1), 'ranged_damage_pct': ('dégâts à distance', 'ranged damage', 1),
+    'all_damage_pct': ('tous les dégâts', 'all damage', 1), 'backstab_pct': ('dégâts dans le dos', 'backstab damage', 1),
+    'magic_power': ('puissance des techniques', 'technique power', 1), 'cooldown_reduction_pct': ('recharge', 'cooldown', -1),
+    'damage_reduction_pct': ('dégâts subis', 'damage taken', -1), 'lifesteal_pct': ('vol de vie', 'lifesteal', 1),
+    'regen': ('PV régénérés toutes les 5 s', 'HP regenerated every 5 s', 1), 'stealth': ('discrétion', 'stealth', 1),
+}
+FLAGS = {'fire_immunity': ('immunité au feu', 'fire immunity'), 'fire_touch': ('vos coups enflamment', 'your blows ignite'),
+         'frost_touch': ('vos coups ralentissent', 'your blows slow'), 'poison_touch': ('vos coups empoisonnent', 'your blows poison'),
+         'wither_touch': ('vos coups flétrissent', 'your blows wither')}
+PERCENT = {'spd', 'aspd', 'kb'}
+
+
+def readable(attrs, stats, lng):
+    i = 0 if lng == 'fr' else 1
+    parts = []
+    for k, v in list(attrs.items()) + list(stats.items()):
+        if k in FLAGS:
+            parts.append(FLAGS[k][i])
+            continue
+        label = LABELS[k]
+        value = v * abs(label[2]) * (-1 if label[2] < 0 else 1)
+        pct = k in PERCENT or k.endswith('_pct') or k in ('magic_power', 'stealth')
+        parts.append('%+g%s %s' % (value, ' %' if pct else '', label[i]))
+    return ', '.join(parts)
+
+
+def trait_name(id, lng):
+    for t in A.TRAITS + A.TECHNIQUES:
+        if t['id'] == id:
+            return t['fr'] if lng == 'fr' else t['en']
+    return id
+
+
 def clean(directory):
     if os.path.isdir(directory):
         shutil.rmtree(directory)
@@ -112,6 +148,10 @@ def gen_data():
             obj['requires_all'] = ['trounoir:' + t for t in traits]
         write_json(os.path.join(DATA, 'synergies', id + '.json'), obj)
         lang('synergy.trounoir.' + id, fr, en)
+        lang('synergy.trounoir.' + id + '.desc', readable(attrs, stats, 'fr'), readable(attrs, stats, 'en'))
+        need_fr = ', '.join('%d × %s' % (n, A.TAGS[t][0]) for t, n in tags.items()) or ' + '.join(trait_name(t, 'fr') for t in traits)
+        need_en = ', '.join('%d × %s' % (n, A.TAGS[t][1]) for t, n in tags.items()) or ' + '.join(trait_name(t, 'en') for t in traits)
+        lang('synergy.trounoir.' + id + '.need', 'Condition : ' + need_fr, 'Requires: ' + need_en)
 
     for entity, profile in W.PROFILES.items():
         obj = {'entity': 'minecraft:' + entity, 'rank': profile[0], 'grants': profile[1]}
