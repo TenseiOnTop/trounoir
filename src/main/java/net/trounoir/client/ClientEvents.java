@@ -8,7 +8,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterKeyMappingsEvent;
-import net.minecraftforge.client.event.RenderGuiEvent;
+import net.minecraftforge.client.event.AddGuiOverlayLayersEvent;
 import net.minecraftforge.client.event.ScreenEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -42,6 +42,12 @@ public final class ClientEvents {
             for (KeyMapping key : TECHNIQUE_KEYS) event.register(key);
             event.register(OPEN_ABSORPTION);
             event.register(OPEN_CHRONICLE);
+        }
+
+        /** Le HUD du mod est une couche de l'interface, dessinée après celles de Minecraft. */
+        @SubscribeEvent
+        public static void onAddLayers(AddGuiOverlayLayersEvent event) {
+            event.getLayeredDraw().add(TrouNoir.rl("hud"), (graphics, deltaTracker) -> Hud.render(graphics));
         }
 
         @SubscribeEvent
@@ -91,11 +97,6 @@ public final class ClientEvents {
             if (event.getNewScreen() instanceof DeathScreen) {
                 event.setNewScreen(Minecraft.getInstance().screen instanceof RebirthScreen current ? current : new RebirthScreen());
             }
-        }
-
-        @SubscribeEvent
-        public static void onRenderGui(RenderGuiEvent.Post event) {
-            Hud.render(event.getGuiGraphics());
         }
 
         @SubscribeEvent
