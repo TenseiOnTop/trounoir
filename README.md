@@ -6,21 +6,15 @@ Vous êtes le Dieu Trou-Noir, le plus faible des Dieux, condamné par Higgs à v
 Vous absorbez ce que vous tuez. Quand vous mourez, vous renaissez dans le passé, au même point,
 sans vos pouvoirs mais avec vos souvenirs. But : tuer Higgs.
 
-## État de vérification — à lire d'abord
+## État de vérification
 
-Ce projet a été écrit dans un environnement **sans accès aux serveurs de Forge et de Mojang** :
-`./gradlew build` et `runClient` **n'ont donc pas pu y être exécutés**. Ce qui a été vérifié à la place :
+- **Compilation** : réussie sur GitHub Actions (Forge 1.21.1-52.1.20, Java 21) à chaque envoi de code.
+- **Démarrage** : un serveur dédié avec le mod est lancé automatiquement à chaque build. Il charge tout le contenu,
+  place les 27 lieux, charge la dimension Diviniarth, recharge les données (`/reload`) et s'arrête sans erreur.
+- **Pas encore testé** : le client (écrans, HUD, touches) et le jeu lui-même (combats, renaissance, équilibrage).
+  Ces parties demandent quelqu'un devant l'écran.
 
-- syntaxe et cohérence interne de tout le code (compilation tolérante `javac`, avec les sources de Forge 52.1.20) ;
-- chaque appel à l'API Forge relu contre les sources de Forge 52.1.20 ;
-- les signatures vanilla relues contre les correspondances Parchment 1.21.1 et un mod 1.21.1 réel ;
-- tous les identifiants vanilla cités (objets, blocs, entités, attributs, effets, particules, sons, recettes)
-  contrôlés contre les registres de la 1.21.1 (`tools/check_ids.py`) ;
-- validité de tous les JSON, références croisées du contenu, clés de traduction.
-
-Il faut donc s'attendre à ce que la première compilation réelle signale quelques erreurs à corriger
-(un nom de méthode vanilla, un type générique). Elles se corrigent vite une fois le message de `gradlew build` connu.
-Le fichier `.github/workflows/build.yml` permet aussi de compiler sur GitHub Actions.
+Le dernier `.jar` compilé est toujours disponible sur la page **Releases** du dépôt (`dernier-build`).
 
 ## Installation et lancement
 
