@@ -48,6 +48,7 @@ public final class CharacterDef {
     public final String language;
     public final int dialogueLines;
     public final boolean bossBar;
+    public final boolean hasTitle;
     public final JsonObject raw;
 
     public CharacterDef(ResourceLocation id, JsonObject json) {
@@ -84,6 +85,14 @@ public final class CharacterDef {
         this.language = JsonUtil.str(json, "language", "");
         this.dialogueLines = JsonUtil.integer(json, "dialogue_lines", 0);
         this.bossBar = JsonUtil.bool(json, "boss_bar", unique);
+        this.hasTitle = JsonUtil.bool(json, "title", false);
+    }
+
+    /** Nom affiché au-dessus de la tête et sur la barre de vie : « Nom — Titre » si le personnage a un titre. */
+    public net.minecraft.network.chat.Component display() {
+        net.minecraft.network.chat.Component name = net.minecraft.network.chat.Component.translatable(nameKey());
+        return hasTitle ? net.minecraft.network.chat.Component.translatable("trounoir.name_title", name,
+                net.minecraft.network.chat.Component.translatable(titleKey())) : name;
     }
 
     public boolean isModEntity() {

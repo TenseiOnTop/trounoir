@@ -4,6 +4,11 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.network.Filterable;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.component.WrittenBookContent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
@@ -235,6 +240,7 @@ public final class RebirthManager {
         player.getFoodData().setFoodLevel(20);
         player.getFoodData().setSaturation(5.0F);
         player.clearFire();
+        giveGuide(player);
 
         BlockPos origin = SiteManager.origin(server);
         ServerLevel overworld = server.overworld();
@@ -253,6 +259,17 @@ public final class RebirthManager {
             Fx.playTo(player, "block.respawn_anchor.set_spawn", 0.8F, 0.5F);
         }
     }
+
+    /** Le carnet remis à chaque naissance : l'essentiel pour se repérer, sans rien dévoiler du monde. */
+    private static void giveGuide(ServerPlayer player) {
+        List<Filterable<Component>> pages = new ArrayList<>();
+        for (int i = 1; i <= GUIDE_PAGES; i++) pages.add(Filterable.passThrough(Component.translatable("trounoir.book.page" + i)));
+        ItemStack book = new ItemStack(Items.WRITTEN_BOOK);
+        book.set(DataComponents.WRITTEN_BOOK_CONTENT, new WrittenBookContent(Filterable.passThrough("Trou-Noir"), "?", 0, pages, true));
+        player.getInventory().add(book);
+    }
+
+    private static final int GUIDE_PAGES = 7;
 
     @SubscribeEvent
     public static void onLogin(PlayerEvent.PlayerLoggedInEvent event) {

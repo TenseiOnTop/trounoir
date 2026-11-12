@@ -75,7 +75,7 @@ public final class Characters {
             setBase(mob, Attributes.FOLLOW_RANGE, def.followRange);
             setBase(mob, Attributes.SCALE, def.scale);
             mob.setHealth(mob.getMaxHealth());
-            mob.setCustomName(Component.translatable(def.nameKey()));
+            mob.setCustomName(def.display());
             mob.setCustomNameVisible(true);
             mob.setPersistenceRequired();
             mob.restrictTo(home, 16);

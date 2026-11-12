@@ -22,6 +22,7 @@
   "dialogue_lines": 3,
   "texture": "trounoir:textures/entity/character/suke.png",
   "weakness_multiplier": 1.5,
+  "title": true,
   "moves": [
     {
       "id": "rifle",

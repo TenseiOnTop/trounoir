@@ -24,6 +24,7 @@
   "dialogue_lines": 3,
   "texture": "trounoir:textures/entity/character/bragor.png",
   "weakness_multiplier": 1.5,
+  "title": true,
   "moves": [
     {
       "id": "shield_bash",

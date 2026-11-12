@@ -116,7 +116,7 @@ public class AbsorptionScreen extends Screen {
     }
 
     private static String label(String key) {
-        return I18n.get("tnstat.trounoir." + key);
+        return net.minecraft.locale.Language.getInstance().getOrDefault("tnstat.trounoir." + key);   // texte brut : les %s sont remplis ensuite
     }
 
     private static String effectList(com.google.gson.JsonObject params, String key) {

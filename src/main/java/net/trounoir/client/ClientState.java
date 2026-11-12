@@ -82,6 +82,16 @@ public final class ClientState {
         chronicle = null;
     }
 
+    static {
+        // L'onglet créatif liste ce que le client connaît (reçu du serveur), y compris sur un serveur dédié.
+        net.trounoir.registry.ModRegistry.characterIds = () -> {
+            List<ResourceLocation> ids = new ArrayList<>();
+            for (String id : CHARACTERS.keySet()) ids.add(JsonUtil.id(id));
+            return ids;
+        };
+        net.trounoir.registry.ModRegistry.absorbables = () -> new ArrayList<>(ABSORBABLES.values());
+    }
+
     public static void readDefs(JsonObject json) {
         ABSORBABLES.clear();
         TAGS.clear();

@@ -202,6 +202,8 @@ def gen_data():
             obj['texture'] = 'trounoir:textures/entity/character/%s.png' % c['id']
         if c.get('weakness'):
             obj['weakness_multiplier'] = 1.5
+        if 'title_fr' in c:
+            obj['title'] = True
         obj['moves'] = c.get('moves', [])
         obj['grants'] = c.get('grants', [])
         obj['on_death'] = c.get('on_death', [])
@@ -408,6 +410,10 @@ def gen_block_assets():
     write_json(os.path.join(ASSETS, 'models', 'block', 'helm.json'),
                {'parent': 'minecraft:block/cube_all', 'textures': {'all': 'trounoir:block/helm'}})
     write_json(os.path.join(ASSETS, 'models', 'item', 'helm.json'), {'parent': 'trounoir:block/helm'})
+    write_json(os.path.join(ASSETS, 'models', 'item', 'character_egg.json'),
+               {'parent': 'minecraft:item/generated', 'textures': {'layer0': 'minecraft:item/spawn_egg', 'layer1': 'minecraft:item/spawn_egg_overlay'}})
+    write_json(os.path.join(ASSETS, 'models', 'item', 'essence.json'),
+               {'parent': 'minecraft:item/generated', 'textures': {'layer0': 'minecraft:item/nether_star'}})
 
 
 def gen_lang():

@@ -127,7 +127,7 @@ public class CharacterEntity extends PathfinderMob {
         setBase(Attributes.FOLLOW_RANGE, def.followRange);
         setBase(Attributes.SCALE, def.scale);
         this.setHealth(this.getMaxHealth());
-        this.setCustomName(Component.translatable(def.nameKey()));
+        this.setCustomName(def.display());
         this.setCustomNameVisible(def.unique);
         if (def.heldItem != null) {
             this.setItemSlot(EquipmentSlot.MAINHAND, Lookup.stack(def.heldItem));
@@ -188,7 +188,7 @@ public class CharacterEntity extends PathfinderMob {
 
         if (def.bossBar) {
             if (bossBar == null) {
-                bossBar = new ServerBossEvent(Component.translatable(def.nameKey()), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS);
+                bossBar = new ServerBossEvent(def.display(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS);
             }
             bossBar.setProgress(Math.max(0F, Math.min(1F, ratio)));
         }
@@ -224,7 +224,7 @@ public class CharacterEntity extends PathfinderMob {
         CharacterDef def = def();
         if (def != null && def.bossBar) {
             if (bossBar == null) {
-                bossBar = new ServerBossEvent(Component.translatable(def.nameKey()), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS);
+                bossBar = new ServerBossEvent(def.display(), BossEvent.BossBarColor.PURPLE, BossEvent.BossBarOverlay.PROGRESS);
             }
             bossBar.addPlayer(player);
         }
@@ -272,6 +272,8 @@ public class CharacterEntity extends PathfinderMob {
         super.readAdditionalSaveData(tag);
         this.entityData.set(DEF_ID, tag.getString("TnDef"));
         this.provoked = tag.getBoolean("TnProvoked");
+        CharacterDef loaded = def();
+        if (loaded != null) this.setCustomName(loaded.display());
         if (tag.contains("TnHome")) setHome(BlockPos.of(tag.getLong("TnHome")));
     }
 }

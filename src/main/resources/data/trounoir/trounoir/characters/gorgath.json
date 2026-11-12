@@ -14,6 +14,7 @@
   "follow_range": 32,
   "weakness": "fire",
   "weakness_multiplier": 1.5,
+  "title": true,
   "moves": [],
   "grants": [
     "trounoir:fureur_de_gorgath",

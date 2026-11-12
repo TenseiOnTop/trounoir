@@ -1,6 +1,18 @@
 package net.trounoir.registry;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
+import net.trounoir.data.AbsorbableDef;
+import net.trounoir.data.TNData;
+import net.trounoir.item.CharacterEggItem;
+import net.trounoir.item.EssenceItem;
+import java.util.Collection;
+import java.util.Locale;
+import java.util.function.Supplier;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -39,7 +51,28 @@ public final class ModRegistry {
     public static final RegistryObject<Item> HELM_ITEM = ITEMS.register("helm",
             () -> new BlockItem(HELM.get(), new Item.Properties()));
 
+    public static final RegistryObject<Item> CHARACTER_EGG = ITEMS.register("character_egg", () -> new CharacterEggItem(new Item.Properties()));
+    public static final RegistryObject<Item> ESSENCE = ITEMS.register("essence", () -> new EssenceItem(new Item.Properties()));
+
+    /** Identifiants connus du côté courant (remplacés côté client par ceux reçus du serveur). */
+    public static Supplier<Collection<ResourceLocation>> characterIds = () -> TNData.CHARACTERS.keySet();
+    public static Supplier<Collection<AbsorbableDef>> absorbables = () -> TNData.ABSORBABLES.values();
+
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, TrouNoir.MODID);
+    /** Onglet créatif : gouvernail, un œuf par personnage, une essence par trait, technique et savoir. */
+    public static final RegistryObject<CreativeModeTab> TAB = TABS.register("main", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.trounoir"))
+            .icon(() -> new ItemStack(HELM_ITEM.get()))
+            .displayItems((parameters, output) -> {
+                output.accept(HELM_ITEM.get());
+                for (ResourceLocation id : characterIds.get()) output.accept(CharacterEggItem.of(id));
+                for (AbsorbableDef def : absorbables.get()) {
+                    output.accept(EssenceItem.of(def.id, def.kind.name().toLowerCase(Locale.ROOT)));
+                }
+            }).build());
+
     public static void register(IEventBus modBus) {
+        TABS.register(modBus);
         ENTITIES.register(modBus);
         BLOCKS.register(modBus);
         ITEMS.register(modBus);

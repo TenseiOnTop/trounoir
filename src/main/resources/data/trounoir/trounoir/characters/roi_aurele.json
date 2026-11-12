@@ -15,6 +15,7 @@
   "dialogue_lines": 3,
   "boss_bar": false,
   "texture": "trounoir:textures/entity/character/roi_aurele.png",
+  "title": true,
   "moves": [
     {
       "id": "slash",
