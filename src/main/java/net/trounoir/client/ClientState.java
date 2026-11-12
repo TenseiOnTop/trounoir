@@ -56,6 +56,8 @@ public final class ClientState {
     public static final List<PlaceInfo> PLACES = new ArrayList<>();
     /** Route choisie (identifiant de lieu), ou nul. */
     public static String road;
+    /** Mode test (règle du monde). */
+    public static boolean testMode;
 
     public static PlaceInfo roadPlace() {
         if (road == null || net.minecraft.client.Minecraft.getInstance().level == null) return null;
@@ -79,6 +81,7 @@ public final class ClientState {
 
     public static void reset() {
         road = null;
+        testMode = false;
         XP.clear();
         COOLDOWN_END.clear();
         COOLDOWN_TOTAL.clear();
@@ -140,6 +143,7 @@ public final class ClientState {
     public static void readLife(JsonObject json) {
         lifeNumber = JsonUtil.integer(json, "life", 1);
         lifeName = JsonUtil.str(json, "name", "");
+        testMode = JsonUtil.bool(json, "test", false);
         deaths = JsonUtil.integer(json, "deaths", 0);
         power = JsonUtil.num(json, "power", 0);
         rank = JsonUtil.integer(json, "rank", 0);

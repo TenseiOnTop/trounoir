@@ -41,6 +41,12 @@ UI = {
     'trounoir.road.none': ('Aucun lieu découvert ici.', 'No place discovered here.'),
     'trounoir.road.hint': ('Clique sur un lieu pour le marquer sur la boussole.', 'Click a place to mark it on the compass.'),
     'trounoir.road.hint_clear': ('Clique ici pour effacer la route.', 'Click here to clear the road.'),
+    'trounoir.road.elsewhere': ('autre monde', 'other world'),
+    'trounoir.road.hint_test': ('Clic : route · Clic droit : y aller', 'Click: road · Right-click: go'),
+    'trounoir.test.kit_hover': ('Pouvoirs de rang %s', 'Rank %s powers'),
+    'trounoir.test.kit': ('Mode test : pouvoirs de rang %s', 'Test mode: rank %s powers'),
+    'gamerule.trounoirTestMode': ('Trou-Noir : mode test', 'Trou-Noir: test mode'),
+    'gamerule.trounoirTestMode.description': ('Tous les lieux connus, téléportation et pouvoirs par rang (touche N). La mort ne remonte pas le temps du monde.', 'All places known, teleport and powers by rank (N key). Death never rewinds the world.'),
     'trounoir.loot.caught': ('« Au voleur ! »', '"Thief!"'),
     'key.trounoir.chronicle': ('Chronique des Vies', 'Chronicle of Lives'),
 

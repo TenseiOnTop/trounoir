@@ -156,6 +156,7 @@ public final class Net {
             places.add(place, entry);
         }
         root.add("places", places);
+        root.addProperty("test", net.trounoir.world.TestMode.active(player.server));
 
         toClient(player, "life", root);
     }

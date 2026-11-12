@@ -25,6 +25,7 @@ public final class TrouNoir {
         IEventBus modBus = context.getModEventBus();
         ModRegistry.register(modBus);
         Net.init();
+        net.trounoir.world.TestMode.init();
         context.registerConfig(ModConfig.Type.COMMON, TNConfig.SPEC);
     }
 

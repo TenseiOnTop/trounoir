@@ -18,6 +18,8 @@ public final class ServerPackets {
             case "rebirth" -> RebirthManager.onChoice(player, JsonUtil.str(json, "echo", ""),
                     JsonUtil.integer(json, "replace", -1), JsonUtil.str(json, "name", ""));
             case "chronicle" -> ChronicleNet.send(player);
+            case "test_tp" -> net.trounoir.world.TestMode.teleport(player, JsonUtil.str(json, "id", ""));
+            case "test_kit" -> net.trounoir.world.TestMode.kit(player, JsonUtil.integer(json, "rank", 0));
             default -> { }
         }
     }

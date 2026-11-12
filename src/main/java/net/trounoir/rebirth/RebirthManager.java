@@ -159,7 +159,7 @@ public final class RebirthManager {
     /** Le monde entier doit-il revenir à son premier instant ? */
     public static boolean worldResetApplies(MinecraftServer server) {
         PersistentStore store = PersistentStore.get(server);
-        if (store.resetFailed || !Boolean.TRUE.equals(store.bound)) return false;
+        if (store.resetFailed || !Boolean.TRUE.equals(store.bound) || net.trounoir.world.TestMode.active(server)) return false;
         return switch (TNConfig.REBIRTH_MODE.get()) {
             case WORLD_RESET -> true;
             case SOFT -> false;
