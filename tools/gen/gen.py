@@ -89,6 +89,37 @@ def trait_name(id, lng):
     return id
 
 
+STAT_LABELS = {
+    'generic.max_health': ('PV max', 'max HP'), 'generic.armor': ('armure', 'armor'), 'generic.attack_damage': ('dégâts', 'damage'),
+    'generic.movement_speed': ('vitesse', 'speed'), 'generic.attack_speed': ("vitesse d'attaque", 'attack speed'),
+    'generic.knockback_resistance': ('résistance au recul', 'knockback resistance'), 'player.block_break_speed': ('vitesse de minage', 'mining speed'),
+    'generic.jump_strength': ('hauteur de saut', 'jump height'), 'generic.safe_fall_distance': ('blocs de chute sans dégâts', 'blocks of safe fall'),
+    'generic.step_height': ("hauteur d'enjambée", 'step height'), 'generic.luck': ('chance', 'luck'), 'generic.oxygen_bonus': ('souffle sous l\'eau', 'underwater breath'),
+    'generic.water_movement_efficiency': ('aisance dans l\'eau', 'water movement'), 'player.sneaking_speed': ('vitesse accroupi', 'sneaking speed'),
+    'generic.burning_time': ('durée de brûlure', 'burning time'), 'player.entity_interaction_range': ("blocs d'allonge", 'blocks of reach'),
+    'player.block_interaction_range': ('blocs de portée', 'blocks of block reach'), 'player.sweeping_damage_ratio': ('dégâts de balayage', 'sweeping damage'),
+    'melee_damage_pct': ('dégâts au corps-à-corps', 'melee damage'), 'ranged_damage_pct': ('dégâts à distance', 'ranged damage'),
+    'all_damage_pct': ('tous les dégâts', 'all damage'), 'backstab_pct': ('dégâts dans le dos', 'backstab damage'),
+    'magic_power': ('puissance des techniques', 'technique power'), 'cooldown_reduction_pct': ('recharge plus rapide', 'faster cooldowns'),
+    'damage_reduction_pct': ('dégâts subis en moins', 'less damage taken'), 'explosion_reduction_pct': ("dégâts d'explosion en moins", 'less explosion damage'),
+    'fall_reduction_pct': ('dégâts de chute en moins', 'less fall damage'), 'lifesteal_pct': ('vol de vie', 'lifesteal'),
+    'thorns': ('dégâts renvoyés à qui vous frappe', 'damage returned to attackers'), 'regen': ('PV régénérés toutes les 5 s', 'HP regenerated every 5 s'),
+    'stealth': ('discrétion (on vous repère de moins loin)', 'stealth (spotted from closer)'),
+    'perception_range': ('blocs de perception (créatures visibles à travers les murs)', 'blocks of perception (creatures seen through walls)'),
+    'fire_immunity': ('Immunité au feu', 'Fire immunity'), 'fire_touch': ('Vos coups enflamment', 'Your blows ignite'),
+    'frost_touch': ('Vos coups ralentissent', 'Your blows slow'), 'poison_touch': ('Vos coups empoisonnent', 'Your blows poison'),
+    'wither_touch': ('Vos coups flétrissent', 'Your blows wither'), 'sniper': ('Flèches bien plus rapides et tendues', 'Much faster, flatter arrows'),
+    'p.damage': ('Dégâts : %s', 'Damage: %s'), 'p.radius': ('Rayon : %s blocs', 'Radius: %s blocks'), 'p.range': ('Portée : %s blocs', 'Range: %s blocks'),
+    'p.heal': ('Soin : %s PV', 'Heal: %s HP'), 'p.duration': ('Durée : %s s', 'Duration: %s s'), 'p.count': ('Projectiles : %s', 'Projectiles: %s'),
+    'p.ignite': ('Enflamme %s s', 'Ignites for %s s'), 'p.hunger': ('Coût : %s de faim', 'Cost: %s hunger'),
+    'inactive': ('pas encore actif à ce niveau', 'not yet active at this level'), 'relief': ('Atténue : %s', 'Eases: %s'),
+    'effect': ('Effet permanent : %s', 'Permanent effect: %s'), 'effect_later': ('Effet permanent au niveau %s : %s', 'Permanent effect at level %s: %s'),
+    'level': ('Niveau %s / %s', 'Level %s / %s'), 'next': ('Prochain niveau : %s / %s absorptions', 'Next level: %s / %s absorptions'),
+    'max': ('Niveau maximal', 'Max level'), 'echo': ('Écho : effets à demi-force', 'Echo: effects at half strength'),
+    'next_rank': ('Prochain rang à %s', 'Next rank at %s'), 'self': ('Sur vous : %s', 'On you: %s'), 'target': ('Sur la cible : %s', 'On target: %s'),
+}
+
+
 def clean(directory):
     if os.path.isdir(directory):
         shutil.rmtree(directory)
@@ -208,6 +239,8 @@ def gen_data():
         'generator': {'type': 'minecraft:noise', 'settings': 'minecraft:large_biomes',
                       'biome_source': {'type': 'minecraft:multi_noise', 'preset': 'minecraft:overworld'}}})
 
+    for key, (fr, en) in STAT_LABELS.items():
+        lang('tnstat.trounoir.' + key, fr, en)
     for key, (fr, en) in X.UI.items():
         lang(key, fr, en)
 

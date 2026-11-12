@@ -90,6 +90,8 @@ public final class Net {
         root.addProperty("deaths", memory.deaths);
         root.addProperty("power", life.power);
         root.addProperty("rank", life.rank);
+        double[] thresholds = net.trounoir.config.TNConfig.doubles(net.trounoir.config.TNConfig.RANK_POWER_THRESHOLDS);
+        root.addProperty("nextRank", life.rank < thresholds.length ? thresholds[life.rank] : -1);
         root.addProperty("notoriety", life.notoriety);
         root.addProperty("revealed", life.hasEverAbsorbed);
         root.addProperty("echoSlots", EchoLogic.slotsFor(memory.deaths));

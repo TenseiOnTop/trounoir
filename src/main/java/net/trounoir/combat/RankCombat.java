@@ -112,7 +112,7 @@ public final class RankCombat {
             long now = level.getGameTime();
             if (now - life.lastUntouchableNotice > 100) {
                 life.lastUntouchableNotice = now;
-                player.displayClientMessage(Component.translatable("trounoir.combat.untouchable"), true);
+                player.displayClientMessage(Component.translatable("trounoir.combat.untouchable", net.trounoir.util.Text.roman(Ranks.of(victim)), net.trounoir.util.Text.roman(life.rank)), true);
             }
         }
 

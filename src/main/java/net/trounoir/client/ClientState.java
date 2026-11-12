@@ -38,6 +38,7 @@ public final class ClientState {
     public static int deaths;
     public static double power;
     public static int rank;
+    public static double nextRank = -1;
     public static double notoriety;
     public static boolean revealed;
     public static boolean sukeAlive = true;
@@ -115,6 +116,7 @@ public final class ClientState {
         deaths = JsonUtil.integer(json, "deaths", 0);
         power = JsonUtil.num(json, "power", 0);
         rank = JsonUtil.integer(json, "rank", 0);
+        nextRank = JsonUtil.num(json, "nextRank", -1);
         notoriety = JsonUtil.num(json, "notoriety", 0);
         revealed = JsonUtil.bool(json, "revealed", false);
         sukeAlive = JsonUtil.bool(json, "sukeAlive", true);

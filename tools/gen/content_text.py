@@ -19,7 +19,7 @@ UI = {
     'trounoir.technique.hungry': ('Trop affamé.', 'Too hungry.'),
     'trounoir.technique.cooldown': ('Recharge : %s s', 'Cooldown: %s s'),
     'trounoir.signature': ('Capacité signature', 'Signature ability'),
-    'trounoir.combat.untouchable': ('Vos coups ne portent pas.', 'Your blows do not land.'),
+    'trounoir.combat.untouchable': ('Vos coups ne portent pas : rang %s contre votre rang %s.', 'Your blows do not land: rank %s against your rank %s.'),
     'trounoir.speech': ('%s : %s', '%s: %s'),
 
     # Monde

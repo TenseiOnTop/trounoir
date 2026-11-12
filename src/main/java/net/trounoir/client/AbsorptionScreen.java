@@ -110,12 +110,94 @@ public class AbsorptionScreen extends Screen {
         return rows;
     }
 
+    private static String num(double v) {
+        double r = Math.round(v * 10) / 10.0;
+        return r == Math.rint(r) ? Long.toString((long) r) : Double.toString(r);
+    }
+
+    private static String label(String key) {
+        return I18n.get("tnstat.trounoir." + key);
+    }
+
+    private static String effectList(com.google.gson.JsonObject params, String key) {
+        List<String> names = new ArrayList<>();
+        for (net.trounoir.data.MoveDef.EffectSpec e : net.trounoir.data.MoveDef.EffectSpec.parseList(params, key)) {
+            names.add(I18n.get("effect." + e.effect().getNamespace() + "." + e.effect().getPath())
+                    + (e.amplifier() > 0 ? " " + Text.roman(e.amplifier() + 1) : "") + " (" + num(e.duration() / 20.0) + " s)");
+        }
+        return String.join(", ", names);
+    }
+
+    /** Fiche complète : ce que la capacité apporte exactement, à son niveau actuel. */
     private List<Component> describe(AbsorbableDef def) {
+        String id = def.id.toString();
         List<Component> lines = new ArrayList<>();
-        lines.add(Component.translatable(def.nameKey()).withStyle(ChatFormatting.WHITE));
-        if (I18n.exists(def.descriptionKey())) lines.add(Component.translatable(def.descriptionKey()).withStyle(ChatFormatting.GRAY));
+        lines.add(Component.translatable(def.nameKey()).withStyle(ChatFormatting.WHITE, ChatFormatting.BOLD));
+        if (I18n.exists(def.descriptionKey())) lines.add(Component.translatable(def.descriptionKey()).withStyle(ChatFormatting.GRAY, ChatFormatting.ITALIC));
+        if (def.kind == AbsorbableDef.Kind.KNOWLEDGE) return lines;
+
+        int level = ClientState.level(id);
+        ClientState.EchoInfo echo = ClientState.echo(id);
+        double factor;
+        if (level > 0) {
+            factor = AbsorbableDef.scale(level, 0.7);
+            if (def.maxLevel > 1) lines.add(Component.literal(label("level").formatted(Text.roman(level), Text.roman(def.maxLevel))).withStyle(ChatFormatting.AQUA));
+            int xp = ClientState.XP.getOrDefault(id, 0);
+            if (level < def.maxLevel) {
+                lines.add(Component.literal(label("next").formatted(xp, AbsorbableDef.xpForLevel(level + 1))).withStyle(ChatFormatting.DARK_AQUA));
+            } else if (def.maxLevel > 1) {
+                lines.add(Component.literal(label("max")).withStyle(ChatFormatting.DARK_AQUA));
+            }
+        } else {
+            int echoLevel = echo == null ? 1 : Math.max(1, Math.min(echo.level(), def.maxLevel));
+            factor = AbsorbableDef.scale(echoLevel, 0.7) * 0.5;
+            lines.add(Component.literal(label("echo")).withStyle(ChatFormatting.DARK_PURPLE));
+        }
+        int shown = Math.max(1, level);
+
+        for (net.trounoir.data.BonusSet.AttributeBonus a : def.bonus.attributes) {
+            String path = a.attribute().getPath();
+            boolean pct = a.operation() != net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE || path.endsWith("knockback_resistance");
+            double v = a.amount() * factor * (pct ? 100 : 1);
+            lines.add(Component.literal((v >= 0 ? "+" : "") + num(v) + (pct ? " % " : " ") + label(path)).withStyle(ChatFormatting.GREEN));
+        }
+        for (Map.Entry<String, Double> st : def.bonus.stats.entrySet()) {
+            String key = st.getKey();
+            double v = st.getValue() * factor;
+            if (key.endsWith("_touch") || key.equals("fire_immunity") || key.equals("sniper")) {
+                lines.add(v >= 1 ? Component.literal(label(key)).withStyle(ChatFormatting.GREEN)
+                        : Component.literal(label(key) + " (" + label("inactive") + ")").withStyle(ChatFormatting.DARK_GRAY));
+            } else {
+                boolean pct = key.endsWith("_pct") || key.equals("magic_power") || key.equals("stealth");
+                lines.add(Component.literal("+" + num(v) + (pct ? " % " : " ") + label(key)).withStyle(ChatFormatting.GREEN));
+            }
+        }
+        for (net.trounoir.data.BonusSet.EffectBonus e : def.bonus.effects) {
+            String name = I18n.get("effect." + e.effect().getNamespace() + "." + e.effect().getPath());
+            lines.add(shown >= e.minLevel() ? Component.literal(label("effect").formatted(name)).withStyle(ChatFormatting.GREEN)
+                    : Component.literal(label("effect_later").formatted(Text.roman(e.minLevel()), name)).withStyle(ChatFormatting.DARK_GRAY));
+        }
+        if (!def.bonus.relief.isEmpty()) {
+            List<String> names = new ArrayList<>();
+            for (String h : def.bonus.relief.keySet()) names.add(I18n.get("handicap.trounoir." + h));
+            lines.add(Component.literal(label("relief").formatted(String.join(", ", names))).withStyle(ChatFormatting.YELLOW));
+        }
+
         if (def.kind == AbsorbableDef.Kind.TECHNIQUE) {
-            lines.add(Component.translatable("trounoir.technique.cooldown", def.cooldownTicks / 20).withStyle(ChatFormatting.DARK_AQUA));
+            com.google.gson.JsonObject p = def.params;
+            double potency = 1.0 + 0.15 * (shown - 1);
+            if (p.has("damage")) lines.add(Component.literal(label("p.damage").formatted(num(net.trounoir.util.JsonUtil.num(p, "damage", 0) * potency))).withStyle(ChatFormatting.RED));
+            if (p.has("heal")) lines.add(Component.literal(label("p.heal").formatted(num(net.trounoir.util.JsonUtil.num(p, "heal", 0) * potency))).withStyle(ChatFormatting.GREEN));
+            for (String key : new String[]{"radius", "range", "count", "ignite"}) {
+                if (p.has(key)) lines.add(Component.literal(label("p." + key).formatted(num(net.trounoir.util.JsonUtil.num(p, key, 0)))).withStyle(ChatFormatting.GRAY));
+            }
+            if (p.has("duration")) lines.add(Component.literal(label("p.duration").formatted(num(net.trounoir.util.JsonUtil.num(p, "duration", 0) / 20.0))).withStyle(ChatFormatting.GRAY));
+            String onTarget = effectList(p, "effects");
+            if (!onTarget.isEmpty()) lines.add(Component.literal(label("target").formatted(onTarget)).withStyle(ChatFormatting.GRAY));
+            String onSelf = effectList(p, "self_effects");
+            if (!onSelf.isEmpty()) lines.add(Component.literal(label("self").formatted(onSelf)).withStyle(ChatFormatting.GRAY));
+            lines.add(Component.translatable("trounoir.technique.cooldown", num(def.cooldownTicks / 20.0 * (1.0 - 0.06 * (shown - 1)))).withStyle(ChatFormatting.DARK_AQUA));
+            if (def.hungerCost > 0) lines.add(Component.literal(label("p.hunger").formatted(def.hungerCost)).withStyle(ChatFormatting.DARK_AQUA));
         }
         if (def.signature) lines.add(Component.translatable("trounoir.signature").withStyle(ChatFormatting.LIGHT_PURPLE));
         return lines;
@@ -126,8 +208,11 @@ public class AbsorptionScreen extends Screen {
     @Override
     public void renderBackground(GuiGraphics g, int mouseX, int mouseY, float partialTick) {
         super.renderBackground(g, mouseX, mouseY, partialTick);
-        g.fill(left - 1, top - 1, left + W + 1, top + H + 1, 0xFF3A2F5C);
-        g.fill(left, top, left + W, top + H, 0xF00B0714);
+        g.fill(left - 2, top - 2, left + W + 2, top + H + 2, 0xFF120C22);
+        g.fill(left - 1, top - 1, left + W + 1, top + H + 1, 0xFF5B4A8F);
+        g.fillGradient(left, top, left + W, top + H, 0xF8150E28, 0xF8070410);
+        g.fillGradient(left, top, left + W, top + 22, 0x603A2F5C, 0x00000000);
+        g.fill(left + 6, top + 22, left + 240, top + 23, 0xFF2A2242);
         g.fill(left + 244, top + 8, left + 245, top + H - 8, 0xFF2A2242);
     }
 
@@ -156,7 +241,17 @@ public class AbsorptionScreen extends Screen {
             boolean hovered = mouseX >= left + 6 && mouseX < left + 240 && mouseY >= y && mouseY < y + ROW;
             if (row.id().equals(selected)) g.fill(left + 6, y, left + 240, y + ROW - 1, 0x503A2F5C);
             else if (hovered) g.fill(left + 6, y, left + 240, y + ROW - 1, 0x30FFFFFF);
-            if (!row.icon().isEmpty()) g.renderItem(row.icon(), left + 9, y + 2);
+            g.fill(left + 8, y + ROW - 1, left + 238, y + ROW, 0x18FFFFFF);
+            g.fill(left + 6, y + 1, left + 8, y + ROW - 2, 0xFF000000 | row.color());
+            AbsorbableDef rowDef = ClientState.ABSORBABLES.get(row.id());
+            if (rowDef != null && rowDef.kind != AbsorbableDef.Kind.KNOWLEDGE && rowDef.maxLevel > 1) {
+                int lv = ClientState.level(row.id());
+                for (int n = 0; n < rowDef.maxLevel; n++) {
+                    int px = left + 236 - (rowDef.maxLevel - n) * 6;
+                    g.fill(px, y + 4, px + 4, y + 8, n < lv ? 0xFF000000 | row.color() : 0xFF2A2242);
+                }
+            }
+            if (!row.icon().isEmpty()) g.renderItem(row.icon(), left + 11, y + 2);
             g.drawString(this.font, row.title(), left + 30, y + 2, row.color());
             g.drawString(this.font, row.detail(), left + 30, y + 12, 0x8F86A8);
             if (hovered && !row.tooltip().isEmpty()) tooltip = row.tooltip();
@@ -194,7 +289,16 @@ public class AbsorptionScreen extends Screen {
         int x = left + 252;
         int y = top + 8;
         g.drawString(this.font, I18n.get("trounoir.hud.rank", Text.roman(ClientState.rank), (int) Math.round(ClientState.power)), x, y, 0xC9B8FF);
-        y += 12;
+        y += 11;
+        if (ClientState.nextRank > 0) {
+            double prev = 0;
+            g.drawString(this.font, label("next_rank").formatted(num(ClientState.nextRank)), x, y, 0x7F769A);
+            y += 10;
+            int bar = (int) Math.round(138 * Math.max(prev, Math.min(1.0, ClientState.power / ClientState.nextRank)));
+            g.fill(x, y, x + 138, y + 3, 0x60000000);
+            g.fill(x, y, x + bar, y + 3, 0xFFC9B8FF);
+            y += 7;
+        }
         String name = ClientState.lifeName.isEmpty() ? I18n.get("trounoir.nameless") : ClientState.lifeName;
         g.drawString(this.font, I18n.get("trounoir.life.line", ClientState.lifeNumber, name), x, y, 0x8F86A8);
         y += 16;
