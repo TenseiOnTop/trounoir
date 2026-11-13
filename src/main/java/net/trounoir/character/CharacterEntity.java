@@ -78,7 +78,7 @@ public class CharacterEntity extends PathfinderMob {
             @Override
             public boolean canUse() {
                 CharacterDef def = def();
-                return def != null && def.behavior.equals("civilian") && super.canUse();
+                return def != null && def.behavior.equals("civilian") && (!def.fightsBack || getTarget() == null) && super.canUse();
             }
         });
         this.goalSelector.addGoal(5, new MoveTowardsRestrictionGoal(this, 1.0));
@@ -94,7 +94,7 @@ public class CharacterEntity extends PathfinderMob {
             @Override
             public boolean canUse() {
                 CharacterDef def = def();
-                return def != null && !def.behavior.equals("civilian") && super.canUse();
+                return def != null && (!def.behavior.equals("civilian") || def.fightsBack) && super.canUse();
             }
         });
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isHostileTowards));
@@ -152,7 +152,7 @@ public class CharacterEntity extends PathfinderMob {
     public void provoke(LivingEntity by) {
         this.provoked = true;
         CharacterDef def = def();
-        if (by != null && def != null && !def.behavior.equals("civilian") && this.getTarget() == null && by.isAlive()) {
+        if (by != null && def != null && (!def.behavior.equals("civilian") || def.fightsBack) && this.getTarget() == null && by.isAlive()) {
             if (!(by instanceof Player player) || (!player.isCreative() && !player.isSpectator())) this.setTarget(by);
         }
     }
@@ -161,6 +161,7 @@ public class CharacterEntity extends PathfinderMob {
     public boolean isHostileTowards(LivingEntity other) {
         CharacterDef def = def();
         if (def == null || def.behavior.equals("civilian") || !(other instanceof Player)) return false;
+        if (other instanceof Player p && p.hasEffect(net.minecraft.world.effect.MobEffects.INVISIBILITY)) return false;
         if (def.alwaysHostile() || provoked) return true;
         return this.getServer() != null && Reputation.hostile(this.getServer(), def.faction);
     }

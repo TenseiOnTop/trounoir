@@ -73,9 +73,6 @@ public final class RankCombat {
         }
         if (victim instanceof ServerPlayer player) {
             amount = incoming(player, attacker, source, amount);
-        } else if (attacker instanceof LivingEntity living && !(attacker instanceof ServerPlayer)) {
-            // Créature contre créature : l'écart de rang compte aussi (un chevalier ne fait qu'égratigner un Dieu).
-            amount *= TNConfig.gapMultiplier(TNConfig.OUTGOING_GAP_MULTIPLIERS, Ranks.of(living) - Ranks.of(victim));
         }
         event.setAmount((float) Math.max(0, amount));
     }
@@ -99,21 +96,23 @@ public final class RankCombat {
             if (exposed) bonus *= def.weaknessMultiplier;
         }
 
-        int gap = life.rank - Ranks.of(victim);
-        double gapMultiplier = TNConfig.gapMultiplier(TNConfig.OUTGOING_GAP_MULTIPLIERS, gap);
-        double result = amount * bonus * gapMultiplier;
+        // Le rang ne bride plus les dégâts : la couleur du nom suffit à dire le danger.
+        double result = amount * bonus;
 
         ServerLevel level = player.serverLevel();
-        if (gap <= -3) {
-            // Intouchable : le coup sonne creux. Le joueur comprend sans qu'on le lui explique.
-            Vec3 at = victim.position().add(0, victim.getBbHeight() * 0.6, 0);
-            Fx.play(level, at, "block.anvil.land", 0.25F, 1.9F);
-            Fx.burst(level, "enchanted_hit", at, 6, 0.3, 0.05);
-            long now = level.getGameTime();
-            if (now - life.lastUntouchableNotice > 100) {
-                life.lastUntouchableNotice = now;
-                player.displayClientMessage(Component.translatable("trounoir.combat.untouchable", net.trounoir.util.Text.roman(Ranks.of(victim)), net.trounoir.util.Text.roman(life.rank)), true);
-            }
+        // Le ressenti du coup : étincelles, son mat, et un léger tremblement d'écran.
+        Vec3 at = victim.position().add(0, victim.getBbHeight() * 0.6, 0);
+        Fx.burst(level, "crit", at, (int) Math.min(22, 4 + result * 1.2), 0.25, 0.12);
+        Fx.play(level, at, "entity.player.attack.knockback", 0.45F, 1.15F);
+        if (result >= 9) {
+            Fx.ring(level, Fx.dust(0xFFD866, 1.3F), victim.position().add(0, 0.15, 0), 1.6);
+            Fx.play(level, at, "entity.player.attack.crit", 0.8F, 0.85F);
+        }
+        Fx.shake(player, Math.min(1.0, result / 18.0));
+
+        // Frapper dissipe l'invisibilité : l'ombre ne couvre pas l'assassin.
+        if (player.hasEffect(net.minecraft.world.effect.MobEffects.INVISIBILITY)) {
+            player.removeEffect(net.minecraft.world.effect.MobEffects.INVISIBILITY);
         }
 
         if (kind.equals("melee")) {
@@ -131,7 +130,6 @@ public final class RankCombat {
         LifeData life = LifeManager.getOrNull(player);
         if (life == null) return amount;
         if (attacker instanceof LivingEntity living && attacker != player) {
-            amount *= TNConfig.gapMultiplier(TNConfig.INCOMING_GAP_MULTIPLIERS, Ranks.of(living) - life.rank);
             double thorns = life.stat("thorns");
             if (thorns > 0 && source.getDirectEntity() == attacker) {
                 living.hurt(player.damageSources().thorns(player), (float) thorns);
@@ -142,6 +140,7 @@ public final class RankCombat {
         if (source.is(DamageTypeTags.IS_EXPLOSION)) {
             amount *= 1.0 - Math.min(90.0, life.stat("explosion_reduction_pct")) / 100.0;
         }
+        if (amount >= 4) Fx.shake(player, Math.min(1.0, amount / 14.0));
         return amount;
     }
 

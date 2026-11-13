@@ -39,6 +39,7 @@ final class MoveRunner {
     private State state = State.IDLE;
     private MoveDef current;
     private int timer;
+    private int total = 1;
     private int globalCooldown = 20;
     private final List<Vec3> anchors = new ArrayList<>();
     private Vec3 direction = new Vec3(0, 0, 1);
@@ -83,7 +84,7 @@ final class MoveRunner {
                     self.getLookControl().setLookAt(a.x, a.y + 1, a.z);
                 }
                 timer--;
-                if (current != null && timer % 2 == 0) drawTelegraph(level, current, timer <= 6);
+                if (current != null) drawTelegraph(level, current, timer <= 6);
                 if (timer <= 0) {
                     if (current != null) execute(level, def, current, target);
                     state = State.RECOVER;
@@ -131,6 +132,7 @@ final class MoveRunner {
             if (memory.weaknesses.contains(self.defId())) length *= 1.0 + TNConfig.FAMILIARITY_TELEGRAPH_BONUS.get();
         }
         timer = (int) Math.round(length);
+        total = Math.max(1, timer);
 
         anchors.clear();
         Vec3 origin = self.position();
@@ -148,40 +150,70 @@ final class MoveRunner {
         } else {
             anchors.add(origin);
         }
+        Fx.play(level, origin, "block.beacon.activate", 0.8F, 1.5F);
         Fx.play(level, origin, Lookup.sound(move.sound), 1.0F, 0.6F);
         self.swing(InteractionHand.MAIN_HAND);
     }
 
+    /**
+     * L'annonce est vivante : un bord coloré qui tourne, un remplissage qui grandit jusqu'au déclenchement,
+     * un battement sonore qui monte. À la fin, le bord vire au blanc chaud : c'est l'instant de sortir.
+     */
     private void drawTelegraph(ServerLevel level, MoveDef move, boolean imminent) {
-        ParticleOptions particle = Lookup.particle(move.particle);
-        ParticleOptions warning = imminent ? Fx.particle("flame") : particle;
+        float progress = 1F - timer / (float) total;
+        ParticleOptions edge = Fx.dust(imminent ? 0xFFF4D0 : move.color, imminent ? 1.6F : 1.1F);
+        ParticleOptions fill = Fx.dust(move.color, 0.8F);
+        double spin = (total - timer) * 0.12;
+        if (timer % 10 == 0) Fx.play(level, anchors.get(0), "block.note_block.hat", 0.6F, 0.7F + progress);
+        if (imminent && timer == 6) Fx.play(level, anchors.get(0), "block.note_block.pling", 0.9F, 1.9F);
         switch (move.shape) {
             case CIRCLE -> {
                 for (Vec3 anchor : anchors) {
-                    Fx.ring(level, warning, anchor, move.size);
-                    if (imminent) Fx.ring(level, particle, anchor, move.size * 0.5);
+                    spinRing(level, edge, anchor, move.size, spin);
+                    spinRing(level, fill, anchor, move.size * progress, -spin * 1.4);
+                    level.sendParticles(fill, anchor.x, anchor.y + 0.2 + progress * 1.6, anchor.z, 1, 0.05, 0.1, 0.05, 0.0);
                 }
             }
             case LINE -> {
                 Vec3 origin = anchors.get(0).add(0, 0.15, 0);
                 Vec3 side = new Vec3(-direction.z, 0, direction.x).scale(move.width / 2.0);
                 Vec3 end = origin.add(direction.scale(move.size));
-                Fx.line(level, warning, origin.add(side), end.add(side), 2.0);
-                Fx.line(level, warning, origin.subtract(side), end.subtract(side), 2.0);
+                Fx.line(level, edge, origin.add(side), end.add(side), 2.2);
+                Fx.line(level, edge, origin.subtract(side), end.subtract(side), 2.2);
+                // La pointe avance le long de la ligne : elle montre le sens et l'instant de l'attaque.
+                Vec3 tip = origin.add(direction.scale(move.size * progress));
+                Fx.line(level, fill, origin, tip, 1.6);
+                level.sendParticles(Fx.dust(0xFFF4D0, 1.4F), tip.x, tip.y + 0.1, tip.z, 2, move.width / 3, 0.05, move.width / 3, 0.0);
             }
             case CONE -> {
                 Vec3 origin = anchors.get(0).add(0, 0.15, 0);
                 float half = (float) Math.toRadians(move.angle / 2.0);
                 Vec3 left = direction.yRot(half).scale(move.size);
                 Vec3 right = direction.yRot(-half).scale(move.size);
-                Fx.line(level, warning, origin, origin.add(left), 2.0);
-                Fx.line(level, warning, origin, origin.add(right), 2.0);
-                int arc = (int) Math.max(4, move.angle / 12);
-                for (int i = 0; i <= arc; i++) {
-                    Vec3 p = origin.add(direction.yRot(half - 2 * half * i / arc).scale(move.size));
-                    level.sendParticles(warning, p.x, p.y, p.z, 1, 0, 0, 0, 0.0);
-                }
+                Fx.line(level, edge, origin, origin.add(left), 2.2);
+                Fx.line(level, edge, origin, origin.add(right), 2.2);
+                arc(level, edge, origin, direction, half, move.size);
+                arc(level, fill, origin, direction, half, move.size * progress);
             }
+        }
+    }
+
+    /** Cercle dont les points tournent d'un tick à l'autre : l'œil voit tout de suite que la zone est armée. */
+    private static void spinRing(ServerLevel level, ParticleOptions particle, Vec3 center, double radius, double spin) {
+        if (radius < 0.3) return;
+        int points = (int) Math.max(10, Math.min(56, radius * 8));
+        for (int i = 0; i < points; i++) {
+            double a = spin + Math.PI * 2 * i / points;
+            level.sendParticles(particle, center.x + Math.cos(a) * radius, center.y + 0.15, center.z + Math.sin(a) * radius, 1, 0, 0, 0, 0.0);
+        }
+    }
+
+    private static void arc(ServerLevel level, ParticleOptions particle, Vec3 origin, Vec3 direction, float half, double radius) {
+        if (radius < 0.3) return;
+        int points = (int) Math.max(5, radius * 2.2);
+        for (int i = 0; i <= points; i++) {
+            Vec3 p = origin.add(direction.yRot(half - 2 * half * i / points).scale(radius));
+            level.sendParticles(particle, p.x, p.y, p.z, 1, 0, 0, 0, 0.0);
         }
     }
 
@@ -251,6 +283,13 @@ final class MoveRunner {
                 }
             }
         }
+        // L'impact se voit et se sent : triple onde au sol, flash au centre, écran secoué à proximité.
+        for (Vec3 anchor : anchors) {
+            Fx.ring(level, Fx.dust(move.color, 1.5F), anchor.add(0, 0.2, 0), move.size * 0.55);
+            Fx.ring(level, Fx.dust(0xFFF4D0, 1.2F), anchor.add(0, 0.25, 0), Math.max(0.6, move.size * 0.95));
+        }
+        if (move.damage >= 14) Fx.burst(level, "explosion", origin.add(0, 0.6, 0), 2, 0.4, 0.0);
+        Fx.shake(level, origin, Math.max(8, move.size + 6), Math.min(1.0, move.damage / 26.0));
         Fx.play(level, origin, Lookup.sound(move.sound), 1.0F, 1.0F);
         self.swing(InteractionHand.MAIN_HAND);
 

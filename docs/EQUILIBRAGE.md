@@ -364,7 +364,7 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Garmond l'Aspirant | supernova | 4 | 110 | 10 | 12 | backstab | slash (10 dég., annonce 14 t), lunge (12 dég., annonce 20 t) |
 | Gorgath, le Ravageur ancien | demigod | 5 | 240 | 16 | 10 | fire | IA vanilla |
 | La Veuve Blême | demigod | 5 | 200 | 14 | 8 | fire | IA vanilla |
-| Citoyen d'Azalée | peasant | 1 | 20 | 2 | 0 | — | IA vanilla |
+| Citoyen d'Azalée | peasant | 1 | 20 | 4 | 0 | — | IA vanilla |
 | Légionnaire | soldier | 4 | 60 | 11 | 14 | — | slash (11 dég., annonce 13 t), lunge (13 dég., annonce 18 t) |
 | Tirailleur | soldier | 4 | 44 | 9 | 8 | — | shot (9 dég., annonce 16 t), volley (7 dég., annonce 22 t) |
 | Prétorien | knight | 5 | 90 | 15 | 18 | — | slash (15 dég., annonce 12 t), lunge (17 dég., annonce 18 t), slam (18 dég., annonce 22 t) |

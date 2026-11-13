@@ -66,6 +66,7 @@ public final class ClientEvents {
         public static void onClientTick(TickEvent.ClientTickEvent.Post event) {
             Minecraft mc = Minecraft.getInstance();
             ClientState.clientTick++;
+            if (ClientState.shakeTicks > 0) ClientState.shakeTicks--;
             ClientRebirthFlow.tick(mc);
             if (mc.player == null || mc.screen != null) return;
 
@@ -106,6 +107,18 @@ public final class ClientEvents {
             if (event.getNewScreen() instanceof DeathScreen) {
                 event.setNewScreen(Minecraft.getInstance().screen instanceof RebirthScreen current ? current : new RebirthScreen());
             }
+        }
+
+        /** Secousse d'écran à l'impact : brève, amortie, jamais écœurante. */
+        @SubscribeEvent
+        public static void onCamera(net.minecraftforge.client.event.ViewportEvent.ComputeCameraAngles event) {
+            if (ClientState.shakeTicks <= 0) return;
+            float falloff = ClientState.shakeTicks / 10F;
+            float amp = ClientState.shakeStrength * 1.6F * falloff;
+            double t = (ClientState.clientTick + event.getPartialTick()) * 2.1;
+            event.setYaw(event.getYaw() + (float) Math.sin(t * 1.7) * amp);
+            event.setPitch(event.getPitch() + (float) Math.sin(t * 2.3 + 1.3) * amp);
+            event.setRoll(event.getRoll() + (float) Math.sin(t * 1.3 + 2.1) * amp * 0.4F);
         }
 
         /** Fusil de Suke : s'accroupir en le tenant fait une visée à la lunette. */

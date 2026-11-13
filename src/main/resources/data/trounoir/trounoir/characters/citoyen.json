@@ -5,8 +5,9 @@
   "rank": 1,
   "behavior": "civilian",
   "health": 20,
-  "damage": 2,
+  "damage": 4,
   "variants": 6,
+  "fights_back": true,
   "speed": 0.25,
   "kill_reputation": {
     "azalee": -8

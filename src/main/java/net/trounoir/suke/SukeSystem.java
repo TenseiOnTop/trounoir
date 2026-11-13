@@ -104,6 +104,13 @@ public final class SukeSystem {
     }
 
     private static void aimAndFire(ServerPlayer player, LifeData life, ServerLevel level, long now) {
+        if (player.hasEffect(net.minecraft.world.effect.MobEffects.INVISIBILITY)) {
+            // Même Suke ne tire pas sur ce qu'il ne voit pas.
+            life.sukeGlint = null;
+            life.sukeAim = null;
+            life.sukeFireAt = 0;
+            return;
+        }
         if (life.sukeGlint == null) {
             life.sukeFireAt = 0;
             return;

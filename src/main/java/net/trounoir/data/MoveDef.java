@@ -56,9 +56,17 @@ public final class MoveDef {
     public final ResourceLocation sound;
     public final ResourceLocation particle;
     public final int timeStopTicks;
+    /** Couleur de l'annonce au sol (0xRRGGBB). */
+    public final int color;
 
     public MoveDef(JsonObject json) {
         this.id = JsonUtil.str(json, "id", "move");
+        String hex = JsonUtil.str(json, "color", "");
+        int parsed = 0xFF8A3C;
+        try {
+            if (!hex.isEmpty()) parsed = Integer.parseInt(hex.replace("#", ""), 16);
+        } catch (NumberFormatException ignored) {}
+        this.color = parsed;
         this.weight = Math.max(1, JsonUtil.integer(json, "weight", 1));
         this.cooldown = JsonUtil.integer(json, "cooldown", 60);
         this.minRange = JsonUtil.num(json, "min_range", 0);

@@ -283,7 +283,7 @@ CHARACTERS = [
       title_fr='Demi-déesse des combes', title_en='Demigoddess of the hollows'),
 
     # ================================================================== Empire d'Azalée : gens et armée
-    C('citoyen', "Citoyen d'Azalée", 'Citizen of Azalea', 'peasant', 'azalee', 1, 20, 2, behavior='civilian', speed=0.25,
+    C('citoyen', "Citoyen d'Azalée", 'Citizen of Azalea', 'peasant', 'azalee', 1, 20, 4, behavior='civilian', fights_back=True, speed=0.25,
       grants=[g('labeur_humain'), g('haut_azaleen')], kill_reputation={'azalee': -8}, notoriety=4, language=AZA,
       dialogue_lines=4, skin=('peasant', '#a03a6a', '#5a3a4a', '#f0c8dc')),
     C('legionnaire', 'Légionnaire', 'Legionary', 'soldier', 'azalee', 4, 60, 11, behavior='guard', armor=14, speed=0.28,

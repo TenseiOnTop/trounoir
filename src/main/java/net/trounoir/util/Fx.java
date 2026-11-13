@@ -1,6 +1,7 @@
 package net.trounoir.util;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.DustParticleOptions;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket;
@@ -22,6 +23,26 @@ import net.minecraft.world.phys.Vec3;
  */
 public final class Fx {
     private Fx() {}
+
+    /** Poussière colorée : la couleur en RGB (0xRRGGBB), la taille en blocs. */
+    public static ParticleOptions dust(int rgb, float size) {
+        return new DustParticleOptions(new org.joml.Vector3f(((rgb >> 16) & 0xFF) / 255F, ((rgb >> 8) & 0xFF) / 255F, (rgb & 0xFF) / 255F), size);
+    }
+
+    /** Tremblement d'écran chez un joueur ; power entre 0 et 1. */
+    public static void shake(ServerPlayer player, double power) {
+        com.google.gson.JsonObject json = new com.google.gson.JsonObject();
+        json.addProperty("power", Math.max(0.05, Math.min(1.0, power)));
+        net.trounoir.network.Net.toClient(player, "hit", json);
+    }
+
+    /** Tremblement d'écran chez tous les joueurs proches, d'autant plus fort qu'ils sont près. */
+    public static void shake(ServerLevel level, Vec3 at, double radius, double power) {
+        for (ServerPlayer player : level.players()) {
+            double d = player.position().distanceTo(at);
+            if (d <= radius) shake(player, power * (1.0 - d / (radius + 1)));
+        }
+    }
 
     public static SoundEvent sound(String vanillaId) {
         return Lookup.sound(ResourceLocation.withDefaultNamespace(vanillaId));

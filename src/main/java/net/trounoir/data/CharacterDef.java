@@ -35,6 +35,8 @@ public final class CharacterDef {
     public final ResourceLocation heldItem;
     /** civilian, guard, hostile, boss, neutral_boss. */
     public final String behavior;
+    /** Un civil qui rend les coups quand on l'attaque. */
+    public final boolean fightsBack;
     public final List<MoveDef> moves;
     /** Fractions de vie auxquelles le personnage change de phase (ex. [0.66, 0.33]). */
     public final List<Double> phases;
@@ -74,6 +76,7 @@ public final class CharacterDef {
         String held = JsonUtil.str(json, "held_item", "");
         this.heldItem = held.isEmpty() ? null : JsonUtil.id(held);
         this.behavior = JsonUtil.str(json, "behavior", "civilian");
+        this.fightsBack = JsonUtil.bool(json, "fights_back", false);
         List<MoveDef> moves = new ArrayList<>();
         for (JsonObject m : JsonUtil.objects(json, "moves")) moves.add(new MoveDef(m));
         this.moves = List.copyOf(moves);

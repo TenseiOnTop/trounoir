@@ -174,6 +174,12 @@ public final class TechniqueExecutor {
                 double a = Math.PI * 2 * i / 32;
                 level.sendParticles(particle, player.getX() + Math.cos(a) * radius, player.getY() + 0.4, player.getZ() + Math.sin(a) * radius, 1, 0.1, 0.1, 0.1, 0.0);
             }
+            // Onde de choc : trois anneaux qui s'élargissent autour du lanceur.
+            Vec3 ground = player.position().add(0, 0.2, 0);
+            Fx.ring(level, Fx.dust(0xC9B8FF, 1.4F), ground, radius * 0.45);
+            Fx.ring(level, Fx.dust(0xC9B8FF, 1.1F), ground, radius * 0.75);
+            Fx.ring(level, Fx.dust(0xFFF4D0, 1.0F), ground, radius);
+            Fx.shake(player, Math.min(0.6, radius / 12.0));
             level.sendParticles(particle, player.getX(), player.getY() + 0.8, player.getZ(), 12, radius / 3, 0.3, radius / 3, 0.02);
         }
         sound(player, p, "entity.dragon_fireball.explode");
@@ -206,6 +212,18 @@ public final class TechniqueExecutor {
 
         ParticleOptions particle = particle(p, Fx.particle("end_rod"));
         double length = eye.distanceTo(end);
+        // Gaine : une spirale de poussière claire autour du cœur du rayon.
+        Vec3 axis = end.subtract(eye).normalize();
+        Vec3 ortho = Math.abs(axis.y) > 0.9 ? new Vec3(1, 0, 0) : new Vec3(-axis.z, 0, axis.x).normalize();
+        Vec3 ortho2 = axis.cross(ortho);
+        for (int i = 0; i <= (int) Math.min(90, length * 1.2); i++) {
+            double d = length * i / Math.min(90, Math.max(1, length * 1.2));
+            double a2 = d * 1.3;
+            Vec3 at = eye.add(axis.scale(d)).add(ortho.scale(Math.cos(a2) * 0.35)).add(ortho2.scale(Math.sin(a2) * 0.35));
+            level.sendParticles(Fx.dust(0xC9B8FF, 0.8F), at.x, at.y, at.z, 1, 0, 0, 0, 0.0);
+        }
+        Fx.burst(level, "flash", end, 1, 0.0, 0.0);
+        Fx.shake(player, 0.25);
         int points = (int) Math.min(160, Math.max(4, length * 1.5));
         for (int i = 1; i <= points; i++) {
             Vec3 at = eye.lerp(end, i / (double) points);

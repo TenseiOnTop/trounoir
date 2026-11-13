@@ -12,6 +12,10 @@ public final class ClientPackets {
         Minecraft mc = Minecraft.getInstance();
         switch (type) {
             case "defs" -> ClientState.readDefs(json);
+            case "hit" -> {
+                ClientState.shakeStrength = (float) net.trounoir.util.JsonUtil.num(json, "power", 0.3);
+                ClientState.shakeTicks = 4 + Math.round(ClientState.shakeStrength * 6);
+            }
             case "life" -> ClientState.readLife(json);
             case "death" -> {
                 ClientState.death = json;

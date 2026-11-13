@@ -195,7 +195,7 @@ def gen_data():
     for c in W.CHARACTERS:
         obj = {'unique': c.get('unique', False), 'category': c['category'], 'faction': c['faction'], 'rank': c['rank'],
                'behavior': c.get('behavior', 'civilian'), 'health': c['health'], 'damage': c['damage']}
-        for key in ('drops', 'variants', 'base_entity', 'armor', 'speed', 'scale', 'knockback_resistance', 'follow_range', 'held_item', 'phases',
+        for key in ('drops', 'variants', 'fights_back', 'base_entity', 'armor', 'speed', 'scale', 'knockback_resistance', 'follow_range', 'held_item', 'phases',
                     'weakness', 'kill_reputation', 'notoriety', 'language', 'dialogue_lines', 'boss_bar'):
             if key in c:
                 obj[key] = c[key]
