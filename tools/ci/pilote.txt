@@ -8,7 +8,7 @@ cmd time set noon
 cmd weather clear
 wait 20
 cmd trounoir site tp trounoir:pont_aux_saules
-wait 240
+wait 400
 view third
 shot village_pont_aux_saules
 view first
@@ -65,15 +65,15 @@ shot segaroth_4
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
 cmd trounoir site tp trounoir:trone_de_masse
-wait 240
+wait 350
 view third
 shot voute_trone_de_masse
 wait 30
 cmd trounoir site tp trounoir:seuil_de_la_voute
-wait 200
+wait 250
 shot voute_seuil
 cmd trounoir site tp trounoir:horizon_blanc
-wait 200
+wait 250
 shot voute_horizon_blanc
 wait 20
 quit

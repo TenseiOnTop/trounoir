@@ -12,4 +12,5 @@ gamma:1.0
 fullscreen:false
 particles:0
 narrator:0
-chatVisibility:2
+chatOpacity:0.0
+chatScale:0.6
