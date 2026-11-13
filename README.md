@@ -110,6 +110,10 @@ les mondes **créés avec le mod**. Sur un monde plus ancien, le mod passe en «
 
 Le pouvoir du clic droit de chaque arme et relique se règle dans `data/trounoir/trounoir/weapons/<nom>.json` (mêmes types que les techniques). Les dégâts du clic gauche sont dans `ModRegistry.ARTIFACTS`. Tous les objets du mod sont dans l'onglet créatif « Trou-Noir ».
 
+## La Voûte
+
+La dimension des Astres (`trounoir:voute`) : leurs îles flottent dans un ciel nocturne, le Trône de Masse au centre. On y entre par la Porte des Astres en Diviniarth ; le Seuil ne s'ouvre qu'avec le savoir « Secret des Dieux » (pris à Segaroth). Le Seuil de la Voûte ramène en Diviniarth.
+
 ## Mode test
 
 À la création du monde : **Plus d'options → Règles du jeu → Divers → « Trou-Noir : mode test »** (ou `/gamerule trounoirTestMode true`). Tous les lieux sont connus ; la touche N permet de s'y rendre (clic droit) et de choisir un jeu de pouvoirs par rang (0 à X). La mort ne remonte pas le temps du monde. Les œufs de l'onglet créatif font apparaître n'importe quel personnage.

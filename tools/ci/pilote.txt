@@ -23,14 +23,24 @@ wait 10
 cmd gamemode survival
 view third
 wait 45
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot cledith_1
 wait 30
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot cledith_2
 wait 30
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot cledith_3
 wait 45
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot cledith_4
 wait 45
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot cledith_5
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
@@ -39,14 +49,24 @@ cmd trounoir spawn trounoir:trou_blanc
 wait 10
 cmd gamemode survival
 wait 55
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot trou_blanc_1
 wait 40
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot trou_blanc_2
 wait 40
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot trou_blanc_3
 wait 80
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot trou_blanc_4
 wait 60
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot trou_blanc_5
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
@@ -55,12 +75,20 @@ cmd trounoir spawn trounoir:segaroth
 wait 10
 cmd gamemode survival
 wait 55
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot segaroth_1
 wait 40
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot segaroth_2
 wait 40
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot segaroth_3
 wait 60
+cmd tp @e[type=trounoir:character,limit=1,sort=nearest] ~7 ~ ~4
+wait 25
 shot segaroth_4
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
