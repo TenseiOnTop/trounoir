@@ -1,4 +1,4 @@
-# Scénario de captures : villages, armes, annonces d'attaques, Astres.
+# Captures : village, combat de Cledith, arret du temps de Trou-Blanc, Segaroth mage, la Voute.
 wait 100
 cmd gamerule trounoirTestMode true
 cmd gamerule doDaylightCycle false
@@ -7,61 +7,73 @@ cmd gamerule doMobSpawning false
 cmd time set noon
 cmd weather clear
 wait 20
-cmd trounoir site tp trounoir:bourg_levant
-wait 120
-view third
-shot village_bourg_levant
 cmd trounoir site tp trounoir:pont_aux_saules
-wait 120
+wait 240
+view third
 shot village_pont_aux_saules
 view first
 cmd effect give @s minecraft:resistance 100000 10 true
 cmd effect give @s minecraft:regeneration 100000 4 true
-cmd give @s trounoir:epee_de_cledith
 wait 10
-shot inventaire_vide
+cmd spreadplayers ~40 ~40 4 12 false @s
+wait 60
+cmd kill @e[type=trounoir:character,distance=..40]
 cmd trounoir spawn trounoir:cledith
 wait 10
 cmd gamemode survival
 view third
-wait 50
+wait 45
 shot cledith_1
-wait 35
+wait 30
 shot cledith_2
-wait 35
+wait 30
 shot cledith_3
-wait 50
+wait 45
 shot cledith_4
-wait 50
+wait 45
 shot cledith_5
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
 wait 20
 cmd trounoir spawn trounoir:trou_blanc
-wait 15
-shot trou_blanc_face
+wait 10
 cmd gamemode survival
-wait 60
+wait 55
 shot trou_blanc_1
-wait 45
+wait 40
 shot trou_blanc_2
-wait 45
+wait 40
 shot trou_blanc_3
-wait 90
+wait 80
 shot trou_blanc_4
+wait 60
+shot trou_blanc_5
 cmd gamemode creative
 cmd kill @e[type=trounoir:character]
 wait 20
 cmd trounoir spawn trounoir:segaroth
-wait 15
-shot segaroth_face
+wait 10
 cmd gamemode survival
-wait 60
+wait 55
 shot segaroth_1
-wait 45
+wait 40
 shot segaroth_2
-wait 45
+wait 40
 shot segaroth_3
 wait 60
 shot segaroth_4
+cmd gamemode creative
+cmd kill @e[type=trounoir:character]
+cmd trounoir site tp trounoir:trone_de_masse
+wait 240
+view third
+shot voute_trone_de_masse
+wait 30
+cmd trounoir site tp trounoir:seuil_de_la_voute
+wait 200
+shot voute_seuil
+cmd trounoir site tp trounoir:horizon_blanc
+wait 200
+shot voute_horizon_blanc
+wait 20
 quit

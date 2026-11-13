@@ -104,15 +104,8 @@
     },
     {
       "type": "vengeance",
-      "character": "trounoir:hestia",
+      "character": "trounoir:lysmene",
       "delay": 2400
-    },
-    {
-      "type": "successor",
-      "character": "trounoir:garmond",
-      "replaces": "trounoir:aldric",
-      "delay": 24000,
-      "only_if_player": false
     },
     {
       "type": "message",

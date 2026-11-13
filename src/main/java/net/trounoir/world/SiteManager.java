@@ -93,8 +93,16 @@ public final class SiteManager {
     }
 
     /** Cherche, autour de la position théorique, un terrain émergé et à peu près plat. Sans générer de tronçon. */
+    /** La Voûte est un vide : chaque lieu y flotte à hauteur fixe, à sa position théorique. */
+    public static final ResourceLocation VOUTE = net.trounoir.TrouNoir.rl("voute");
+
     private static int[] resolve(MinecraftServer server, ServerLevel level, SimpleDefs.SiteDef def) {
         BlockPos base = def.dimension().equals(OVERWORLD) ? origin(server) : BlockPos.ZERO;
+        if (def.dimension().equals(VOUTE)) {
+            double d = def.distance() * TNConfig.SITE_DISTANCE_SCALE.get();
+            double a = Math.toRadians(def.angle());
+            return new int[]{(int) Math.round(Math.cos(a) * d), 140, (int) Math.round(Math.sin(a) * d)};
+        }
         double distance = def.distance() * TNConfig.SITE_DISTANCE_SCALE.get();
         double angle = Math.toRadians(def.angle());
         int nx = base.getX() + (int) Math.round(Math.cos(angle) * distance);

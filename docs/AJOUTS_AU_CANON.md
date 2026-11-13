@@ -114,3 +114,8 @@ Rien de ce qui suit n'est dans le canon ; tout est inventé pour le jeu.
 - Segaroth est un mage : il ne porte pas d'arme et enchaîne arcane, feu, givre, foudre et ombre. Il lègue son Grimoire.
 - Les Astres ont visage humain, à taille humaine. Trou-Blanc est un jeune garçon aux cheveux blancs et aux yeux dorés.
 - L'invisibilité est réelle ; les citoyens d'Azalée rendent les coups.
+
+## La Voûte (13 novembre, suite)
+
+- **La Voûte** : la dimension des Astres. Un ciel nocturne perpétuel où flottent leurs îles ; le Trône de Masse de Higgs est au centre. On y entre par la **Porte des Astres**, au bout de Diviniarth, et son Seuil ne s'ouvre qu'à qui a pris le **Secret des Dieux** à Segaroth. Le Seuil de la Voûte permet d'en revenir.
+- Retirés pour resserrer le casting : Garmond, Kael, Hestia, Corvin, le Prétorien, le Tirailleur, le Colosse de Sombrefer, le Roi Flétri, et les armes Dagues de brume et Gantelets de fer. La Forge de Sombrefer et le Trône de cendres sont désormais des vestiges. Le Légionnaire hérite des savoirs du Tirailleur et du Prétorien.

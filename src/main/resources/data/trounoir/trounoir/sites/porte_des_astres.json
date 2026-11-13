@@ -1,0 +1,13 @@
+{
+  "dimension": "trounoir:diviniarth",
+  "blueprint": "gate",
+  "distance": 2400,
+  "angle": 345,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:obsidian",
+    "secondary": "minecraft:polished_blackstone",
+    "accent": "minecraft:crying_obsidian"
+  },
+  "residents": []
+}

@@ -190,6 +190,8 @@ public final class StructureBuilders {
             case "palace" -> palace(c);
             case "lair" -> lair(c);
             case "sanctuary" -> sanctuary(c);
+            case "island" -> island(c);
+            case "gate" -> gate(c);
             case "ruin" -> ruin(c);
             default -> village(c);
         }
@@ -677,6 +679,74 @@ public final class StructureBuilders {
         c.chest = c.center.offset(0, 0, -11);
         c.focus = c.center;
         c.arrival = c.center.offset(0, 0, 18);
+    }
+
+    /**
+     * Île de la Voûte : un éclat de roche qui flotte dans le vide, effilé par-dessous,
+     * un anneau lumineux, un autel au centre où attend l'Astre.
+     */
+    private static void island(Canvas c) {
+        int r = 16;
+        // Masse : trois disques qui s'amincissent vers le bas, pointe en dessous.
+        c.disc(-1, r, c.primary);
+        c.disc(-2, r - 3, c.secondary);
+        c.disc(-3, r - 7, c.secondary);
+        c.disc(-4, r - 11, c.primary);
+        c.fill(0, -7, 0, 0, -5, 0, c.secondary);
+        // Anneau de lumière incrusté dans le sol.
+        for (int i = 0; i < 40; i++) {
+            double a2 = Math.PI * 2 * i / 40;
+            int x = (int) Math.round(Math.cos(a2) * (r - 2));
+            int z = (int) Math.round(Math.sin(a2) * (r - 2));
+            c.set(x, -1, z, c.accent);
+        }
+        // Quatre éclats flottants autour de l'île.
+        for (int i = 0; i < 4; i++) {
+            double a2 = Math.PI / 2 * i + 0.6;
+            int x = (int) Math.round(Math.cos(a2) * (r + 5));
+            int z = (int) Math.round(Math.sin(a2) * (r + 5));
+            int y = 2 + c.rng.nextInt(4);
+            c.fill(x, y, z, x, y + 1 + c.rng.nextInt(2), z, c.primary);
+            c.set(x, y + 3, z, c.accent);
+        }
+        // Autel central.
+        c.fill(-2, 0, -2, 2, 0, 2, c.secondary);
+        c.fill(-1, 1, -1, 1, 1, 1, c.primary);
+        c.set(0, 2, 0, c.accent);
+        for (int sx = -3; sx <= 3; sx += 6)
+            for (int sz = -3; sz <= 3; sz += 6) {
+                c.fill(sx, 0, sz, sx, 3, sz, c.primary);
+                c.set(sx, 4, sz, c.accent);
+            }
+        c.focus = c.center.offset(0, 1, 5);
+        c.arrival = c.center.offset(0, 0, r - 4);
+        c.chest = c.center.offset(4, 0, -4);
+    }
+
+    /**
+     * Porte des Astres : une arche dressée vers le ciel ; le bloc de seuil, au centre, fait passer
+     * dans la Voûte (et en revient). Voir GateBlock.
+     */
+    private static void gate(Canvas c) {
+        boolean floating = c.level.dimension().location().equals(net.trounoir.TrouNoir.rl("voute"));
+        if (floating) {
+            c.disc(-1, 9, c.primary);
+            c.disc(-2, 6, c.secondary);
+            c.disc(-3, 3, c.secondary);
+        } else {
+            c.prepare(10, 10, 10, b("grass_block"));
+        }
+        // L'arche : deux piliers et un linteau.
+        for (int x = -3; x <= 3; x += 6) c.fill(x, 0, 0, x, 6, 0, c.secondary);
+        c.fill(-3, 7, 0, 3, 7, 0, c.secondary);
+        c.set(-3, 6, 0, c.accent);
+        c.set(3, 6, 0, c.accent);
+        c.set(0, 8, 0, c.accent);
+        // Le seuil.
+        if (!c.dry) c.level.setBlock(c.center, net.trounoir.registry.ModRegistry.GATE.get().defaultBlockState(), 2);
+        c.fill(-1, -1, 1, 1, -1, 3, c.accent);
+        c.focus = c.center.offset(0, 0, 2);
+        c.arrival = c.center.offset(0, 0, 4);
     }
 
     private static void sanctuary(Canvas c) {

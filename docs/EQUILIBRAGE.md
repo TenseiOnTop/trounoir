@@ -148,14 +148,9 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Sang royal ★ | astral | 1 | 4 | PV +4, chance +1 |
 | Flamme d'Aldric ★ | lame, feu, astral | 1 | 8 | dégâts +3, melee_damage_pct +15, fire_touch +1 |
 | Givre de Lysmène ★ | givre, arcane, astral | 1 | 8 | armure +2, magic_power +20, frost_touch +1 |
-| Ombre de Corvin ★ | ombre, vitesse, astral | 1 | 8 | vitesse +10 %, stealth +25, backstab_pct +40 |
-| Corps de fer de Hestia ★ | endurance, astral | 1 | 8 | PV +10, armure +4, rés. recul +0.3, damage_reduction_pct +8 |
-| Ambition de Garmond ★ | lame, astral | 1 | 6 | dégâts +2, melee_damage_pct +8 |
 | Fureur de Gorgath ★ | bete, endurance | 1 | 16 | PV +12, dégâts +3, rés. recul +0.3, soulage faiblesse 6 |
 | Toile de la Veuve Blême ★ | venin, ombre | 1 | 16 | PV +6, vitesse +6 %, poison_touch +1, stealth +20 |
 | Chaînes du Geôlier ★ | ombre, endurance | 1 | 24 | PV +16, armure +4, damage_reduction_pct +10, perception_range +24 |
-| Cœur de Sombrefer ★ | endurance | 1 | 24 | PV +20, armure +6, rés. recul +0.5, dégâts +4 |
-| Sceptre du Roi Flétri ★ | mort, lame | 1 | 24 | dégâts +5, wither_touch +1, lifesteal_pct +8, melee_damage_pct +15 |
 | Maîtrise de Cledith ★ | lame, astral | 1 | 14 | dégâts +6, vit. d'attaque +25 %, balayage +1, melee_damage_pct +50, soulage maladresse 4, soulage faiblesse 6 |
 | Œil de Suke ★ | distance, perception, astral | 1 | 14 | allonge +2, ranged_damage_pct +60, perception_range +96, sniper +1 |
 | Brasier d'Ignarelle ★ | feu, arcane, astral | 1 | 14 | magic_power +35, fire_immunity +1, fire_touch +1 |
@@ -164,7 +159,6 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Foudre de Zéphyrine ★ | vitesse, lame, astral | 1 | 14 | vitesse +20 %, vit. d'attaque +20 %, saut +0.1, fall_reduction_pct +100, melee_damage_pct +15, soulage lenteur 6 |
 | Géométrie d'Oriel ★ | arcane, astral | 1 | 14 | portée blocs +2, cooldown_reduction_pct +20, magic_power +20 |
 | Commandement de Valdrek ★ | endurance, lame, astral | 1 | 14 | PV +10, armure +3, all_damage_pct +12, regen +1 |
-| Audace de Kael ★ | lame, astral | 1 | 10 | dégâts +3, PV +6, melee_damage_pct +12 |
 | Immortalité de Segaroth ★ | endurance, arcane, astral | 1 | 30 | PV +30, regen +3, damage_reduction_pct +12, lifesteal_pct +6 |
 | Balance de Saturne ★ | divin | 1 | 40 | PV +16, thorns +6, damage_reduction_pct +12 |
 | Rouille et sang de Mars ★ | divin, lame | 1 | 40 | dégâts +8, lifesteal_pct +12, melee_damage_pct +30, wither_touch +1 |
@@ -244,7 +238,7 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Lame ardente | 2 × lame + 2 × feu | fire_touch +1, melee_damage_pct +6 | 4 |
 | Ombre tranchante | 2 × lame + 2 × ombre | backstab_pct +40 | 4 |
 | Étoile montante | 3 × astral | PV +6, all_damage_pct +8 | 8 |
-| Tueur de Supernovas | flamme_d_aldric + givre_de_lysmene + ombre_de_corvin + corps_de_hestia | PV +8, all_damage_pct +10 | 10 |
+| Tueur de Supernovas | flamme_d_aldric + givre_de_lysmene | PV +8, all_damage_pct +10 | 10 |
 | Sang divin | 1 × divin | PV +4, regen +1 | 6 |
 | Panthéon | 3 × divin | damage_reduction_pct +10, all_damage_pct +10 | 14 |
 | Théophage | 6 × divin | PV +20, all_damage_pct +20, cooldown_reduction_pct +10 | 30 |
@@ -359,15 +353,10 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Aurèle III, Roi de Nébulosia | king | 2 | 40 | 4 | 8 | — | slash (4 dég., annonce 18 t) |
 | Aldric Solbrand | supernova | 4 | 140 | 11 | 14 | magic | slash (11 dég., annonce 14 t), lunge (13 dég., annonce 20 t), solar_ring (14 dég., annonce 26 t) |
 | Lysmène Givreclair | supernova | 4 | 110 | 12 | 6 | fire | shot (0 dég., annonce 16 t), ice_rain (12 dég., annonce 30 t), ice_prison (10 dég., annonce 28 t) |
-| Corvin Brumeval | supernova | 4 | 100 | 12 | 6 | explosion | slash (10 dég., annonce 10 t), ambush (14 dég., annonce 16 t), knives (8 dég., annonce 14 t) |
-| Hestia Ferrecœur | supernova | 4 | 180 | 12 | 18 | projectile | hook (12 dég., annonce 14 t), slam (15 dég., annonce 22 t), rush (14 dég., annonce 18 t) |
-| Garmond l'Aspirant | supernova | 4 | 110 | 10 | 12 | backstab | slash (10 dég., annonce 14 t), lunge (12 dég., annonce 20 t) |
 | Gorgath, le Ravageur ancien | demigod | 5 | 240 | 16 | 10 | fire | IA vanilla |
 | La Veuve Blême | demigod | 5 | 200 | 14 | 8 | fire | IA vanilla |
 | Citoyen d'Azalée | peasant | 1 | 20 | 4 | 0 | — | IA vanilla |
 | Légionnaire | soldier | 4 | 60 | 11 | 14 | — | slash (11 dég., annonce 13 t), lunge (13 dég., annonce 18 t) |
-| Tirailleur | soldier | 4 | 44 | 9 | 8 | — | shot (9 dég., annonce 16 t), volley (7 dég., annonce 22 t) |
-| Prétorien | knight | 5 | 90 | 15 | 18 | — | slash (15 dég., annonce 12 t), lunge (17 dég., annonce 18 t), slam (18 dég., annonce 22 t) |
 | Magistère | mage | 5 | 64 | 13 | 6 | — | shot (0 dég., annonce 14 t), meteors (15 dég., annonce 28 t), fold (12 dég., annonce 18 t) |
 | Cledith | hypernova | 6 | 340 | 22 | 20 | projectile | slash (22 dég., annonce 12 t), crescent (26 dég., annonce 18 t), lunge (26 dég., annonce 16 t), flash_step (24 dég., annonce 14 t), thousand_blades (30 dég., annonce 24 t) |
 | Suke | hypernova | 6 | 260 | 20 | 10 | melee | rifle (24 dég., annonce 22 t), scatter (18 dég., annonce 30 t), retreat (0 dég., annonce 10 t), mortar (20 dég., annonce 26 t) |
@@ -378,10 +367,7 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Oriel | hypernova | 6 | 250 | 20 | 8 | melee | ray (20 dég., annonce 22 t), meteors (22 dég., annonce 26 t), fold_away (0 dég., annonce 10 t), lattice (24 dég., annonce 28 t) |
 | Maréchal Valdrek | hypernova | 6 | 320 | 20 | 20 | backstab | slash (20 dég., annonce 14 t), slam (24 dég., annonce 24 t), call (0 dég., annonce 30 t), call_guard (0 dég., annonce 30 t), lunge (26 dég., annonce 18 t) |
 | Segaroth | emperor | 7 | 520 | 28 | 22 | backstab | arcane_lance (26 dég., annonce 20 t), flame_school (24 dég., annonce 16 t), frost_school (26 dég., annonce 24 t), storm_school (30 dég., annonce 26 t), shadow_school (32 dég., annonce 14 t), millennium (44 dég., annonce 34 t), undying (0 dég., annonce 40 t) |
-| Kael l'Usurpateur | hypernova | 6 | 300 | 22 | 18 | magic | slash (22 dég., annonce 13 t), lunge (25 dég., annonce 18 t), call (0 dég., annonce 30 t) |
 | Le Geôlier d'Andromède | demigod | 6 | 420 | 26 | 14 | projectile | IA vanilla |
-| Le Colosse de Sombrefer | demigod | 6 | 480 | 26 | 22 | magic | IA vanilla |
-| Le Roi Flétri | demigod | 6 | 400 | 26 | 16 | fire | IA vanilla |
 | Séléné | god | 8 | 620 | 30 | 20 | fire | moonfall (30 dég., annonce 28 t), new_moon (34 dég., annonce 16 t), moonbeam (32 dég., annonce 26 t), high_tide (40 dég., annonce 32 t), full_moon (0 dég., annonce 40 t) |
 | Comète | god | 8 | 560 | 30 | 20 | explosion | streak (32 dég., annonce 12 t), slash (28 dég., annonce 10 t), ice_tail (30 dég., annonce 24 t), perihelion (38 dég., annonce 10 t) |
 | Mars | god | 8 | 700 | 34 | 20 | magic | slash (34 dég., annonce 13 t), slam (38 dég., annonce 22 t), lunge (40 dég., annonce 16 t), rust_breath (30 dég., annonce 18 t), blood_tide (46 dég., annonce 26 t) |
@@ -398,46 +384,48 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Lieu | Continent | Plan | Distance | Angle | Habitants |
 |---|---|---|---|---|---|
 | Bourg-Levant | Nébulosia | village | 180 | 40° | paysan × 6, soldat × 1 |
-| Clairmoulin | Nébulosia | village | 520 | 200° | paysan × 8, soldat × 2, chevalier × 1, corvin × 1 |
-| Château d'Astrelune | Nébulosia | castle | 850 | 120° | roi_aurele × 1, aldric × 1, lysmene × 1, hestia × 1, chevalier × 6, mage_royal × 3, soldat × 6 |
+| Clairmoulin | Nébulosia | village | 520 | 200° | paysan × 8, soldat × 2, chevalier × 1 |
+| Château d'Astrelune | Nébulosia | castle | 850 | 120° | roi_aurele × 1, aldric × 1, lysmene × 1, chevalier × 6, mage_royal × 3, soldat × 6 |
 | Pont-aux-Saules | Nébulosia | village | 380 | 300° | paysan × 7, soldat × 1 |
 | Vestige du Guet | Nébulosia | ruin | 650 | 80° |  |
 | Cercle des Anciens | Nébulosia | ruin | 1250 | 210° |  |
 | Havre-Gris | Nébulosia | harbor | 1300 | 300° | soldat × 2, paysan × 4 |
 | Lande de Gorgath | Nébulosia | lair | 1100 | 350° | gorgath × 1 |
 | Combe de la Veuve | Nébulosia | lair | 800 | 250° | veuve_bleme × 1 |
-| Autel de la Lune | Nébulosia | sanctuary | 1000 | 165° | selene × 1 |
-| Le Sillage | Nébulosia | sanctuary | 1500 | 20° | comete × 1 |
+| Autel de la Lune | Nébulosia | island | 300 | 150° | selene × 1 |
+| Le Sillage | Nébulosia | island | 330 | 30° | comete × 1 |
 | Port-Écume | Diviniarth | harbor | 0 | 0° | legionnaire × 4, citoyen × 4 |
-| Azalith | Diviniarth | city | 700 | 0° | citoyen × 10, legionnaire × 6, magistere × 2, pretorien × 2 |
-| Trône d'Azalée | Diviniarth | palace | 900 | 8° | segaroth × 1, noctalys × 1, pretorien × 6, magistere × 2 |
-| L'Aiguille de Veille | Diviniarth | tower | 500 | 60° | suke × 1, tirailleur × 4 |
-| Ronceval | Diviniarth | city | 800 | 140° | citoyen × 8, legionnaire × 8, tirailleur × 3, zephyrine × 1 |
-| Bastion d'Épinoire | Diviniarth | fortress | 1100 | 120° | cledith × 1, bragor × 1, legionnaire × 8, pretorien × 4 |
+| Azalith | Diviniarth | city | 700 | 0° | citoyen × 10, legionnaire × 6, magistere × 2, legionnaire × 2 |
+| Trône d'Azalée | Diviniarth | palace | 900 | 8° | segaroth × 1, noctalys × 1, legionnaire × 6, magistere × 2 |
+| L'Aiguille de Veille | Diviniarth | tower | 500 | 60° | suke × 1, legionnaire × 4 |
+| Ronceval | Diviniarth | city | 800 | 140° | citoyen × 8, legionnaire × 8, legionnaire × 3, zephyrine × 1 |
+| Bastion d'Épinoire | Diviniarth | fortress | 1100 | 120° | cledith × 1, bragor × 1, legionnaire × 8, legionnaire × 4 |
 | Lunecorolle | Diviniarth | city | 900 | 240° | citoyen × 8, magistere × 5, legionnaire × 4, oriel × 1, ignarelle × 1 |
-| Fort-Pollen | Diviniarth | fortress | 1200 | 262° | valdrek × 1, legionnaire × 8, tirailleur × 3, pretorien × 3 |
+| Fort-Pollen | Diviniarth | fortress | 1200 | 262° | valdrek × 1, legionnaire × 8, legionnaire × 3, legionnaire × 3 |
 | Tombeau d'Andromède | Diviniarth | lair | 1500 | 180° | geolier × 1 |
-| Forge de Sombrefer | Diviniarth | lair | 1300 | 330° | sombrefer × 1 |
-| Trône de cendres | Diviniarth | lair | 1600 | 85° | roi_fletri × 1 |
+| Forge de Sombrefer | Diviniarth | ruin | 1300 | 330° |  |
+| Trône de cendres | Diviniarth | ruin | 1650 | 280° |  |
 | Vestige d'Ivoire | Diviniarth | ruin | 450 | 300° |  |
 | Vestige des Marches | Diviniarth | ruin | 1400 | 150° |  |
 | Cloître englouti | Diviniarth | ruin | 1000 | 200° |  |
 | Autel brisé | Diviniarth | ruin | 1900 | 30° |  |
-| Champ de Rouille | Diviniarth | sanctuary | 1700 | 105° | mars × 1 |
-| Tribunal des Anneaux | Diviniarth | sanctuary | 1800 | 205° | saturne × 1 |
-| Le Phare | Diviniarth | sanctuary | 1500 | 30° | pulsar × 1 |
-| Le Zénith | Diviniarth | sanctuary | 2100 | 300° | sol × 1 |
-| Le Berceau | Diviniarth | sanctuary | 2000 | 150° | nebula × 1 |
-| La Gueule | Diviniarth | sanctuary | 2300 | 240° | quasar × 1 |
-| L'Horizon Blanc | Diviniarth | sanctuary | 2500 | 60° | trou_blanc × 1 |
-| Le Trône de Masse | Diviniarth | sanctuary | 3000 | 0° | higgs × 1 |
+| Porte des Astres | Diviniarth | gate | 2400 | 345° |  |
+| Seuil de la Voûte | Nébulosia | gate | 120 | 180° |  |
+| Champ de Rouille | Nébulosia | island | 380 | 200° | mars × 1 |
+| Tribunal des Anneaux | Nébulosia | island | 420 | 255° | saturne × 1 |
+| Le Phare | Nébulosia | island | 360 | 100° | pulsar × 1 |
+| Le Zénith | Nébulosia | island | 520 | 320° | sol × 1 |
+| Le Berceau | Nébulosia | island | 480 | 60° | nebula × 1 |
+| La Gueule | Nébulosia | island | 560 | 10° | quasar × 1 |
+| L'Horizon Blanc | Nébulosia | island | 650 | 180° | trou_blanc × 1 |
+| Le Trône de Masse | Nébulosia | island | 0 | 0° | higgs × 1 |
 
 ### Budget de puissance (tout absorbé au niveau maximal, hors synergies)
 
 | Palier | Puissance ajoutée |
 |---|---|
 | Mobs vanilla | 311 |
-| Mortels de Nébulosia (PNJ, roi, Supernovas) | 79 |
-| Demi-dieux | 104 |
-| Empire d'Azalée (armée, Hypernovas, Segaroth) | 257 |
+| Mortels de Nébulosia (PNJ, roi, Supernovas) | 49 |
+| Demi-dieux | 56 |
+| Empire d'Azalée (armée, Hypernovas, Segaroth) | 240 |
 | Dieux | 625 |

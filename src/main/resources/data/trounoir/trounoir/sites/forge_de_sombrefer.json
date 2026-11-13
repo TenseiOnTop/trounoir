@@ -1,19 +1,14 @@
 {
   "dimension": "trounoir:diviniarth",
-  "blueprint": "lair",
+  "blueprint": "ruin",
   "distance": 1300,
   "angle": 330,
   "faction": "sauvage",
   "palette": {
     "primary": "minecraft:blackstone",
     "secondary": "minecraft:smooth_basalt",
-    "accent": "minecraft:magma_block"
+    "accent": "minecraft:gilded_blackstone"
   },
-  "residents": [
-    {
-      "character": "trounoir:sombrefer",
-      "count": 1
-    }
-  ],
+  "residents": [],
   "relic_spot": true
 }

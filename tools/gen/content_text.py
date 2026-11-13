@@ -3,6 +3,10 @@
 
 # clé -> (français, anglais). Les %s sont remplacés dans l'ordre.
 UI = {
+    'block.trounoir.gate': ('Seuil des Astres', 'Threshold of the Stars'),
+    'trounoir.gate.sealed': ("Le Seuil reste muet. Il manque un secret que seul l'Empereur détient.", 'The Threshold stays silent. It wants a secret only the Emperor holds.'),
+    'trounoir.gate.enter': ('La Voûte', 'The Vault'),
+    'trounoir.gate.enter_sub': ('Le ciel des Astres, au-delà de tout.', 'The sky of the Astres, beyond all things.'),
     'block.trounoir.helm': ('Gouvernail', 'Helm'),
     'itemGroup.trounoir': ('Trou-Noir', 'Black-Hole'),
     'item.trounoir.character_egg': ("Œuf de personnage", 'Character Egg'),
@@ -195,20 +199,6 @@ DIALOGUES = {
         ('Vous n\'avez aucune mana. Aucune. Comment tenez-vous debout ?', 'You have no mana. None. How do you stand?'),
         ('Ne touchez à rien.', 'Touch nothing.'),
     ],
-    'corvin': [
-        ('Je vous ai vu arriver il y a une heure.', 'I saw you coming an hour ago.'),
-        ('Un éclaireur qui parle est un mauvais éclaireur.', 'A scout who talks is a poor scout.'),
-        ('Il y a quelque chose qui ne va pas avec vous. Je trouverai quoi.', 'Something is wrong with you. I will find out what.'),
-    ],
-    'hestia': [
-        ('Frappez. Allez-y. Je ne sentirai rien.', 'Hit me. Go on. I will feel nothing.'),
-        ('Le corps est un sort comme un autre.', 'The body is a spell like any other.'),
-        ('Aldric parle trop. Moi, je tiens.', 'Aldric talks too much. I hold.'),
-    ],
-    'garmond': [
-        ('La place était vide. Je l\'ai prise. C\'est tout.', 'The seat was empty. I took it. That is all.'),
-        ('Je vaux bien celui qui est mort.', 'I am worth as much as the one who died.'),
-    ],
     'citoyen': [
         ("Vous venez de Nébulosia ? Pauvre chose.", 'You come from Nebulosia? Poor thing.'),
         ("L'Empereur a plus de mille ans. Il en aura mille de plus.", 'The Emperor is over a thousand years old. He will see a thousand more.'),
@@ -219,14 +209,6 @@ DIALOGUES = {
         ('Papiers.', 'Papers.'),
         ("Ici, un légionnaire vaut un chevalier de chez vous. C'est le premier grade.", 'Here, a legionary is worth one of your knights. It is the lowest rank.'),
         ("Nous avons tué une Déesse. Souvenez-vous-en.", 'We killed a Goddess. Remember that.'),
-    ],
-    'tirailleur': [
-        ("Si vous voyez un reflet dans le ciel, c'est déjà presque trop tard.", 'If you see a glint in the sky, it is almost too late already.'),
-        ("L'Aiguille voit tout le continent.", 'The Needle sees the whole continent.'),
-    ],
-    'pretorien': [
-        ("On ne s'approche pas du trône.", 'No one approaches the throne.'),
-        ("Les Hypernovas sont huit. Aucun n'a jamais perdu.", 'The Hypernovas are eight. None has ever lost.'),
     ],
     'magistere': [
         ("Andromède est morte ici. Son tombeau a encore un gardien.", 'Andromeda died here. Her tomb still has a keeper.'),
@@ -277,10 +259,6 @@ DIALOGUES = {
         ("Les Dieux ne sont pas immortels. Ils sont seulement vieux. Moi aussi.", 'The Gods are not immortal. They are merely old. So am I.'),
         ("Il y a quelque chose en vous qui a faim. Je connais cette faim.", 'There is something in you that hungers. I know that hunger.'),
         ("Mille ans. Et c'est vous qui venez.", 'A thousand years. And it is you who comes.'),
-    ],
-    'kael': [
-        ("Le trône était vide. Un trône vide est une invitation.", 'The throne was empty. An empty throne is an invitation.'),
-        ("Je ne suis pas Segaroth. Je n'ai pas besoin de l'être.", 'I am not Segaroth. I need not be.'),
     ],
     'selene': [
         ("Petit frère. Tu as encore changé de visage.", 'Little brother. You have changed your face again.'),

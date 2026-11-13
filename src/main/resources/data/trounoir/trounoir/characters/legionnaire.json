@@ -58,6 +58,22 @@
     {
       "id": "trounoir:cartes_imperiales",
       "chance": 0.5
+    },
+    {
+      "id": "trounoir:carreau",
+      "chance": 0.3
+    },
+    {
+      "id": "trounoir:veille_de_suke",
+      "chance": 0.25
+    },
+    {
+      "id": "trounoir:route_du_bastion",
+      "chance": 0.3
+    },
+    {
+      "id": "trounoir:doctrine_hypernova",
+      "chance": 0.2
     }
   ],
   "on_death": []

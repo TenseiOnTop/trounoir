@@ -52,6 +52,11 @@ public final class ModRegistry {
     /** Le gouvernail : bloc d'interaction de la Traversée entre Nébulosia et Diviniarth. */
     public static final RegistryObject<Block> HELM = BLOCKS.register("helm",
             () -> new HelmBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(50.0F, 1200.0F).noLootTable()));
+    public static final RegistryObject<Block> GATE = BLOCKS.register("gate",
+            () -> new net.trounoir.world.GateBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE)
+                    .strength(-1.0F, 3600000.0F).lightLevel(state -> 13).noLootTable()));
+    public static final RegistryObject<Item> GATE_ITEM = ITEMS.register("gate",
+            () -> new BlockItem(GATE.get(), new Item.Properties()));
     public static final RegistryObject<Item> HELM_ITEM = ITEMS.register("helm",
             () -> new BlockItem(HELM.get(), new Item.Properties()));
 
@@ -62,8 +67,6 @@ public final class ModRegistry {
     public static final List<ArtifactItem.Spec> ARTIFACTS = List.of(
             new ArtifactItem.Spec("solbrand", 8, 1.6, false, false),
             new ArtifactItem.Spec("baton_de_givre", 4, 1.6, false, false),
-            new ArtifactItem.Spec("dagues_de_brume", 6, 2.6, false, false),
-            new ArtifactItem.Spec("gantelets_de_fer", 9, 1.2, false, false),
             new ArtifactItem.Spec("epee_de_cledith", 13, 1.8, false, false),
             new ArtifactItem.Spec("fusil_de_suke", 3, 1.6, false, true),
             new ArtifactItem.Spec("sceptre_d_ignarelle", 5, 1.6, false, false),
@@ -100,6 +103,7 @@ public final class ModRegistry {
             .icon(() -> new ItemStack(HELM_ITEM.get()))
             .displayItems((parameters, output) -> {
                 output.accept(HELM_ITEM.get());
+                output.accept(GATE_ITEM.get());
                 for (RegistryObject<Item> artifact : ARTIFACT_ITEMS.values()) output.accept(artifact.get());
                 for (ResourceLocation id : characterIds.get()) output.accept(CharacterEggItem.of(id));
                 for (AbsorbableDef def : absorbables.get()) {
@@ -123,6 +127,7 @@ public final class ModRegistry {
     private static void onCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(HELM_ITEM);
+            event.accept(GATE_ITEM);
         }
     }
 }

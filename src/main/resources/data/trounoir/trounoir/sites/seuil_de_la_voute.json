@@ -1,0 +1,13 @@
+{
+  "dimension": "trounoir:voute",
+  "blueprint": "gate",
+  "distance": 120,
+  "angle": 180,
+  "faction": "pantheon",
+  "palette": {
+    "primary": "minecraft:obsidian",
+    "secondary": "minecraft:polished_blackstone",
+    "accent": "minecraft:crying_obsidian"
+  },
+  "residents": []
+}

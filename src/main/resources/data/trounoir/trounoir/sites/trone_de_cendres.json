@@ -1,19 +1,14 @@
 {
   "dimension": "trounoir:diviniarth",
-  "blueprint": "lair",
-  "distance": 1600,
-  "angle": 85,
+  "blueprint": "ruin",
+  "distance": 1650,
+  "angle": 280,
   "faction": "sauvage",
   "palette": {
     "primary": "minecraft:soul_soil",
-    "secondary": "minecraft:soul_sand",
+    "secondary": "minecraft:polished_blackstone_bricks",
     "accent": "minecraft:bone_block"
   },
-  "residents": [
-    {
-      "character": "trounoir:roi_fletri",
-      "count": 1
-    }
-  ],
+  "residents": [],
   "relic_spot": true
 }

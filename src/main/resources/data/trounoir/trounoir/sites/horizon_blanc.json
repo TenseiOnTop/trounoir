@@ -1,8 +1,8 @@
 {
-  "dimension": "trounoir:diviniarth",
-  "blueprint": "sanctuary",
-  "distance": 2500,
-  "angle": 60,
+  "dimension": "trounoir:voute",
+  "blueprint": "island",
+  "distance": 650,
+  "angle": 180,
   "faction": "pantheon",
   "palette": {
     "primary": "minecraft:white_concrete",

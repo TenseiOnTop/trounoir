@@ -1,8 +1,8 @@
 {
-  "dimension": "minecraft:overworld",
-  "blueprint": "sanctuary",
-  "distance": 1500,
-  "angle": 20,
+  "dimension": "trounoir:voute",
+  "blueprint": "island",
+  "distance": 330,
+  "angle": 30,
   "faction": "pantheon",
   "palette": {
     "primary": "minecraft:packed_ice",

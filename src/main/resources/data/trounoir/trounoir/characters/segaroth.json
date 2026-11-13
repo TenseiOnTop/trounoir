@@ -183,13 +183,6 @@
       "delay": 1200
     },
     {
-      "type": "successor",
-      "character": "trounoir:kael",
-      "replaces": "trounoir:segaroth",
-      "delay": 24000,
-      "only_if_player": false
-    },
-    {
       "type": "message",
       "key": "trounoir.reaction.emperor_dead",
       "only_if_player": false
