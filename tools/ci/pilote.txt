@@ -15,11 +15,14 @@ view first
 cmd effect give @s minecraft:resistance 100000 10 true
 cmd effect give @s minecraft:regeneration 100000 4 true
 wait 10
-cmd tp @s 300 180 300
+cmd tp @s 300 200 300
+wait 80
 cmd fill 278 177 278 322 177 322 minecraft:smooth_stone
-cmd fill 278 178 278 322 178 322 minecraft:air
+wait 10
 cmd tp @s 300 178 300 0 20
-wait 30
+cmd trounoir reputation azalee -100
+cmd trounoir reputation pantheon -100
+wait 20
 cmd trounoir spawn trounoir:cledith
 wait 10
 cmd gamemode survival
