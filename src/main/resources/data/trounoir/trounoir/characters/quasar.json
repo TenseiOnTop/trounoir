@@ -8,7 +8,7 @@
   "damage": 40,
   "armor": 20,
   "speed": 0.31,
-  "scale": 2.0,
+  "scale": 1.1,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -33,7 +33,8 @@
       "max_range": 40,
       "weight": 4,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:entity.warden.sonic_boom"
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "color": "#ffd866"
     },
     {
       "id": "wide_jet",
@@ -47,7 +48,8 @@
       "max_range": 30,
       "weight": 2,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:entity.warden.sonic_boom"
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "color": "#ffd866"
     },
     {
       "id": "accretion",
@@ -63,7 +65,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#ffd866"
     },
     {
       "id": "maw",
@@ -80,7 +83,8 @@
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 1,
       "pull": 2.5,
-      "heal": 40
+      "heal": 40,
+      "color": "#ffd866"
     }
   ],
   "grants": [

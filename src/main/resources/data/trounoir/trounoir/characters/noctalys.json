@@ -38,7 +38,8 @@
       "max_range": 2.8,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#8a6fd1"
     },
     {
       "id": "ambush",
@@ -53,7 +54,8 @@
       "pre": "teleport",
       "weight": 4,
       "particle": "minecraft:portal",
-      "sound": "minecraft:entity.enderman.teleport"
+      "sound": "minecraft:entity.enderman.teleport",
+      "color": "#8a6fd1"
     },
     {
       "id": "knives",
@@ -70,7 +72,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.arrow.shoot"
+      "sound": "minecraft:entity.arrow.shoot",
+      "color": "#8a6fd1"
     },
     {
       "id": "eclipse",
@@ -86,7 +89,8 @@
       "weight": 4,
       "particle": "minecraft:portal",
       "sound": "minecraft:entity.enderman.teleport",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#8a6fd1"
     }
   ],
   "grants": [

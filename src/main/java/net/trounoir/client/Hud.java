@@ -25,6 +25,22 @@ public final class Hud {
 
         Compass.render(g, mc, font, width);
 
+        // Le temps est arrêté : le monde pâlit, des anneaux clairs se resserrent, un battement sourd.
+        if (ClientState.zaWarudoTicks > 0) {
+            float t = ClientState.zaWarudoTicks / (float) Math.max(1, ClientState.zaWarudoTotal);
+            int veil = ((int) (0x48 + 0x30 * t) << 24) | 0xCFE0EE;
+            g.fill(0, 0, width, height, veil);
+            int cx = width / 2;
+            int cy = height / 2;
+            float grow = 1F - (ClientState.zaWarudoTicks % 20) / 20F;
+            int r = (int) (Math.min(width, height) * (0.15 + 0.45 * grow));
+            int alpha = (int) (0x90 * (1 - grow));
+            hollowRect(g, cx - r, cy - r, cx + r, cy + r, (alpha << 24) | 0xFFFFFF);
+            if (ClientState.zaWarudoTicks % 20 == 0 && mc.player != null) {
+                mc.player.playSound(net.trounoir.util.Lookup.sound(net.minecraft.resources.ResourceLocation.withDefaultNamespace("block.note_block.cow_bell")), 0.7F, 0.45F);
+            }
+        }
+
         if (ClientState.revealed) {
             g.drawString(font, I18n.get("trounoir.hud.rank", Text.roman(ClientState.rank), (int) Math.round(ClientState.power)), 6, 6, 0xC9B8FF);
             if (!ClientState.lifeName.isEmpty()) g.drawString(font, ClientState.lifeName, 6, 17, 0x8F86A8);
@@ -70,5 +86,13 @@ public final class Hud {
             g.fill(x, y + 4, x + Math.round(60 * t), y + 6, color);
             g.drawString(font, "◉", x - 10, y, color);
         }
+    }
+
+    /** Rectangle creux d'un pixel d'épaisseur. */
+    private static void hollowRect(GuiGraphics g, int x0, int y0, int x1, int y1, int color) {
+        g.fill(x0, y0, x1, y0 + 2, color);
+        g.fill(x0, y1 - 2, x1, y1, color);
+        g.fill(x0, y0, x0 + 2, y1, color);
+        g.fill(x1 - 2, y0, x1, y1, color);
     }
 }

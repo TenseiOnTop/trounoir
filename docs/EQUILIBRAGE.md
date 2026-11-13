@@ -377,7 +377,7 @@ Chaque attaque (`moves` dans `characters/*.json`) : `shape` (circle, line, cone)
 | Zéphyrine | hypernova | 6 | 260 | 21 | 10 | backstab | thrust (18 dég., annonce 8 t), lunge (24 dég., annonce 12 t), white_lightning (28 dég., annonce 10 t), storm (22 dég., annonce 20 t) |
 | Oriel | hypernova | 6 | 250 | 20 | 8 | melee | ray (20 dég., annonce 22 t), meteors (22 dég., annonce 26 t), fold_away (0 dég., annonce 10 t), lattice (24 dég., annonce 28 t) |
 | Maréchal Valdrek | hypernova | 6 | 320 | 20 | 20 | backstab | slash (20 dég., annonce 14 t), slam (24 dég., annonce 24 t), call (0 dég., annonce 30 t), call_guard (0 dég., annonce 30 t), lunge (26 dég., annonce 18 t) |
-| Segaroth | emperor | 7 | 520 | 28 | 22 | backstab | slash (28 dég., annonce 13 t), lunge (32 dég., annonce 16 t), meteors (30 dég., annonce 26 t), ambush (34 dég., annonce 14 t), call (0 dég., annonce 30 t), millennium (40 dég., annonce 30 t), undying (0 dég., annonce 40 t) |
+| Segaroth | emperor | 7 | 520 | 28 | 22 | backstab | arcane_lance (26 dég., annonce 20 t), flame_school (24 dég., annonce 16 t), frost_school (26 dég., annonce 24 t), storm_school (30 dég., annonce 26 t), shadow_school (32 dég., annonce 14 t), millennium (44 dég., annonce 34 t), undying (0 dég., annonce 40 t) |
 | Kael l'Usurpateur | hypernova | 6 | 300 | 22 | 18 | magic | slash (22 dég., annonce 13 t), lunge (25 dég., annonce 18 t), call (0 dég., annonce 30 t) |
 | Le Geôlier d'Andromède | demigod | 6 | 420 | 26 | 14 | projectile | IA vanilla |
 | Le Colosse de Sombrefer | demigod | 6 | 480 | 26 | 22 | magic | IA vanilla |

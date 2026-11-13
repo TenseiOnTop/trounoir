@@ -40,7 +40,8 @@
       "max_range": 3.6,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#a03a6a"
     },
     {
       "id": "crescent",
@@ -53,7 +54,8 @@
       "max_range": 5,
       "weight": 2,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#a03a6a"
     },
     {
       "id": "lunge",
@@ -68,7 +70,8 @@
       "pre": "dash",
       "weight": 2,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.player.attack.strong"
+      "sound": "minecraft:entity.player.attack.strong",
+      "color": "#a03a6a"
     },
     {
       "id": "flash_step",
@@ -84,7 +87,8 @@
       "weight": 2,
       "particle": "minecraft:sweep_attack",
       "sound": "minecraft:entity.enderman.teleport",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#a03a6a"
     },
     {
       "id": "thousand_blades",
@@ -99,7 +103,9 @@
       "weight": 2,
       "particle": "minecraft:sweep_attack",
       "sound": "minecraft:entity.generic.explode",
-      "min_phase": 2
+      "min_phase": 2,
+      "style": "judgement_cut",
+      "color": "#f4f4ff"
     }
   ],
   "grants": [

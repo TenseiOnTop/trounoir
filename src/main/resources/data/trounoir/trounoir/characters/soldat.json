@@ -27,7 +27,8 @@
       "max_range": 3.0,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#d0d4da"
     }
   ],
   "grants": [

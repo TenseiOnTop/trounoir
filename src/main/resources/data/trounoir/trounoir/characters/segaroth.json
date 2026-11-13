@@ -7,14 +7,13 @@
   "health": 520,
   "damage": 28,
   "drops": [
-    "trounoir:lame_millenaire"
+    "trounoir:grimoire_de_segaroth"
   ],
   "armor": 22,
   "speed": 0.31,
   "scale": 1.15,
   "knockback_resistance": 0.8,
   "follow_range": 48,
-  "held_item": "minecraft:netherite_sword",
   "phases": [
     0.7,
     0.4,
@@ -32,55 +31,81 @@
   "title": true,
   "moves": [
     {
-      "id": "slash",
-      "shape": "cone",
-      "size": 4,
-      "angle": 130,
-      "damage": 28,
-      "telegraph": 13,
-      "cooldown": 22,
-      "max_range": 4,
-      "weight": 3,
-      "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
-    },
-    {
-      "id": "lunge",
+      "id": "arcane_lance",
       "shape": "line",
-      "size": 13,
-      "width": 2.0,
-      "damage": 32,
-      "telegraph": 16,
-      "cooldown": 80,
-      "min_range": 3,
-      "max_range": 13,
-      "pre": "dash",
+      "size": 22,
+      "width": 2.5,
+      "damage": 26,
+      "telegraph": 20,
+      "cooldown": 60,
+      "min_range": 4,
+      "max_range": 22,
       "weight": 2,
-      "particle": "minecraft:crit",
-      "sound": "minecraft:entity.player.attack.strong"
+      "particle": "minecraft:enchant",
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "color": "#c792ea"
     },
     {
-      "id": "meteors",
+      "id": "flame_school",
+      "shape": "cone",
+      "size": 7,
+      "angle": 80,
+      "damage": 24,
+      "telegraph": 16,
+      "cooldown": 70,
+      "max_range": 7,
+      "weight": 3,
+      "particle": "minecraft:flame",
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#ff8a3c"
+    },
+    {
+      "id": "frost_school",
       "shape": "circle",
       "size": 3.5,
       "anchor": "target",
-      "count": 5,
-      "spread": 9,
-      "damage": 30,
-      "telegraph": 26,
-      "cooldown": 120,
+      "count": 6,
+      "spread": 10,
+      "damage": 26,
+      "telegraph": 24,
+      "cooldown": 110,
       "min_range": 3,
       "max_range": 26,
       "weight": 2,
-      "particle": "minecraft:soul_fire_flame",
-      "sound": "minecraft:entity.blaze.shoot"
+      "particle": "minecraft:snowflake",
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#bfe6ff",
+      "effects": [
+        {
+          "effect": "minecraft:slowness",
+          "duration": 80,
+          "amplifier": 2
+        }
+      ]
     },
     {
-      "id": "ambush",
+      "id": "storm_school",
+      "shape": "circle",
+      "size": 8,
+      "anchor": "self",
+      "damage": 30,
+      "telegraph": 26,
+      "cooldown": 130,
+      "max_range": 8,
+      "knockback": 1.0,
+      "weight": 2,
+      "particle": "minecraft:electric_spark",
+      "sound": "minecraft:entity.lightning_bolt.thunder",
+      "min_phase": 1,
+      "style": "lightning",
+      "color": "#fff2a8"
+    },
+    {
+      "id": "shadow_school",
       "shape": "circle",
       "size": 3.5,
       "anchor": "target",
-      "damage": 34,
+      "damage": 32,
       "telegraph": 14,
       "cooldown": 90,
       "min_range": 4,
@@ -89,39 +114,25 @@
       "weight": 2,
       "particle": "minecraft:portal",
       "sound": "minecraft:entity.enderman.teleport",
-      "min_phase": 1
-    },
-    {
-      "id": "call",
-      "shape": "circle",
-      "size": 2.0,
-      "anchor": "self",
-      "damage": 0,
-      "telegraph": 30,
-      "cooldown": 600,
-      "max_range": 30,
-      "summon": "trounoir:pretorien",
-      "summon_count": 3,
-      "weight": 1,
-      "knockback": 0,
-      "particle": "minecraft:note",
-      "sound": "minecraft:event.raid.horn",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#3a2a5a"
     },
     {
       "id": "millennium",
       "shape": "circle",
-      "size": 10,
+      "size": 11,
       "anchor": "self",
-      "damage": 40,
-      "telegraph": 30,
-      "cooldown": 200,
-      "max_range": 10,
+      "damage": 44,
+      "telegraph": 34,
+      "cooldown": 220,
+      "max_range": 11,
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:soul_fire_flame",
       "sound": "minecraft:entity.generic.explode",
-      "min_phase": 2
+      "min_phase": 2,
+      "style": "nova",
+      "color": "#e6c14a"
     },
     {
       "id": "undying",
@@ -137,7 +148,8 @@
       "particle": "minecraft:totem_of_undying",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 3,
-      "heal": 150
+      "heal": 150,
+      "color": "#f0c8dc"
     }
   ],
   "grants": [

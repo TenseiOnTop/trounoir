@@ -32,7 +32,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.arrow.shoot"
+      "sound": "minecraft:entity.arrow.shoot",
+      "color": "#e6d08a"
     },
     {
       "id": "slam",
@@ -46,7 +47,8 @@
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:witch",
-      "sound": "minecraft:entity.illusioner.cast_spell"
+      "sound": "minecraft:entity.illusioner.cast_spell",
+      "color": "#e6d08a"
     }
   ],
   "grants": [

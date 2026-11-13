@@ -8,7 +8,7 @@
   "damage": 50,
   "armor": 20,
   "speed": 0.31,
-  "scale": 2.8,
+  "scale": 1.35,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -33,7 +33,8 @@
       "max_range": 6,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#ffd866"
     },
     {
       "id": "weight",
@@ -47,7 +48,8 @@
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:poof",
-      "sound": "minecraft:entity.generic.explode"
+      "sound": "minecraft:entity.generic.explode",
+      "color": "#ffd866"
     },
     {
       "id": "collapse",
@@ -69,7 +71,8 @@
           "duration": 100,
           "amplifier": 4
         }
-      ]
+      ],
+      "color": "#ffd866"
     },
     {
       "id": "mass_drop",
@@ -85,7 +88,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:falling_obsidian_tear",
-      "sound": "minecraft:entity.generic.explode"
+      "sound": "minecraft:entity.generic.explode",
+      "color": "#ffd866"
     },
     {
       "id": "field",
@@ -100,7 +104,8 @@
       "weight": 2,
       "particle": "minecraft:end_rod",
       "sound": "minecraft:entity.warden.sonic_boom",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#ffd866"
     },
     {
       "id": "inevitable",
@@ -116,7 +121,8 @@
       "weight": 2,
       "particle": "minecraft:portal",
       "sound": "minecraft:entity.enderman.teleport",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#ffd866"
     },
     {
       "id": "condemnation",
@@ -132,7 +138,9 @@
       "particle": "minecraft:reverse_portal",
       "sound": "minecraft:entity.wither.spawn",
       "min_phase": 2,
-      "pull": 3.5
+      "style": "nova",
+      "pull": 3.5,
+      "color": "#6a1fd8"
     }
   ],
   "grants": [

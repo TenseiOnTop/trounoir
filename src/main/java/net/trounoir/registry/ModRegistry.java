@@ -72,7 +72,7 @@ public final class ModRegistry {
             new ArtifactItem.Spec("trident_de_zephyrine", 10, 2.2, false, false),
             new ArtifactItem.Spec("compas_d_oriel", 4, 1.6, false, false),
             new ArtifactItem.Spec("hache_de_valdrek", 14, 0.9, false, false),
-            new ArtifactItem.Spec("lame_millenaire", 15, 1.6, false, false),
+            new ArtifactItem.Spec("grimoire_de_segaroth", 6, 1.6, false, false),
             new ArtifactItem.Spec("noyau_de_masse", 0, 0, true, false),
             new ArtifactItem.Spec("anneau_de_saturne", 0, 0, true, false),
             new ArtifactItem.Spec("graal_de_rouille", 0, 0, true, false),

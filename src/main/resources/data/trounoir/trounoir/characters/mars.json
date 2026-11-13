@@ -8,7 +8,7 @@
   "damage": 34,
   "armor": 20,
   "speed": 0.31,
-  "scale": 1.8,
+  "scale": 1.15,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -32,7 +32,8 @@
       "max_range": 4.5,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#d0603a"
     },
     {
       "id": "slam",
@@ -46,7 +47,8 @@
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:damage_indicator",
-      "sound": "minecraft:entity.generic.explode"
+      "sound": "minecraft:entity.generic.explode",
+      "color": "#d0603a"
     },
     {
       "id": "lunge",
@@ -61,7 +63,8 @@
       "pre": "dash",
       "weight": 2,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.player.attack.strong"
+      "sound": "minecraft:entity.player.attack.strong",
+      "color": "#d0603a"
     },
     {
       "id": "rust_breath",
@@ -86,7 +89,8 @@
           "duration": 100,
           "amplifier": 1
         }
-      ]
+      ],
+      "color": "#d0603a"
     },
     {
       "id": "blood_tide",
@@ -102,7 +106,8 @@
       "particle": "minecraft:damage_indicator",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 1,
-      "heal": 40
+      "heal": 40,
+      "color": "#d0603a"
     }
   ],
   "grants": [

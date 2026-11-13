@@ -165,6 +165,16 @@ final class MoveRunner {
         ParticleOptions fill = Fx.dust(move.color, 0.8F);
         double spin = (total - timer) * 0.12;
         if (timer % 10 == 0) Fx.play(level, anchors.get(0), "block.note_block.hat", 0.6F, 0.7F + progress);
+        if (move.style.equals("za_warudo") && timer % 8 == 0) Fx.play(level, anchors.get(0), "block.note_block.cow_bell", 0.9F, 0.5F);
+        if (move.style.equals("judgement_cut")) {
+            // Des coupures scintillent déjà dans la zone : l'espace se fend avant le coup.
+            for (Vec3 anchor : anchors) flicker(level, anchor, move.size, 2);
+        }
+        if (move.style.equals("lightning") && timer % 4 == 0) {
+            for (Vec3 anchor : anchors) {
+                Fx.burst(level, "electric_spark", anchor.add(0, 0.4, 0), 4, move.size * 0.5, 0.1);
+            }
+        }
         if (imminent && timer == 6) Fx.play(level, anchors.get(0), "block.note_block.pling", 0.9F, 1.9F);
         switch (move.shape) {
             case CIRCLE -> {
@@ -205,6 +215,18 @@ final class MoveRunner {
         for (int i = 0; i < points; i++) {
             double a = spin + Math.PI * 2 * i / points;
             level.sendParticles(particle, center.x + Math.cos(a) * radius, center.y + 0.15, center.z + Math.sin(a) * radius, 1, 0, 0, 0, 0.0);
+        }
+    }
+
+    /** Courtes coupures lumineuses tirées au hasard dans la zone (style Judgement Cut). */
+    private void flicker(ServerLevel level, Vec3 anchor, double radius, int count) {
+        for (int i = 0; i < count; i++) {
+            double a = self.getRandom().nextDouble() * Math.PI * 2;
+            double tilt = (self.getRandom().nextDouble() - 0.5) * 1.4;
+            double r = self.getRandom().nextDouble() * radius * 0.8;
+            Vec3 mid = anchor.add(Math.cos(a) * r, 0.4 + self.getRandom().nextDouble() * 2.2, Math.sin(a) * r);
+            Vec3 dir = new Vec3(Math.cos(a + Math.PI / 2), tilt, Math.sin(a + Math.PI / 2)).normalize().scale(1.3);
+            Fx.line(level, Fx.dust(0xF4F4FF, 1.1F), mid.subtract(dir), mid.add(dir), 4.0);
         }
     }
 
@@ -280,6 +302,14 @@ final class MoveRunner {
                     Fx.effect(victim, "slowness", move.timeStopTicks, 6);
                     Fx.effect(victim, "weakness", move.timeStopTicks, 3);
                     Fx.effect(victim, "mining_fatigue", move.timeStopTicks, 3);
+                    if (move.style.equals("za_warudo")) {
+                        if (victim instanceof ServerPlayer frozen) {
+                            com.google.gson.JsonObject json = new com.google.gson.JsonObject();
+                            json.addProperty("ticks", move.timeStopTicks);
+                            net.trounoir.network.Net.toClient(frozen, "za_warudo", json);
+                        }
+                        FrozenVolley.surround(level, self, victim, 10, Math.max(4, move.damage / 3.0), move.timeStopTicks);
+                    }
                 }
             }
         }
@@ -290,6 +320,32 @@ final class MoveRunner {
         }
         if (move.damage >= 14) Fx.burst(level, "explosion", origin.add(0, 0.6, 0), 2, 0.4, 0.0);
         Fx.shake(level, origin, Math.max(8, move.size + 6), Math.min(1.0, move.damage / 26.0));
+        switch (move.style) {
+            case "judgement_cut" -> {
+                // Toutes les coupes frappent en même temps : l'espace vole en éclats.
+                for (Vec3 anchor : anchors) flicker(level, anchor, move.size, 16);
+                Fx.play(level, origin, "entity.player.attack.sweep", 1.0F, 0.6F);
+                Fx.play(level, origin, "entity.player.attack.sweep", 1.0F, 1.4F);
+                Fx.play(level, origin, "block.glass.break", 1.0F, 0.7F);
+            }
+            case "lightning" -> {
+                for (Vec3 anchor : anchors) {
+                    net.minecraft.world.entity.LightningBolt bolt = net.minecraft.world.entity.EntityType.LIGHTNING_BOLT.create(level);
+                    if (bolt != null) {
+                        bolt.moveTo(anchor.x, anchor.y, anchor.z);
+                        bolt.setVisualOnly(true);
+                        level.addFreshEntity(bolt);
+                    }
+                }
+            }
+            case "nova" -> {
+                Fx.burst(level, "explosion_emitter", origin.add(0, 1, 0), 1, 0.0, 0.0);
+                for (int i = 1; i <= 4; i++) Fx.ring(level, Fx.dust(move.color, 2.0F), origin.add(0, 0.3 + i * 0.25, 0), move.size * i / 4.0);
+                Fx.play(level, origin, "entity.generic.explode", 1.0F, 0.6F);
+                Fx.shake(level, origin, move.size + 20, 1.0);
+            }
+            default -> {}
+        }
         Fx.play(level, origin, Lookup.sound(move.sound), 1.0F, 1.0F);
         self.swing(InteractionHand.MAIN_HAND);
 

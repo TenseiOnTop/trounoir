@@ -1,12 +1,20 @@
 {
-  "type": "buff",
-  "cooldown": 60,
+  "type": "aoe",
+  "cooldown": 45,
   "params": {
-    "heal": 20,
+    "radius": 8,
+    "damage": 16,
+    "effects": [
+      {
+        "effect": "minecraft:weakness",
+        "duration": 100,
+        "amplifier": 1
+      }
+    ],
     "self_effects": [
       {
         "effect": "minecraft:regeneration",
-        "duration": 200,
+        "duration": 160,
         "amplifier": 1
       }
     ],

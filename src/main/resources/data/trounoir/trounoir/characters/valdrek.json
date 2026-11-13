@@ -40,7 +40,8 @@
       "max_range": 3.4,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#e6c14a"
     },
     {
       "id": "slam",
@@ -54,7 +55,8 @@
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:poof",
-      "sound": "minecraft:entity.generic.explode"
+      "sound": "minecraft:entity.generic.explode",
+      "color": "#e6c14a"
     },
     {
       "id": "call",
@@ -70,7 +72,8 @@
       "weight": 1,
       "knockback": 0,
       "particle": "minecraft:note",
-      "sound": "minecraft:event.raid.horn"
+      "sound": "minecraft:event.raid.horn",
+      "color": "#e6c14a"
     },
     {
       "id": "call_guard",
@@ -87,7 +90,8 @@
       "knockback": 0,
       "particle": "minecraft:note",
       "sound": "minecraft:event.raid.horn",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#e6c14a"
     },
     {
       "id": "lunge",
@@ -103,7 +107,8 @@
       "weight": 2,
       "particle": "minecraft:crit",
       "sound": "minecraft:entity.player.attack.strong",
-      "min_phase": 2
+      "min_phase": 2,
+      "color": "#e6c14a"
     }
   ],
   "grants": [

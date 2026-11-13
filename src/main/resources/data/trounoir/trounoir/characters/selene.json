@@ -8,7 +8,7 @@
   "damage": 30,
   "armor": 20,
   "speed": 0.31,
-  "scale": 1.8,
+  "scale": 1.05,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -35,7 +35,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:block.amethyst_block.chime"
+      "sound": "minecraft:block.amethyst_block.chime",
+      "color": "#ffffff"
     },
     {
       "id": "new_moon",
@@ -50,7 +51,8 @@
       "pre": "teleport",
       "weight": 2,
       "particle": "minecraft:portal",
-      "sound": "minecraft:entity.enderman.teleport"
+      "sound": "minecraft:entity.enderman.teleport",
+      "color": "#ffffff"
     },
     {
       "id": "moonbeam",
@@ -64,7 +66,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:entity.warden.sonic_boom"
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "color": "#ffffff"
     },
     {
       "id": "high_tide",
@@ -80,7 +83,8 @@
       "particle": "minecraft:end_rod",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 1,
-      "pull": 1.5
+      "pull": 1.5,
+      "color": "#ffffff"
     },
     {
       "id": "full_moon",
@@ -96,7 +100,8 @@
       "particle": "minecraft:heart",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 2,
-      "heal": 120
+      "heal": 120,
+      "color": "#ffffff"
     }
   ],
   "grants": [

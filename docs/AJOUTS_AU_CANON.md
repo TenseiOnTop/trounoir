@@ -105,3 +105,12 @@ Rien de ce qui suit n'est dans le canon ; tout est inventé pour le jeu.
 - **Vestiges** (ruines créées pour abriter des reliques) : Vestige du Guet et Cercle des Anciens en Nébulosia ; Vestige d'Ivoire, Vestige des Marches, Cloître englouti, Autel brisé en Diviniarth.
 - **Village** : Pont-aux-Saules, troisième village de Nébulosia.
 - **Apparences** : les personnages sans nom (paysans, soldats, citoyens…) ont six apparences, hommes et femmes.
+
+## Refonte « spectacle » (13 novembre)
+
+- Le rang ne bride plus les dégâts ; la couleur du nom d'un ennemi dit le danger (vert, orange, rouge, noir).
+- Les annonces d'attaque sont animées (bord tournant, remplissage, battement sonore) et colorées aux couleurs du personnage.
+- Mises en scène signatures : l'arrêt du temps de Trou-Blanc fige des flèches autour de la cible ; les Mille lames de Cledith fendent l'espace ; la foudre de Zéphyrine tombe réellement ; Zénith et Condamnation sont des novas.
+- Segaroth est un mage : il ne porte pas d'arme et enchaîne arcane, feu, givre, foudre et ombre. Il lègue son Grimoire.
+- Les Astres ont visage humain, à taille humaine. Trou-Blanc est un jeune garçon aux cheveux blancs et aux yeux dorés.
+- L'invisibilité est réelle ; les citoyens d'Azalée rendent les coups.

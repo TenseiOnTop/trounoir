@@ -33,7 +33,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.arrow.shoot"
+      "sound": "minecraft:entity.arrow.shoot",
+      "color": "#f0c8dc"
     },
     {
       "id": "volley",
@@ -50,7 +51,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.arrow.shoot"
+      "sound": "minecraft:entity.arrow.shoot",
+      "color": "#f0c8dc"
     }
   ],
   "grants": [

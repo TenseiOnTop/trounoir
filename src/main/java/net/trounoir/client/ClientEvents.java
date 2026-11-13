@@ -67,6 +67,7 @@ public final class ClientEvents {
             Minecraft mc = Minecraft.getInstance();
             ClientState.clientTick++;
             if (ClientState.shakeTicks > 0) ClientState.shakeTicks--;
+            if (ClientState.zaWarudoTicks > 0) ClientState.zaWarudoTicks--;
             ClientRebirthFlow.tick(mc);
             if (mc.player == null || mc.screen != null) return;
 

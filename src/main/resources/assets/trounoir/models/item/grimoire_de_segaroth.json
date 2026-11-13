@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "trounoir:item/grimoire_de_segaroth"
+  }
+}

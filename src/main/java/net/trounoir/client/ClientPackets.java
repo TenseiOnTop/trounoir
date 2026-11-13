@@ -12,6 +12,10 @@ public final class ClientPackets {
         Minecraft mc = Minecraft.getInstance();
         switch (type) {
             case "defs" -> ClientState.readDefs(json);
+            case "za_warudo" -> {
+                ClientState.zaWarudoTotal = net.trounoir.util.JsonUtil.integer(json, "ticks", 70);
+                ClientState.zaWarudoTicks = ClientState.zaWarudoTotal;
+            }
             case "hit" -> {
                 ClientState.shakeStrength = (float) net.trounoir.util.JsonUtil.num(json, "power", 0.3);
                 ClientState.shakeTicks = 4 + Math.round(ClientState.shakeStrength * 6);

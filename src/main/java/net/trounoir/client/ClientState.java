@@ -41,6 +41,9 @@ public final class ClientState {
     /** Secousse d'écran : ticks restants et force (0-1). */
     public static int shakeTicks;
     public static float shakeStrength;
+    /** Arrêt du temps subi : ticks restants et durée totale. */
+    public static int zaWarudoTicks;
+    public static int zaWarudoTotal;
     public static double nextRank = -1;
     public static double notoriety;
     public static boolean revealed;

@@ -8,7 +8,7 @@
   "damage": 38,
   "armor": 20,
   "speed": 0.31,
-  "scale": 2.2,
+  "scale": 1.25,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -36,7 +36,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#fff6c8"
     },
     {
       "id": "flares",
@@ -52,7 +53,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#fff6c8"
     },
     {
       "id": "corona",
@@ -65,7 +67,8 @@
       "max_range": 9,
       "weight": 3,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#fff6c8"
     },
     {
       "id": "noon",
@@ -80,7 +83,8 @@
       "weight": 2,
       "particle": "minecraft:flame",
       "sound": "minecraft:entity.generic.explode",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#fff6c8"
     },
     {
       "id": "zenith",
@@ -95,7 +99,9 @@
       "weight": 2,
       "particle": "minecraft:flame",
       "sound": "minecraft:entity.generic.explode",
-      "min_phase": 2
+      "min_phase": 2,
+      "style": "nova",
+      "color": "#ffd23a"
     }
   ],
   "grants": [

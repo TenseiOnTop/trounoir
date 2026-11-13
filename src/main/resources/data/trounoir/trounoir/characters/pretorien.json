@@ -30,7 +30,8 @@
       "max_range": 3.2,
       "weight": 3,
       "particle": "minecraft:sweep_attack",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#e6c14a"
     },
     {
       "id": "lunge",
@@ -45,7 +46,8 @@
       "pre": "dash",
       "weight": 2,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.player.attack.strong"
+      "sound": "minecraft:entity.player.attack.strong",
+      "color": "#e6c14a"
     },
     {
       "id": "slam",
@@ -59,7 +61,8 @@
       "knockback": 1.0,
       "weight": 2,
       "particle": "minecraft:poof",
-      "sound": "minecraft:entity.generic.explode"
+      "sound": "minecraft:entity.generic.explode",
+      "color": "#e6c14a"
     }
   ],
   "grants": [

@@ -39,7 +39,8 @@
       "max_range": 40,
       "weight": 4,
       "particle": "minecraft:end_rod",
-      "sound": "minecraft:entity.firework_rocket.blast"
+      "sound": "minecraft:entity.firework_rocket.blast",
+      "color": "#ffd866"
     },
     {
       "id": "scatter",
@@ -53,7 +54,8 @@
       "max_range": 30,
       "weight": 2,
       "particle": "minecraft:crit",
-      "sound": "minecraft:entity.warden.sonic_boom"
+      "sound": "minecraft:entity.warden.sonic_boom",
+      "color": "#ffd866"
     },
     {
       "id": "retreat",
@@ -70,7 +72,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:portal",
-      "sound": "minecraft:entity.enderman.teleport"
+      "sound": "minecraft:entity.enderman.teleport",
+      "color": "#ffd866"
     },
     {
       "id": "mortar",
@@ -87,7 +90,8 @@
       "weight": 2,
       "particle": "minecraft:end_rod",
       "sound": "minecraft:entity.firework_rocket.blast",
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#ffd866"
     }
   ],
   "grants": [

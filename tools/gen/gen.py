@@ -205,6 +205,10 @@ def gen_data():
             obj['weakness_multiplier'] = 1.5
         if 'title_fr' in c:
             obj['title'] = True
+        accent = (c.get('skin') or (None, None, None, '#ff8a3c'))[3]
+        for m in c.get('moves', []):
+            # Chaque personnage colore ses annonces : son identité se lit au sol avant même le coup.
+            m.setdefault('color', accent)
         obj['moves'] = c.get('moves', [])
         obj['grants'] = c.get('grants', [])
         obj['on_death'] = c.get('on_death', [])
@@ -316,13 +320,19 @@ def gen_textures():
     clean(out_dir)
     os.makedirs(out_dir, exist_ok=True)
 
-    def paint(kind, primary, secondary, accent, seed, female=False):
+    def paint(kind, primary, secondary, accent, seed, female=False, look=None):
         rng = random.Random(seed)
         img = Image.new('RGBA', (64, 64), (0, 0, 0, 0))
         px = img.load()
         p, s, a = hex_rgb(primary), hex_rgb(secondary), hex_rgb(accent)
         skin = {'god': shade(a, 0.95), 'emperor': (214, 190, 170)}.get(kind, rng.choice([(226, 190, 160), (198, 150, 120), (150, 105, 80), (236, 208, 184)]))
         hair = {'god': p, 'peasant': (88, 62, 40), 'king': (200, 200, 205)}.get(kind, shade(s, 0.6))
+        godstyle = None
+        if look:
+            # Les Astres ont un visage : cheveux, yeux et peau choisis un à un, pas une silhouette géante.
+            skin = hex_rgb(look['skin'])
+            hair = hex_rgb(look['hair'])
+            godstyle = look.get('style', 'short')
 
         def rect(x0, y0, x1, y1, color, noise=0.08):
             for x in range(x0, x1):
@@ -339,7 +349,7 @@ def gen_textures():
         rect(16, 8, 24, 11, hair)
         rect(24, 8, 32, 14, hair)
         rect(8, 8, 16, 10, hair)
-        eye = a if kind in ('god', 'hypernova', 'emperor') else (40, 40, 50)
+        eye = hex_rgb(look['eyes']) if look else (a if kind in ('god', 'hypernova', 'emperor') else (40, 40, 50))
         for ex in (9, 10, 13, 14):
             px[ex, 12] = ((255, 255, 255) if ex in (9, 14) else eye) + (255,)
         px[11, 14] = px[12, 14] = shade(skin, 0.7) + (255,)
@@ -373,12 +383,26 @@ def gen_textures():
             rect(16, 52, 32, 64, shade(p, 0.85))
             rect(0, 30, 16, 31, a)
             rect(16, 62, 32, 63, a)
-        if kind in ('king', 'emperor', 'god'):
+        if (kind in ('king', 'emperor') and not look) or godstyle == 'crown':
             # Couronne sur la seconde couche de la tête (chapeau).
             for x in range(32, 64):
                 px[x, 9] = a + (255,)
                 if x % 2 == 0:
                     px[x, 8] = a + (255,)
+        if godstyle == 'long':
+            # Cheveux longs dans le dos.
+            rect(0, 8, 8, 16, hair)
+            rect(16, 8, 24, 16, hair)
+            rect(24, 8, 32, 16, hair)
+            rect(32, 20, 40, 26, hair)
+        if godstyle == 'boy':
+            # Un jeune garçon : mèches courtes en épis, grands yeux clairs, joues plus pleines.
+            rect(8, 8, 16, 11, hair, noise=0.2)
+            for x in (8, 10, 13, 15):
+                px[x, 11] = shade(hair, 0.9) + (255,)
+            for ex in (9, 10, 13, 14):
+                px[ex, 11] = px[ex, 11] if ex in (8, 15) else px[ex, 11]
+            px[9, 13] = px[14, 13] = (233, 160, 150, 255)
         if female:
             # Cheveux longs : ils couvrent les côtés et l'arrière de la tête, et tombent sur le haut du dos.
             rect(0, 8, 8, 16, hair)
@@ -408,7 +432,7 @@ def gen_textures():
     for c in W.CHARACTERS:
         if 'skin' in c:
             kind, p, s, a = c['skin']
-            paint(kind, p, s, a, c['id']).save(os.path.join(out_dir, c['id'] + '.png'))
+            paint(kind, p, s, a, c['id'], look=c.get('look')).save(os.path.join(out_dir, c['id'] + '.png'))
             for v in range(1, c.get('variants', 1)):
                 # Chaque variante décale un peu les couleurs du vêtement ; une sur deux est une femme.
                 rv = random.Random(c['id'] + str(v))
@@ -482,6 +506,9 @@ def gen_item_textures():
         'shard': ["................", ".........1......", "........111.....", "........1121....", ".......11122....", ".......11122....",
                   "......1112223...", "......1112223...", ".....11122223...", ".....1112223....", "......112223....", "......12223.....",
                   ".......2223.....", ".......223......", "........3.......", "................"],
+        'book': ["................", "..222222222222..", "..211111111112..", "..213131313112..", "..211111111112..", "..213333333312..",
+                 "..211111111112..", "..213131313112..", "..211111111112..", "..213333333312..", "..211111111112..", "..211111111112..",
+                 "..222222222222..", "...2222222222...", "................", "................"],
         'drop': ["................", ".......11.......", ".......11.......", "......1111......", "......1121......", ".....111221.....",
                  ".....111222.....", "....11112222....", "....11122223....", "....11122223....", "....11222233....", "....12222233....",
                  ".....222233.....", "......2333......", "................", "................"],

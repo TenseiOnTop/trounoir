@@ -43,7 +43,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#ffb03a"
     },
     {
       "id": "meteors",
@@ -59,7 +60,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#ffb03a"
     },
     {
       "id": "flame_cone",
@@ -72,7 +74,8 @@
       "max_range": 7,
       "weight": 3,
       "particle": "minecraft:flame",
-      "sound": "minecraft:entity.player.attack.sweep"
+      "sound": "minecraft:entity.player.attack.sweep",
+      "color": "#ffb03a"
     },
     {
       "id": "furnace",
@@ -87,7 +90,8 @@
       "weight": 2,
       "particle": "minecraft:flame",
       "sound": "minecraft:entity.generic.explode",
-      "min_phase": 2
+      "min_phase": 2,
+      "color": "#ffb03a"
     }
   ],
   "grants": [

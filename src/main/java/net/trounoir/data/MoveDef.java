@@ -58,6 +58,8 @@ public final class MoveDef {
     public final int timeStopTicks;
     /** Couleur de l'annonce au sol (0xRRGGBB). */
     public final int color;
+    /** Mise en scène : "", "judgement_cut", "za_warudo", "lightning", "nova". */
+    public final String style;
 
     public MoveDef(JsonObject json) {
         this.id = JsonUtil.str(json, "id", "move");
@@ -67,6 +69,7 @@ public final class MoveDef {
             if (!hex.isEmpty()) parsed = Integer.parseInt(hex.replace("#", ""), 16);
         } catch (NumberFormatException ignored) {}
         this.color = parsed;
+        this.style = JsonUtil.str(json, "style", "");
         this.weight = Math.max(1, JsonUtil.integer(json, "weight", 1));
         this.cooldown = JsonUtil.integer(json, "cooldown", 60);
         this.minRange = JsonUtil.num(json, "min_range", 0);

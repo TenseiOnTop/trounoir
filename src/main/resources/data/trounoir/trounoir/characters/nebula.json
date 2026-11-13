@@ -8,7 +8,7 @@
   "damage": 34,
   "armor": 20,
   "speed": 0.31,
-  "scale": 2.0,
+  "scale": 1.15,
   "knockback_resistance": 1.0,
   "follow_range": 56,
   "phases": [
@@ -35,7 +35,8 @@
       "max_range": 26,
       "weight": 2,
       "particle": "minecraft:witch",
-      "sound": "minecraft:entity.blaze.shoot"
+      "sound": "minecraft:entity.blaze.shoot",
+      "color": "#ffb3e6"
     },
     {
       "id": "veil",
@@ -50,7 +51,8 @@
       "pre": "teleport",
       "weight": 2,
       "particle": "minecraft:portal",
-      "sound": "minecraft:entity.enderman.teleport"
+      "sound": "minecraft:entity.enderman.teleport",
+      "color": "#ffb3e6"
     },
     {
       "id": "cradle",
@@ -66,7 +68,8 @@
       "particle": "minecraft:witch",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 1,
-      "pull": 2.0
+      "pull": 2.0,
+      "color": "#ffb3e6"
     },
     {
       "id": "rebirth",
@@ -82,7 +85,8 @@
       "particle": "minecraft:heart",
       "sound": "minecraft:entity.generic.explode",
       "min_phase": 1,
-      "heal": 180
+      "heal": 180,
+      "color": "#ffb3e6"
     }
   ],
   "grants": [

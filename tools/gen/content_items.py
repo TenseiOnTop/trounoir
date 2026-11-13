@@ -62,9 +62,9 @@ WEAPONS = [
       {'self_effects': [fx('strength', 300, 1), fx('speed', 300)], 'sound': 'minecraft:event.raid.horn', 'particle': 'minecraft:angry_villager'},
       'Coup : 14 dégâts, très lent.', 'Hit: 14 damage, very slow.', 'Spécial : force et vitesse 15 s (40 s).', 'Special: strength and speed for 15 s (40 s).',
       {'particle': 'minecraft:crit'}),
-    I('lame_millenaire', 'Lame millénaire', 'Millennial Blade', 'segaroth', 'sword', ('#f0c8dc', '#2a1030', '#e6c14a'), 'buff', 60,
-      {'heal': 20, 'self_effects': [fx('regeneration', 200, 1)], 'particle': 'minecraft:soul_fire_flame', 'sound': 'minecraft:item.totem.use'},
-      'Coup : 15 dégâts, rend 1 PV.', 'Hit: 15 damage, heals 1 HP.', 'Spécial : rend 20 PV et régénère (60 s).', 'Special: heals 20 HP and regenerates (60 s).',
+    I('grimoire_de_segaroth', 'Grimoire de Segaroth', "Segaroth's Grimoire", 'segaroth', 'book', ('#2a1030', '#e6c14a', '#f0c8dc'), 'aoe', 45,
+      {'radius': 8, 'damage': 16, 'effects': [fx('weakness', 100, 1)], 'self_effects': [fx('regeneration', 160, 1)], 'particle': 'minecraft:soul_fire_flame', 'sound': 'minecraft:item.totem.use'},
+      'Coup : 6 dégâts, rend 1 PV.', 'Hit: 6 damage, heals 1 HP.', 'Spécial : déflagration de mille ans à 8 blocs, vous régénère (45 s).', 'Special: a thousand-year blast within 8 blocks, regenerates you (45 s).',
       {'heal': 1, 'particle': 'minecraft:soul_fire_flame'}),
 ]
 

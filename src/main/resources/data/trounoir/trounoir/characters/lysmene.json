@@ -40,7 +40,8 @@
       "weight": 3,
       "knockback": 0,
       "particle": "minecraft:snowflake",
-      "sound": "minecraft:entity.arrow.shoot"
+      "sound": "minecraft:entity.arrow.shoot",
+      "color": "#ffffff"
     },
     {
       "id": "ice_rain",
@@ -63,7 +64,8 @@
           "duration": 80,
           "amplifier": 2
         }
-      ]
+      ],
+      "color": "#ffffff"
     },
     {
       "id": "ice_prison",
@@ -85,7 +87,8 @@
           "amplifier": 4
         }
       ],
-      "min_phase": 1
+      "min_phase": 1,
+      "color": "#ffffff"
     }
   ],
   "grants": [
