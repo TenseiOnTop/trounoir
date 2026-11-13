@@ -15,9 +15,11 @@ view first
 cmd effect give @s minecraft:resistance 100000 10 true
 cmd effect give @s minecraft:regeneration 100000 4 true
 wait 10
-cmd spreadplayers ~40 ~40 4 12 false @s
-wait 60
-cmd kill @e[type=trounoir:character,distance=..40]
+cmd tp @s 300 180 300
+cmd fill 278 177 278 322 177 322 minecraft:smooth_stone
+cmd fill 278 178 278 322 178 322 minecraft:air
+cmd tp @s 300 178 300 0 20
+wait 30
 cmd trounoir spawn trounoir:cledith
 wait 10
 cmd gamemode survival
