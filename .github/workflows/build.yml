@@ -26,3 +26,43 @@ jobs:
           gh release delete dernier-build --yes --cleanup-tag || true
           gh release create dernier-build build/libs/trounoir-*.jar --title "Trou-Noir — dernier build" \
             --notes "Compilé automatiquement depuis ${GITHUB_SHA::7}. Télécharger trounoir-1.0.0.jar et le placer dans le dossier mods du profil CurseForge."
+  captures:
+    needs: build
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Outils d'affichage virtuel
+        run: sudo apt-get update && sudo apt-get install -y xvfb mesa-utils
+      - name: Préparer le scénario
+        run: |
+          chmod +x gradlew
+          mkdir -p run/screenshots
+          cp tools/ci/pilote.txt run/pilote.txt
+          cp tools/ci/options.txt run/options.txt
+      - name: Client piloté (rendu logiciel)
+        env:
+          LIBGL_ALWAYS_SOFTWARE: "1"
+          MESA_GL_VERSION_OVERRIDE: "4.5"
+          MESA_GLSL_VERSION_OVERRIDE: "450"
+          JAVA_TOOL_OPTIONS: "-Dfml.earlyWindowControl=false"
+        run: timeout 1500 xvfb-run -a -s "-screen 0 1280x720x24" ./gradlew runClient --no-daemon --stacktrace > /tmp/client.log 2>&1 || true
+      - name: Fin du journal client
+        if: always()
+        run: tail -n 150 /tmp/client.log || true
+      - name: Publier les captures
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls -la run/screenshots/ || true
+          if ls run/screenshots/*.png >/dev/null 2>&1; then
+            gh release upload dernier-build run/screenshots/*.png --clobber
+          else
+            echo "aucune capture" && grep -iE "GLFW|LWJGL|OpenGL|Pilote|Exception" /tmp/client.log | tail -n 60
+          fi

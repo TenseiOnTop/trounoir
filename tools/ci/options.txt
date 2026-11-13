@@ -1,0 +1,14 @@
+onboardAccessibility:false
+pauseOnLostFocus:false
+tutorialStep:none
+skipMultiplayerWarning:true
+joinedFirstServer:true
+soundCategory_master:0.0
+soundCategory_music:0.0
+graphicsMode:0
+renderDistance:8
+maxFps:60
+gamma:1.0
+fullscreen:false
+particles:0
+narrator:0
